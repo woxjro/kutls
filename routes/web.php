@@ -31,4 +31,8 @@ Route::get('/kumiren/select_members/select_staffs',function(){
     return redirect('/');
 });
 
+Route::get('/kumiren/select_members/select_staffs/result',function(){
+    return redirect('/');
+});
+
 Route::post('/kumiren/select_members/select_staffs/result','MemberController@result')->name('result');
