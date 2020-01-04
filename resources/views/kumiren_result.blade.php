@@ -44,6 +44,8 @@
                                     }
                                 }
 
+
+
                             }
 
                             foreach ($members as $member) {
@@ -72,6 +74,8 @@
                         <p>・球出し：{{ $feeds[3]->last_name }}</p>
                         <p>・球出し：{{ $feeds[4]->last_name }}</p>
                         <p>・球出し：{{ $feeds[5]->last_name }}</p>
+
+
 
 
 
