@@ -68,11 +68,12 @@ class MemberController extends Controller
             $kumiren2member->kumiren_id = $latest_kumiren_id;
             $kumiren2member->member_id  = $membersId[$i];
             $kumiren2member->role       = "NONE";
+            $kumiren2member->team       = "NONE";
             $kumiren2member->save();
         }
 
 
-        $kumiren2members = Member::all()->whereIn('id',$membersId);
+        $kumiren_members = Member::all()->whereIn('id',$membersId);
         $now_year = date("Y");
         $now_month = date("n");
         $fiscal_year = $now_year;
@@ -81,7 +82,7 @@ class MemberController extends Controller
         }
 
         return view('kumiren_select_staffs')->with([
-            "kumiren2members" => $kumiren2members,
+            "kumiren_members" => $kumiren_members,
             "Id" => $membersId,
             "fiscal_year" => $fiscal_year,
         ]);
@@ -109,6 +110,12 @@ class MemberController extends Controller
         $S->role    = "S";
         $F->role    = "F";
 
+        $root->team = "A";
+        $H->team    = "C";
+        $S->team    = "D";
+        $F->team    = "E";
+
+
         $root->save();
         $H->save();
         $S->save();
@@ -123,28 +130,29 @@ class MemberController extends Controller
         $latest_kumiren_id = $latest_kumiren->id;
         $kumiren2members = Kumiren2member::where('kumiren_id',$latest_kumiren_id)->get();
 
+        $members = Member::all();
+        $sortedmembers = $members->sortByDesc('level');
 
-        $kumiren2members->sortByDesc('level');
-
-        $countexistedfeed = 0;
+        $countexistedfeeds = 0;
         foreach ($kumiren2members as $kumiren2member) {
-            if($kumiren2member->role = "feed") $countexistedfeed = $countexistedfeed + 1;
+            if($kumiren2member->role == "feed") $countexistedfeeds++;
         }
 
-        if ($countexistedfeed == 0) {
-            $countfeed = 0;
-            foreach ($kumiren2members as $kumiren2member)
-            {
-                if($countfeed>=6) {break;}
-                if($kumiren2member->role != "NONE") {continue;}
-
-
-                $countfeed = $countfeed + 1;
-                $kumiren2member->role = "feed";
-                $kumiren2member->save();
-
+        $countfeeds = 0;
+        foreach ($sortedmembers as $member) {
+            foreach ($kumiren2members as $kumiren2member) {
+                if ($member->id == $kumiren2member->member_id && $countfeeds < 6 && ($kumiren2member->role == "NONE") && ($countexistedfeeds == 0))
+                {
+                    $kumiren2member->role = "feed";
+                    $kumiren2member->save();
+                    $countfeeds++;
+                }
             }
         }
+
+
+
+
 
 
     }

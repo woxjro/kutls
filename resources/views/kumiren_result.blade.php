@@ -56,9 +56,6 @@
 
                             }
 
-
-
-
                             shuffle($feeds);
 
 
@@ -67,7 +64,6 @@
                         <p>・H：{{ $H->last_name }}</p>
                         <p>・S：{{ $S->last_name }}</p>
                         <p>・F：{{ $F->last_name }}</p>
-
                         <p>・球出し：{{ $feeds[0]->last_name }}</p>
                         <p>・球出し：{{ $feeds[1]->last_name }}</p>
                         <p>・球出し：{{ $feeds[2]->last_name }}</p>
@@ -79,10 +75,11 @@
 
 
 
-                    </div>
-                    <p>
 
-                    </p>
+
+
+                    </div>
+
                 </div>
             </div>
         </div>
