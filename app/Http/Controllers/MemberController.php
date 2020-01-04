@@ -149,12 +149,28 @@ class MemberController extends Controller
                 }
             }
         }
+    }
+
+    public function getfeed()
+    {
+        $feedsarray = [];
+        $latest_kumiren = DB::table('kumirens')->latest()->first();
+        $latest_kumiren_id = $latest_kumiren->id;
+        $feeds = Kumiren2member::where('kumiren_id',$latest_kumiren_id)->where('role','feed')->get();
+        $members = Member::all();
+        $sortedmembers = $members->sortByDesc('level');
+        foreach ($sortedmembers as $member) {
+            foreach ($feeds as $feed) {
+                if ($member->id == $feed->member_id)
+                {
+                    array_push($feedsarray,$member);
+                }
+            }
+        }
 
 
 
-
-
-
+        return collect($feedsarray);
     }
 
     public function result(Request $request)
@@ -168,9 +184,13 @@ class MemberController extends Controller
       $members = Member::all();
       $kumiren2members = Kumiren2member::where('kumiren_id',$latest_kumiren_id)->get();
 
+      $feeds = $this->getfeed();
+
+
       return view('kumiren_result')->with([
           "members" => $members,
           "kumiren2members" => $kumiren2members,
+          "feeds" => $feeds,
       ]);
     }
 

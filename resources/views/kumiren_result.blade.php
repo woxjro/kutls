@@ -22,7 +22,7 @@
                     </div>
                     <div>
                         <?php
-                            $feeds = [];
+
                             foreach($kumiren2members as $kumiren2member){
                                 if($kumiren2member->role == "root"){
                                     $rootId = $kumiren2member->member_id;
@@ -36,15 +36,6 @@
                                 if($kumiren2member->role == "S"){
                                     $SId = $kumiren2member->member_id;
                                 }
-                                if($kumiren2member->role == "feed"){
-                                    foreach ($members as $member) {
-                                        if($member->id == $kumiren2member->member_id) {
-                                            array_push($feeds,$member);
-                                        }
-                                    }
-                                }
-
-
 
                             }
 
@@ -56,7 +47,7 @@
 
                             }
 
-                            shuffle($feeds);
+
 
 
                         ?>
@@ -64,12 +55,14 @@
                         <p>・H：{{ $H->last_name }}</p>
                         <p>・S：{{ $S->last_name }}</p>
                         <p>・F：{{ $F->last_name }}</p>
+
                         <p>・球出し：{{ $feeds[0]->last_name }}</p>
                         <p>・球出し：{{ $feeds[1]->last_name }}</p>
                         <p>・球出し：{{ $feeds[2]->last_name }}</p>
                         <p>・球出し：{{ $feeds[3]->last_name }}</p>
                         <p>・球出し：{{ $feeds[4]->last_name }}</p>
                         <p>・球出し：{{ $feeds[5]->last_name }}</p>
+
 
 
 
