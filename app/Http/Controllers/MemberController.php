@@ -149,10 +149,12 @@ class MemberController extends Controller
       $allrequest = $request->all();
       $latest_kumiren = DB::table('kumirens')->latest()->first();
       $latest_kumiren_id = $latest_kumiren->id;
-      $kumiren_members = Kumiren2member::where('kumiren_id',$latest_kumiren_id)->get();
+      $members = Member::all();
+      $kumiren2members = Kumiren2member::where('kumiren_id',$latest_kumiren_id)->get();
 
       return view('kumiren_result')->with([
-          "kumiren_members" => $kumiren_members,
+          "members" => $members,
+          "kumiren2members" => $kumiren2members,
       ]);
     }
 

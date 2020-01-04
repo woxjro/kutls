@@ -22,32 +22,60 @@
                     </div>
                     <div>
                         <?php
-                            foreach($kumiren_members as $kumiren_member){
-                                if($kumiren_member->role == "root"){
-                                    $root = $kumiren_member;
+                            $feeds = [];
+                            foreach($kumiren2members as $kumiren2member){
+                                if($kumiren2member->role == "root"){
+                                    $rootId = $kumiren2member->member_id;
 
                                 }
-                                if($kumiren_member->role == "H"){
-                                    $H = $kumiren_member;
+                                if($kumiren2member->role == "H"){
+                                    $HId = $kumiren2member->member_id;
                                 }
-                                if($kumiren_member->role == "F"){
-                                    $F = $kumiren_member;
+                                if($kumiren2member->role == "F"){
+                                    $FId = $kumiren2member->member_id;
                                 }
-                                if($kumiren_member->role == "S"){
-                                    $S = $kumiren_member;
+                                if($kumiren2member->role == "S"){
+                                    $SId = $kumiren2member->member_id;
                                 }
+                                if($kumiren2member->role == "feed"){
+                                    foreach ($members as $member) {
+                                        if($member->id == $kumiren2member->member_id) {
+                                            array_push($feeds,$member);
+                                        }
+                                    }
+                                }
+
                             }
+
+                            foreach ($members as $member) {
+                                if($member->id == $rootId) $root = $member;
+                                if($member->id == $HId) $H = $member;
+                                if($member->id == $FId) $F = $member;
+                                if($member->id == $SId) $S = $member;
+
+                            }
+
+
+
+
+                            shuffle($feeds);
+
+
                         ?>
-                        <p>・根：
-                            @foreach($kumiren_members as $member)
-                                @if($member->role == "root")
-                                    <?php echo $member->last_name; ?>
-                                @endif
-                            @endforeach
-                        </p>
-                        <p>・H：</p>
-                        <p>・F：</p>
-                        <p>・S：</p>
+                        <p>・根：{{ $root->last_name }}</p>
+                        <p>・H：{{ $H->last_name }}</p>
+                        <p>・S：{{ $S->last_name }}</p>
+                        <p>・F：{{ $F->last_name }}</p>
+
+                        <p>・球出し：{{ $feeds[0]->last_name }}</p>
+                        <p>・球出し：{{ $feeds[1]->last_name }}</p>
+                        <p>・球出し：{{ $feeds[2]->last_name }}</p>
+                        <p>・球出し：{{ $feeds[3]->last_name }}</p>
+                        <p>・球出し：{{ $feeds[4]->last_name }}</p>
+                        <p>・球出し：{{ $feeds[5]->last_name }}</p>
+
+
+
                     </div>
                     <p>
 
