@@ -72,7 +72,7 @@ class MemberController extends Controller
         }
 
 
-        $kumiren_members = Member::all()->whereIn('id',$membersId);
+        $kumiren2members = Member::all()->whereIn('id',$membersId);
         $now_year = date("Y");
         $now_month = date("n");
         $fiscal_year = $now_year;
@@ -81,7 +81,7 @@ class MemberController extends Controller
         }
 
         return view('kumiren_select_staffs')->with([
-            "kumiren_members" => $kumiren_members,
+            "kumiren2members" => $kumiren2members,
             "Id" => $membersId,
             "fiscal_year" => $fiscal_year,
         ]);
@@ -121,23 +121,31 @@ class MemberController extends Controller
         $allrequest = $request->all();
         $latest_kumiren = DB::table('kumirens')->latest()->first();
         $latest_kumiren_id = $latest_kumiren->id;
-        $kumiren_members = Kumiren2member::where('kumiren_id',$latest_kumiren_id)->get();
+        $kumiren2members = Kumiren2member::where('kumiren_id',$latest_kumiren_id)->get();
 
 
-        $kumiren_members->sortByDesc('level');
+        $kumiren2members->sortByDesc('level');
 
-        $countfeed = 0;
-        foreach ($kumiren_members as $kumiren_member)
-        {
-            if($countfeed>=6) {break;}
-            if($kumiren_member->role != "NONE") {continue;}
-
-
-            $countfeed = $countfeed + 1;
-            $kumiren_member->role = "feed";
-            $kumiren_member->save();
-
+        $countexistedfeed = 0;
+        foreach ($kumiren2members as $kumiren2member) {
+            if($kumiren2member->role = "feed") $countexistedfeed = $countexistedfeed + 1;
         }
+
+        if ($countexistedfeed == 0) {
+            $countfeed = 0;
+            foreach ($kumiren2members as $kumiren2member)
+            {
+                if($countfeed>=6) {break;}
+                if($kumiren2member->role != "NONE") {continue;}
+
+
+                $countfeed = $countfeed + 1;
+                $kumiren2member->role = "feed";
+                $kumiren2member->save();
+
+            }
+        }
+
 
     }
 

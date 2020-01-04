@@ -26,7 +26,6 @@
                             foreach($kumiren2members as $kumiren2member){
                                 if($kumiren2member->role == "root"){
                                     $rootId = $kumiren2member->member_id;
-
                                 }
                                 if($kumiren2member->role == "H"){
                                     $HId = $kumiren2member->member_id;
