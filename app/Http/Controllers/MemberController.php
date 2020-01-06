@@ -69,6 +69,8 @@ class MemberController extends Controller
             $kumiren2member->kumiren_id = $latest_kumiren_id;
             $kumiren2member->member_id  = $membersId[$i];
             $kumiren2member->role       = "NONE";
+            $kumiren2member->feed1stteam= "NONE";
+            $kumiren2member->feed2ndteam= "NONE";
             $kumiren2member->team       = "NONE";
             $kumiren2member->save();
         }
@@ -153,6 +155,7 @@ class MemberController extends Controller
 
 
         $feeds = $this->getfeed();
+        $feeds = $feeds->sortByDesc('level');
         $feeds4ACE = collect([]);
         $feeds4BDF = collect([]);
 
@@ -167,6 +170,55 @@ class MemberController extends Controller
         $shuffled_feeds4BDF = $feeds4BDF->shuffle();
 
 
+
+        $shuffled_feeds4ACE_1st = $shuffled_feeds4ACE->shift();
+        $shuffled_feeds4ACE_2nd = $shuffled_feeds4ACE->shift();
+        $shuffled_feeds4ACE_3rd = $shuffled_feeds4ACE->shift();
+
+        $shuffled_feeds4BDF_1st = $shuffled_feeds4BDF->shift();
+        $shuffled_feeds4BDF_2nd = $shuffled_feeds4BDF->shift();
+        $shuffled_feeds4BDF_3rd = $shuffled_feeds4BDF->shift();
+
+        $shuffled_feeds4ACE_1st_kumiren2member = Kumiren2member::where('kumiren_id',$latest_kumiren_id)->where('member_id',$shuffled_feeds4ACE_1st->id)->first();
+        $shuffled_feeds4ACE_2nd_kumiren2member = Kumiren2member::where('kumiren_id',$latest_kumiren_id)->where('member_id',$shuffled_feeds4ACE_2nd->id)->first();
+        $shuffled_feeds4ACE_3rd_kumiren2member = Kumiren2member::where('kumiren_id',$latest_kumiren_id)->where('member_id',$shuffled_feeds4ACE_3rd->id)->first();
+        $shuffled_feeds4BDF_1st_kumiren2member = Kumiren2member::where('kumiren_id',$latest_kumiren_id)->where('member_id',$shuffled_feeds4BDF_1st->id)->first();
+        $shuffled_feeds4BDF_2nd_kumiren2member = Kumiren2member::where('kumiren_id',$latest_kumiren_id)->where('member_id',$shuffled_feeds4BDF_2nd->id)->first();
+        $shuffled_feeds4BDF_3rd_kumiren2member = Kumiren2member::where('kumiren_id',$latest_kumiren_id)->where('member_id',$shuffled_feeds4BDF_3rd->id)->first();
+
+        $shuffled_feeds4ACE_1st_kumiren2member->feed1stteam = "A";
+        $shuffled_feeds4ACE_1st_kumiren2member->feed2ndteam = "C";
+        $shuffled_feeds4ACE_1st_kumiren2member->team = "E";
+
+        $shuffled_feeds4ACE_2nd_kumiren2member->feed1stteam = "A";
+        $shuffled_feeds4ACE_2nd_kumiren2member->feed2ndteam = "E";
+        $shuffled_feeds4ACE_2nd_kumiren2member->team = "C";
+
+        $shuffled_feeds4ACE_3rd_kumiren2member->feed1stteam = "C";
+        $shuffled_feeds4ACE_3rd_kumiren2member->feed2ndteam = "E";
+        $shuffled_feeds4ACE_3rd_kumiren2member->team = "A";
+
+
+
+        $shuffled_feeds4BDF_1st_kumiren2member->feed1stteam = "B";
+        $shuffled_feeds4BDF_1st_kumiren2member->feed2ndteam = "D";
+        $shuffled_feeds4BDF_1st_kumiren2member->team = "F";
+
+        $shuffled_feeds4BDF_2nd_kumiren2member->feed1stteam = "B";
+        $shuffled_feeds4BDF_2nd_kumiren2member->feed2ndteam = "F";
+        $shuffled_feeds4BDF_2nd_kumiren2member->team = "D";
+
+        $shuffled_feeds4BDF_3rd_kumiren2member->feed1stteam = "D";
+        $shuffled_feeds4BDF_3rd_kumiren2member->feed2ndteam = "F";
+        $shuffled_feeds4BDF_3rd_kumiren2member->team = "B";
+
+
+        $shuffled_feeds4ACE_1st_kumiren2member->save();
+        $shuffled_feeds4ACE_2nd_kumiren2member->save();
+        $shuffled_feeds4ACE_3rd_kumiren2member->save();
+        $shuffled_feeds4BDF_1st_kumiren2member->save();
+        $shuffled_feeds4BDF_2nd_kumiren2member->save();
+        $shuffled_feeds4BDF_3rd_kumiren2member->save();
 
 
 
