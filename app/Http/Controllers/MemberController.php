@@ -249,10 +249,27 @@ class MemberController extends Controller
         return collect($feedsarray);
     }
 
+
+
+    public function setmember()
+    {
+        $latest_kumiren = DB::table('kumirens')->latest()->first();
+        $latest_kumiren_id = $latest_kumiren->id;
+        $kumiren2members_noteam = Kumiren2member::where('kumiren_id',$latest_kumiren_id)->where('team','NONE')->get();
+        $members_noteam = collect([]);
+
+        foreach ($kumiren2members_noteam as $kumiren2member_noteam) {
+            $members_noteam->push(Member::where('id',$kumiren2member_noteam->member_id));
+        }
+        $sorted_members_noteam = $members_noteam->sortByDesc('level');
+
+    }
+
     public function result(Request $request)
     {
       $this->setstaff($request);
       $this->setfeed($request);
+      $this->setmember();
 
 
       $allrequest = $request->all();
