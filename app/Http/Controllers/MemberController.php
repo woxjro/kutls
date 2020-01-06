@@ -150,6 +150,8 @@ class MemberController extends Controller
             }
         }
     }
+    //チームが振られていない男性の数を求める関数を書く。
+    //チームが振られていない女性の数を求める関数を書く。
 
     public function getfeed()
     {
@@ -168,8 +170,6 @@ class MemberController extends Controller
             }
         }
 
-
-
         return collect($feedsarray);
     }
 
@@ -177,6 +177,7 @@ class MemberController extends Controller
     {
       $this->setstaff($request);
       $this->setfeed($request);
+
 
       $allrequest = $request->all();
       $latest_kumiren = DB::table('kumirens')->latest()->first();
