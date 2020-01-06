@@ -35,6 +35,7 @@ class MemberController extends Controller
     {
         $kumiren = new Kumiren;
 
+
         $kumiren->name = uniqid(date("Ymd")."-");
         $kumiren->save();
 
@@ -149,6 +150,29 @@ class MemberController extends Controller
                 }
             }
         }
+
+
+        $feeds = $this->getfeed();
+        $feeds4ACE = collect([]);
+        $feeds4BDF = collect([]);
+
+        $feeds4ACE->push($feeds->shift());
+        $feeds4BDF->push($feeds->shift());
+        $feeds4ACE->push($feeds->shift());
+        $feeds4BDF->push($feeds->shift());
+        $feeds4ACE->push($feeds->shift());
+        $feeds4BDF->push($feeds->shift());
+
+        $shuffled_feeds4ACE = $feeds4ACE->shuffle();
+        $shuffled_feeds4BDF = $feeds4BDF->shuffle();
+
+
+
+
+
+
+
+
     }
     //チームが振られていない男性の数を求める関数を書く。
     //チームが振られていない女性の数を求める関数を書く。

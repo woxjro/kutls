@@ -29,6 +29,8 @@ class Kumiren2memberController extends AdminController
         $grid->column('id', __('Id'));
         $grid->column('kumiren_id', __('Kumiren id'));
         $grid->column('role', __('Role'));
+        $grid->column('feed1stteam', __('feed1stteam'));
+        $grid->column('feed2ndteam', __('feed2ndteam'));
         $grid->column('team', __('Team'));
         $grid->column('member_id', __('Member id'));
         $grid->column('created_at', __('Created at'));
@@ -50,6 +52,8 @@ class Kumiren2memberController extends AdminController
         $show->field('id', __('Id'));
         $show->field('kumiren_id', __('Kumiren id'));
         $show->field('role', __('Role'));
+        $show->field('feed1stteam', __('feed1stteam'));
+        $show->field('feed2ndteam', __('feed2ndteam'));
         $show->field('team', __('Team'));
         $show->field('member_id', __('Member id'));
         $show->field('created_at', __('Created at'));
@@ -69,6 +73,8 @@ class Kumiren2memberController extends AdminController
 
         $form->number('kumiren_id', __('Kumiren id'));
         $form->text('role', __('Role'));
+        $form->text('feed1stteam', __('feed1stteam'));
+        $form->text('feed2ndteam', __('feed2ndteam'));
         $form->text('team', __('Team'));
         $form->number('member_id', __('Member id'));
 
