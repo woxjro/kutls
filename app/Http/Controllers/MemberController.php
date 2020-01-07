@@ -250,18 +250,49 @@ class MemberController extends Controller
     }
 
 
+    public function getMaleNum($kumiren_id,$team){
+        $kumiren2members = Kumiren2member::where('kumiren_id',$kumiren_id)->where('team',$team)->get();
+        $malenum = 0;
+        foreach ($kumiren2members as $kumiren2member) {
+            $member = Member::where('id',$kumiren2member->member_id)->first();
+            if ($member->sex == 'male') $malenum++;
+        }
+        return $malenum;
+    }
+
+    public function getFemaleNum($kumiren_id,$team){
+        $kumiren2members = Kumiren2member::where('kumiren_id',$kumiren_id)->where('team',$team)->get();
+        $femalenum = 0;
+        foreach ($kumiren2members as $kumiren2member) {
+            $member = Member::where('id',$kumiren2member->member_id)->first();
+            if ($member->sex == 'female') $femalenum++;
+        }
+        return $femalenum;
+    }
+
+
+
 
     public function setmember()
     {
         $latest_kumiren = DB::table('kumirens')->latest()->first();
         $latest_kumiren_id = $latest_kumiren->id;
         $kumiren2members_noteam = Kumiren2member::where('kumiren_id',$latest_kumiren_id)->where('team','NONE')->get();
-        $members_noteam = collect([]);
+
+
+        $members_male_noteam    = collect([]);
+        $members_female_noteam = collect([]);
+
 
         foreach ($kumiren2members_noteam as $kumiren2member_noteam) {
-            $members_noteam->push(Member::where('id',$kumiren2member_noteam->member_id));
+            $member = Member::where('id',$kumiren2member_noteam->member_id)->first();
+            if ($member->sex == "male") {
+                $members_male_noteam->push($member);
+            }else{
+                $members_female_noteam->push($member);
+            }
         }
-        $sorted_members_noteam = $members_noteam->sortByDesc('level');
+
 
     }
 
@@ -281,10 +312,19 @@ class MemberController extends Controller
       $feeds = $this->getfeed();
 
 
+      $now_year = date("Y");
+      $now_month = date("n");
+      $fiscal_year = $now_year;
+      if ($now_month<4) {
+          $fiscal_year = $now_year - 1;
+      }
+
+
       return view('kumiren_result')->with([
           "members" => $members,
           "kumiren2members" => $kumiren2members,
           "feeds" => $feeds,
+          "fiscal_year" => $fiscal_year,
       ]);
     }
 

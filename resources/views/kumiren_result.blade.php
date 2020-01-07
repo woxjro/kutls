@@ -44,30 +44,29 @@
                                 if($member->id == $HId) $H = $member;
                                 if($member->id == $FId) $F = $member;
                                 if($member->id == $SId) $S = $member;
-
                             }
+
+                            $sex = [
+                                "male" => "男性",
+                                "female" => "女性",
+                            ]
 
 
 
 
                         ?>
-                        <p>・根：{{ $root->last_name }}</p>
-                        <p>・H：{{ $H->last_name }}</p>
-                        <p>・S：{{ $S->last_name }}</p>
-                        <p>・F：{{ $F->last_name }}</p>
 
-                        <p>・球出し：{{ $feeds[0]->last_name }}</p>
-                        <p>・球出し：{{ $feeds[1]->last_name }}</p>
-                        <p>・球出し：{{ $feeds[2]->last_name }}</p>
-                        <p>・球出し：{{ $feeds[3]->last_name }}</p>
-                        <p>・球出し：{{ $feeds[4]->last_name }}</p>
-                        <p>・球出し：{{ $feeds[5]->last_name }}</p>
+                        <p>・根：<?php echo ($fiscal_year - $root->enrollment_year + 1)."回生：".$sex[$root->sex]."：".$root->last_name;?></p>
+                        <p>・H：<?php echo ($fiscal_year - $H->enrollment_year + 1)."回生：".$sex[$H->sex]."：".$H->last_name;?></p>
+                        <p>・S：<?php echo ($fiscal_year - $S->enrollment_year + 1)."回生：".$sex[$S->sex]."：".$S->last_name;?></p>
+                        <p>・F：<?php echo ($fiscal_year - $F->enrollment_year + 1)."回生：".$sex[$F->sex]."：".$F->last_name;?></p>
 
-
-
-
-
-
+                        <p>・球出し：<?php echo ($fiscal_year - $feeds[0]->enrollment_year + 1)."回生：".$sex[$feeds[0]->sex]."：".$feeds[0]->last_name;?></p>
+                        <p>・球出し：<?php echo ($fiscal_year - $feeds[1]->enrollment_year + 1)."回生：".$sex[$feeds[1]->sex]."：".$feeds[1]->last_name;?></p>
+                        <p>・球出し：<?php echo ($fiscal_year - $feeds[2]->enrollment_year + 1)."回生：".$sex[$feeds[2]->sex]."：".$feeds[2]->last_name;?></p>
+                        <p>・球出し：<?php echo ($fiscal_year - $feeds[3]->enrollment_year + 1)."回生：".$sex[$feeds[3]->sex]."：".$feeds[3]->last_name;?></p>
+                        <p>・球出し：<?php echo ($fiscal_year - $feeds[4]->enrollment_year + 1)."回生：".$sex[$feeds[4]->sex]."：".$feeds[4]->last_name;?></p>
+                        <p>・球出し：<?php echo ($fiscal_year - $feeds[5]->enrollment_year + 1)."回生：".$sex[$feeds[5]->sex]."：".$feeds[5]->last_name;?></p>
 
 
 
