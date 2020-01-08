@@ -263,11 +263,7 @@ class MemberController extends Controller
         $groupedmembers = $members->groupBy('sex');
         return $groupedmembers;
     }
-    //男女分けたコレクションを返す。
-    public function getgroupBySex($kumiren_id,$team){
-        $kumiren2members = Kumiren2member::where('kumiren_id',$kumiren_id)->where('team',$team)->get();
 
-    }
 
     public function getMaleNum($kumiren_id,$team){
         $kumiren2members = Kumiren2member::where('kumiren_id',$kumiren_id)->where('team',$team)->get();
