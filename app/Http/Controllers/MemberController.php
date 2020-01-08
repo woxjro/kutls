@@ -53,7 +53,7 @@ class MemberController extends Controller
             "fiscal_year" => $fiscal_year,
         ]);
     }
-
+    //
     public function showKumirenMembers(Request $request)
     {
         $latest_kumiren = DB::table('kumirens')->latest()->first();
@@ -91,7 +91,7 @@ class MemberController extends Controller
         ]);
     }
 
-
+    //根回し、HSFをセット
     public function setstaff(Request $request)
     {
         $allrequest = $request->all();
@@ -126,6 +126,7 @@ class MemberController extends Controller
 
     }
 
+    //球出しメンバーをセット
     public function setfeed(Request $request)
     {
         $allrequest = $request->all();
@@ -199,7 +200,6 @@ class MemberController extends Controller
         $shuffled_feeds4ACE_3rd_kumiren2member->team = "A";
 
 
-
         $shuffled_feeds4BDF_1st_kumiren2member->feed1stteam = "B";
         $shuffled_feeds4BDF_1st_kumiren2member->feed2ndteam = "D";
         $shuffled_feeds4BDF_1st_kumiren2member->team = "F";
@@ -221,14 +221,11 @@ class MemberController extends Controller
         $shuffled_feeds4BDF_3rd_kumiren2member->save();
 
 
-
-
-
-
     }
     //チームが振られていない男性の数を求める関数を書く。
     //チームが振られていない女性の数を求める関数を書く。
 
+    //球出しメンバーを取得
     public function getfeed()
     {
         $feedsarray = [];
@@ -249,6 +246,28 @@ class MemberController extends Controller
         return collect($feedsarray);
     }
 
+
+    //kumiren_idから組連のメンバーを取得する関数
+    public function getMembersByKumire2member($kumiren_id){
+        $kumiren2members = Kumiren2member::where('kumiren_id',$kumiren_id)->get();
+        $members = collect([]);
+        foreach ($kumiren2members as $kumiren2member) {
+            $member = Member::where('id',$kumiren2member->member_id)->first();
+            $members->push($member);
+        }
+        return $members;
+    }
+    //組連のメンバーを性別でグループ分けする関数
+    public function getMembersGroupBySex($kumiren_id){
+        $members = getMembersByKumire2member($kumiren_id);
+        $groupedmembers = $members->groupBy('sex');
+        return $groupedmembers;
+    }
+    //男女分けたコレクションを返す。
+    public function getgroupBySex($kumiren_id,$team){
+        $kumiren2members = Kumiren2member::where('kumiren_id',$kumiren_id)->where('team',$team)->get();
+
+    }
 
     public function getMaleNum($kumiren_id,$team){
         $kumiren2members = Kumiren2member::where('kumiren_id',$kumiren_id)->where('team',$team)->get();
@@ -279,10 +298,8 @@ class MemberController extends Controller
         $latest_kumiren_id = $latest_kumiren->id;
         $kumiren2members_noteam = Kumiren2member::where('kumiren_id',$latest_kumiren_id)->where('team','NONE')->get();
 
-
         $members_male_noteam    = collect([]);
         $members_female_noteam = collect([]);
-
 
         foreach ($kumiren2members_noteam as $kumiren2member_noteam) {
             $member = Member::where('id',$kumiren2member_noteam->member_id)->first();
@@ -296,6 +313,10 @@ class MemberController extends Controller
 
     }
 
+
+
+
+    //リザルト画面用の関数
     public function result(Request $request)
     {
       $this->setstaff($request);
