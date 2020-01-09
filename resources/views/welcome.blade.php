@@ -62,9 +62,11 @@
                 margin-bottom: 30px;
             }
         </style>
+
     </head>
     <body>
         <div class="flex-center position-ref full-height">
+
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -79,6 +81,8 @@
                 </div>
             @endif
 
+
+
             <div class="content">
                 <div class="title m-b-md">
                     KUTLS
@@ -86,7 +90,6 @@
 
                 <div class="links">
                     <a href="{{ url('/kumiren/select_members')}}">組連</a>
-
                 </div>
             </div>
         </div>

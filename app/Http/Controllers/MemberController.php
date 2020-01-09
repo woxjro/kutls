@@ -31,8 +31,7 @@ class MemberController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function showMembers()
-    {
+    public function showMembers(){
         $kumiren = new Kumiren;
 
 
@@ -54,8 +53,7 @@ class MemberController extends Controller
         ]);
     }
     //
-    public function showKumirenMembers(Request $request)
-    {
+    public function showKumirenMembers(Request $request){
         $latest_kumiren = DB::table('kumirens')->latest()->first();
         $latest_kumiren_id = $latest_kumiren->id;
 
@@ -92,8 +90,7 @@ class MemberController extends Controller
     }
 
     //根回し、HSFをセット
-    public function setstaff(Request $request)
-    {
+    public function setstaff(Request $request){
         $allrequest = $request->all();
         $rootId = $allrequest["root"];
         $HId    = $allrequest["H"];
@@ -127,8 +124,7 @@ class MemberController extends Controller
     }
 
     //球出しメンバーをセット
-    public function setfeed(Request $request)
-    {
+    public function setfeed(Request $request){
         $allrequest = $request->all();
         $latest_kumiren = DB::table('kumirens')->latest()->first();
         $latest_kumiren_id = $latest_kumiren->id;
@@ -226,8 +222,7 @@ class MemberController extends Controller
     //チームが振られていない女性の数を求める関数を書く。
 
     //球出しメンバーを取得
-    public function getfeed()
-    {
+    public function getfeed(){
         $feedsarray = [];
         $latest_kumiren = DB::table('kumirens')->latest()->first();
         $latest_kumiren_id = $latest_kumiren->id;
@@ -246,7 +241,6 @@ class MemberController extends Controller
         return collect($feedsarray);
     }
 
-
     //kumiren_idから組連のメンバーを取得する関数
     public function getMembersByKumire2member($kumiren_id){
         $kumiren2members = Kumiren2member::where('kumiren_id',$kumiren_id)->get();
@@ -259,11 +253,10 @@ class MemberController extends Controller
     }
     //組連のメンバーを性別でグループ分けする関数
     public function getMembersGroupBySex($kumiren_id){
-        $members = getMembersByKumire2member($kumiren_id);
+        $members = $this->getMembersByKumire2member($kumiren_id);
         $groupedmembers = $members->groupBy('sex');
         return $groupedmembers;
     }
-
 
     public function getMaleNum($kumiren_id,$team){
         $kumiren2members = Kumiren2member::where('kumiren_id',$kumiren_id)->where('team',$team)->get();
@@ -285,11 +278,7 @@ class MemberController extends Controller
         return $femalenum;
     }
 
-
-
-
-    public function setmember()
-    {
+    public function setmember(){
         $latest_kumiren = DB::table('kumirens')->latest()->first();
         $latest_kumiren_id = $latest_kumiren->id;
         $kumiren2members_noteam = Kumiren2member::where('kumiren_id',$latest_kumiren_id)->where('team','NONE')->get();
@@ -300,18 +289,37 @@ class MemberController extends Controller
         foreach ($kumiren2members_noteam as $kumiren2member_noteam) {
             $member = Member::where('id',$kumiren2member_noteam->member_id)->first();
             if ($member->sex == "male") {
+                //チームに割り振られていない男子のコレクション
                 $members_male_noteam->push($member);
             }else{
+                //チームに割り振られていない女子のコレクション
                 $members_female_noteam->push($member);
             }
         }
-
-
     }
 
 
+    //球出しと役職をセットした後に、各チームを二人ずつにするためにBとFチームにメンバーを割り振る関数。
+    public function setTwoMembers4BF($kumiren_id){
+        $members = $this->getMembersGroupBySex($kumiren_id);
+        $maleMember = $members['male']->sortByDesc('level');
+        $maleMemberSize = $maleMember->count();
+        $startPoint = $maleMemberSize/2 - 1;
 
+        $maleMember4BF = $maleMember->splice($startPoint,2);
+        $member_id_4B = $maleMember4BF->pop()->id;
+        $member_id_4F = $maleMember4BF->pop()->id;
 
+        $kumiren2member4B = Kumiren2member::where('kumiren_id',$kumiren_id)->where('member_id',$member_id_4B)->first();
+        $kumiren2member4F = Kumiren2member::where('kumiren_id',$kumiren_id)->where('member_id',$member_id_4F)->first();
+
+        $kumiren2member4B->team = 'B';
+        $kumiren2member4F->team = 'F';
+
+        $kumiren2member4B->save();
+        $kumiren2member4F->save();
+
+    }
     //リザルト画面用の関数
     public function result(Request $request)
     {
@@ -327,6 +335,7 @@ class MemberController extends Controller
       $kumiren2members = Kumiren2member::where('kumiren_id',$latest_kumiren_id)->get();
 
       $feeds = $this->getfeed();
+      $this->setTwoMembers4BF($latest_kumiren_id);
 
 
       $now_year = date("Y");
