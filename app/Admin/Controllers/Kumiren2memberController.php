@@ -33,6 +33,7 @@ class Kumiren2memberController extends AdminController
         $grid->column('feed2ndteam', __('feed2ndteam'));
         $grid->column('team', __('Team'));
         $grid->column('member_id', __('Member id'));
+
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -56,6 +57,7 @@ class Kumiren2memberController extends AdminController
         $show->field('feed2ndteam', __('feed2ndteam'));
         $show->field('team', __('Team'));
         $show->field('member_id', __('Member id'));
+
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 

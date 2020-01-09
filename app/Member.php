@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Member extends Model
 {
-
+    public function Kumiren2members(){
+        return $this->belongsTo(Kumiren2member::class);
+    }
 }
