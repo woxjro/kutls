@@ -32,10 +32,14 @@
                             <ul id="link1">
                                 @foreach($members as $member)
                                     @if($fiscal_year - $member->enrollment_year + 1 == 6)
+
                                         <li>
-                                            <input type="checkbox" name="selectedMember[]" value="<?php echo $member->id;?>">
-                                            <?php echo $sex[$member->sex]."：".$member->last_name;?>
+                                            <label>
+                                                <input type="checkbox" name="selectedMember[]" value="<?php echo $member->id;?>">
+                                                <?php echo $sex[$member->sex]."：".$member->last_name;?>
+                                            </label>
                                         </li>
+
                                     @endif
                                 @endforeach
                             </ul>
@@ -46,10 +50,12 @@
                             <ul id="link2">
                                 @foreach($members as $member)
                                     @if($fiscal_year - $member->enrollment_year + 1 == 5)
-                                        <li>
+                                    <li>
+                                        <label>
                                             <input type="checkbox" name="selectedMember[]" value="<?php echo $member->id;?>">
                                             <?php echo $sex[$member->sex]."：".$member->last_name;?>
-                                        </li>
+                                        </label>
+                                    </li>
                                     @endif
                                 @endforeach
                             </ul>
@@ -60,10 +66,12 @@
                             <ul id="link3">
                                 @foreach($members as $member)
                                     @if($fiscal_year - $member->enrollment_year + 1 == 4)
-                                        <li>
+                                    <li>
+                                        <label>
                                             <input type="checkbox" name="selectedMember[]" value="<?php echo $member->id;?>">
                                             <?php echo $sex[$member->sex]."：".$member->last_name;?>
-                                        </li>
+                                        </label>
+                                    </li>
                                     @endif
                                 @endforeach
                             </ul>
@@ -74,10 +82,12 @@
                             <ul id="link4">
                                 @foreach($members as $member)
                                     @if($fiscal_year - $member->enrollment_year + 1 == 3)
-                                        <li>
+                                    <li>
+                                        <label>
                                             <input type="checkbox" name="selectedMember[]" value="<?php echo $member->id;?>">
                                             <?php echo $sex[$member->sex]."：".$member->last_name;?>
-                                        </li>
+                                        </label>
+                                    </li>
                                     @endif
                                 @endforeach
                             </ul>
@@ -88,10 +98,12 @@
                             <ul id="link5">
                                 @foreach($members as $member)
                                     @if($fiscal_year - $member->enrollment_year + 1 == 2)
-                                        <li>
+                                    <li>
+                                        <label>
                                             <input type="checkbox" name="selectedMember[]" value="<?php echo $member->id;?>">
                                             <?php echo $sex[$member->sex]."：".$member->last_name;?>
-                                        </li>
+                                        </label>
+                                    </li>
                                     @endif
                                 @endforeach
                             </ul>
@@ -102,10 +114,12 @@
                             <ul id="link6">
                                 @foreach($members as $member)
                                     @if($fiscal_year - $member->enrollment_year + 1 == 1)
-                                        <li>
+                                    <li>
+                                        <label>
                                             <input type="checkbox" name="selectedMember[]" value="<?php echo $member->id;?>">
                                             <?php echo $sex[$member->sex]."：".$member->last_name;?>
-                                        </li>
+                                        </label>
+                                    </li>
                                     @endif
                                 @endforeach
                             </ul>

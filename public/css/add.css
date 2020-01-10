@@ -34,14 +34,17 @@
 	color: #ffffff;
 	background: #1b2538;
 	cursor: pointer;
+    border-radius:5px;
 }
-.cp_menu .grade-label::before {
+.cp_menu .grade-label::after {
 	position: absolute;
 	content: '▼';
 	color: #ffffff;
 	right: 0.5em;
 	top: 25%;
+
 }
+
 
 .cp_menu .accordion{
 	display: none;
@@ -51,6 +54,7 @@
 	padding: 0;
 	background: #f4f4f4;
 	list-style: none;
+
 }
 .cp_menu li {
 	overflow-y: hidden;
