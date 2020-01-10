@@ -57,6 +57,10 @@ class KumirenController extends AdminController
             $kumiren2members->resource('/admin/auth/kumiren2members');
             $kumiren2members->id();
             $kumiren2members->member_id();
+            $kumiren2members->team();
+            $kumiren2members->role();
+            $kumiren2members->feed1stteam();
+            $kumiren2members->feed2ndteam();
         });
 
         return $show;

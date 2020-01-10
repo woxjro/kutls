@@ -258,6 +258,12 @@ class MemberController extends Controller
         return $groupedmembers;
     }
 
+    public function getMemberNum($kumiren_id,$team){
+        $kumiren2members = Kumiren2member::where('kumiren_id',$kumiren_id)->where('team',$team)->get();
+        $membernum = $kumiren2members->count();
+        return $membernum;
+    }
+
     public function getMaleNum($kumiren_id,$team){
         $kumiren2members = Kumiren2member::where('kumiren_id',$kumiren_id)->where('team',$team)->get();
         $malenum = 0;
@@ -283,19 +289,98 @@ class MemberController extends Controller
         $latest_kumiren_id = $latest_kumiren->id;
         $kumiren2members_noteam = Kumiren2member::where('kumiren_id',$latest_kumiren_id)->where('team','NONE')->get();
 
-        $members_male_noteam    = collect([]);
-        $members_female_noteam = collect([]);
+        $members_male_noteam          = collect([]);
+        $members_female_noteam        = collect([]);
+        $kumiren2members_male_noteam   = collect([]);
+        $kumiren2members_female_noteam = collect([]);
 
         foreach ($kumiren2members_noteam as $kumiren2member_noteam) {
             $member = Member::where('id',$kumiren2member_noteam->member_id)->first();
             if ($member->sex == "male") {
                 //チームに割り振られていない男子のコレクション
                 $members_male_noteam->push($member);
+                $kumiren2members_male_noteam->push($kumiren2member_noteam);
             }else{
                 //チームに割り振られていない女子のコレクション
                 $members_female_noteam->push($member);
+                $kumiren2members_female_noteam->push($kumiren2member_noteam);
             }
         }
+
+
+
+
+
+
+
+
+        $female_num_teams = collect([
+            ["team" => "A", "female_num" => $this->getFemaleNum($latest_kumiren_id,"A")],
+            ["team" => "B", "female_num" => $this->getFemaleNum($latest_kumiren_id,"B")],
+            ["team" => "C", "female_num" => $this->getFemaleNum($latest_kumiren_id,"C")],
+            ["team" => "D", "female_num" => $this->getFemaleNum($latest_kumiren_id,"D")],
+            ["team" => "E", "female_num" => $this->getFemaleNum($latest_kumiren_id,"E")],
+            ["team" => "F", "female_num" => $this->getFemaleNum($latest_kumiren_id,"F")],
+        ]);
+
+        while($kumiren2members_female_noteam->count()>0){
+            $female_num_teams = $female_num_teams->sortByDesc("female_num");
+
+            $kumiren2members_female_noteam = $kumiren2members_female_noteam->shuffle();
+            $female_kumiren2member = $kumiren2members_female_noteam->pop();
+            $female_kumiren2member->team = collect($female_num_teams->last())->get('team');
+            $female_kumiren2member->save();
+            $female_num_teams = collect([
+                ["team" => "A", "female_num" => $this->getFemaleNum($latest_kumiren_id,"A")],
+                ["team" => "B", "female_num" => $this->getFemaleNum($latest_kumiren_id,"B")],
+                ["team" => "C", "female_num" => $this->getFemaleNum($latest_kumiren_id,"C")],
+                ["team" => "D", "female_num" => $this->getFemaleNum($latest_kumiren_id,"D")],
+                ["team" => "E", "female_num" => $this->getFemaleNum($latest_kumiren_id,"E")],
+                ["team" => "F", "female_num" => $this->getFemaleNum($latest_kumiren_id,"F")],
+            ]);
+        }
+
+
+
+
+
+
+        $male_num_teams = collect([
+            ["team" => "A", "member_num" => $this->getMemberNum($latest_kumiren_id,"A")],
+            ["team" => "B", "member_num" => $this->getMemberNum($latest_kumiren_id,"B")],
+            ["team" => "C", "member_num" => $this->getMemberNum($latest_kumiren_id,"C")],
+            ["team" => "D", "member_num" => $this->getMemberNum($latest_kumiren_id,"D")],
+            ["team" => "E", "member_num" => $this->getMemberNum($latest_kumiren_id,"E")],
+            ["team" => "F", "member_num" => $this->getMemberNum($latest_kumiren_id,"F")],
+        ]);
+
+        while($kumiren2members_male_noteam->count()>0){
+            $male_num_teams = $male_num_teams->sortByDesc("member_num");
+
+            $kumiren2members_male_noteam = $kumiren2members_male_noteam->shuffle();
+            $male_kumiren2member = $kumiren2members_male_noteam->pop();
+            $male_kumiren2member->team = collect($male_num_teams->last())->get('team');
+            $male_kumiren2member->save();
+            $male_num_teams = collect([
+                ["team" => "A", "member_num" => $this->getMemberNum($latest_kumiren_id,"A")],
+                ["team" => "B", "member_num" => $this->getMemberNum($latest_kumiren_id,"B")],
+                ["team" => "C", "member_num" => $this->getMemberNum($latest_kumiren_id,"C")],
+                ["team" => "D", "member_num" => $this->getMemberNum($latest_kumiren_id,"D")],
+                ["team" => "E", "member_num" => $this->getMemberNum($latest_kumiren_id,"E")],
+                ["team" => "F", "member_num" => $this->getMemberNum($latest_kumiren_id,"F")],
+            ]);
+        }
+
+
+
+
+
+
+
+
+
+
+
     }
 
 
