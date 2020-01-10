@@ -25,7 +25,7 @@
 	color: #000000;
 	line-height: 1;
 }
-.cp_menu label {
+.cp_menu .grade-label {
 	display: block;
 	position: relative;
 	margin: 0 0 2px 0;
@@ -35,7 +35,7 @@
 	background: #1b2538;
 	cursor: pointer;
 }
-.cp_menu label::before {
+.cp_menu .grade-label::before {
 	position: absolute;
 	content: '▼';
 	color: #ffffff;
