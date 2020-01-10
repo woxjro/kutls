@@ -345,10 +345,29 @@ class MemberController extends Controller
           $fiscal_year = $now_year - 1;
       }
 
+      $rootId = Kumiren2member::where('kumiren_id',$latest_kumiren_id)->where('role','root')->first()->member_id;
+      $HId    = Kumiren2member::where('kumiren_id',$latest_kumiren_id)->where('role','H')->first()->member_id;
+      $FId    = Kumiren2member::where('kumiren_id',$latest_kumiren_id)->where('role','F')->first()->member_id;
+      $SId    = Kumiren2member::where('kumiren_id',$latest_kumiren_id)->where('role','S')->first()->member_id;
+
+      $root = Member::where('id',$rootId)->first();
+      $H    = Member::where('id',$HId)->first();
+      $F    = Member::where('id',$FId)->first();
+      $S    = Member::where('id',$SId)->first();
+      $sex = [
+          "male" => "男性",
+          "female" => "女性",
+      ];
+
 
       return view('kumiren_result')->with([
           "members" => $members,
           "kumiren2members" => $kumiren2members,
+          "root" => $root,
+          "H" => $H,
+          "F" => $F,
+          "S" => $S,
+          "sex" => $sex,
           "feeds" => $feeds,
           "fiscal_year" => $fiscal_year,
       ]);
