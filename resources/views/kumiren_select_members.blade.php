@@ -23,6 +23,93 @@
                         "male" => "男性",
                         "female" => "女性",
                     ]?>
+                    <div class="cp_menu">
+
+                        <label  for="cp_menu_bar1">6回生</label>
+                        <input type="checkbox" name="checkbox" id="cp_menu_bar1" class="accordion" />
+                        <ul id="link1">
+                            @foreach($members as $member)
+                                @if($fiscal_year - $member->enrollment_year + 1 == 6)
+                                    <li>
+                                        <input type="checkbox" name="selectedMember[]" value="<?php echo $member->id;?>">
+                                        <?php echo ($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name;?>
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
+
+
+                        <label for="cp_menu_bar2">5回生</label>
+                        <input type="checkbox" name="checkbox" id="cp_menu_bar2" class="accordion" />
+                        <ul id="link2">
+                            @foreach($members as $member)
+                                @if($fiscal_year - $member->enrollment_year + 1 == 5)
+                                    <li>
+                                        <input type="checkbox" name="selectedMember[]" value="<?php echo $member->id;?>">
+                                        <?php echo ($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name;?>
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
+
+
+                        <label for="cp_menu_bar3">4回生</label>
+                        <input type="checkbox" name="checkbox" id="cp_menu_bar3" class="accordion" />
+                        <ul id="link3">
+                            @foreach($members as $member)
+                                @if($fiscal_year - $member->enrollment_year + 1 == 4)
+                                    <li>
+                                        <input type="checkbox" name="selectedMember[]" value="<?php echo $member->id;?>">
+                                        <?php echo ($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name;?>
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
+
+
+                        <label for="cp_menu_bar4">3回生</label>
+                        <input type="checkbox" name="checkbox" id="cp_menu_bar4" class="accordion" />
+                        <ul id="link4">
+                            @foreach($members as $member)
+                                @if($fiscal_year - $member->enrollment_year + 1 == 3)
+                                    <li>
+                                        <input type="checkbox" name="selectedMember[]" value="<?php echo $member->id;?>">
+                                        <?php echo ($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name;?>
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
+
+
+                        <label for="cp_menu_bar5">2回生</label>
+                        <input type="checkbox" name="checkbox" id="cp_menu_bar5" class="accordion" />
+                        <ul id="link5">
+                            @foreach($members as $member)
+                                @if($fiscal_year - $member->enrollment_year + 1 == 2)
+                                    <li>
+                                        <input type="checkbox" name="selectedMember[]" value="<?php echo $member->id;?>">
+                                        <?php echo ($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name;?>
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
+
+
+                        <label for="cp_menu_bar6">1回生</label>
+                        <input type="checkbox" name="checkbox" id="cp_menu_bar6" class="accordion" />
+                        <ul id="link6">
+                            @foreach($members as $member)
+                                @if($fiscal_year - $member->enrollment_year + 1 == 1)
+                                    <li>
+                                        <input type="checkbox" name="selectedMember[]" value="<?php echo $member->id;?>">
+                                        <?php echo ($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name;?>
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
+
+
+                    </div>
 
                     <div class="memberlist">
                         <form method="post" action="{{url('/kumiren/select_members/select_staffs')}}">
@@ -62,6 +149,8 @@
 
                         </form>
                     </div>
+
+
 
                 </div>
 
