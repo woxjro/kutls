@@ -75,7 +75,7 @@ class MemberController extends Controller
 
 
         $kumiren_members = Member::all()->whereIn('id',$membersId);
-        $now_year = date("Y");
+        $now_year  = date("Y");
         $now_month = date("n");
         $fiscal_year = $now_year;
         if ($now_month<4) {
@@ -404,6 +404,24 @@ class MemberController extends Controller
         $kumiren2member4B->save();
         $kumiren2member4F->save();
 
+    }
+
+    public function getKumirenMemberInfo($kumiren2member_id){
+        $kumiren2member = Kumiren2member::where('id',$kumiren2member_id)->get();
+        $member = Member::where('id',$kumiren2member->member_id);
+        $kumirenmemberinfo = collect([
+            'id'              => $member->id,
+            'enrollment_year' => $member->enrollment_year,
+            'sex'             => $member->sex,
+            'last_name'       => $member->last_name,
+            'first_name'      => $member->first_name,
+            'level'           => $member->level,
+            'role'            => $kumiren2member->role,
+            'feed1stteam'     => $kumiren2member->feed1stteam,
+            'feed2ndteam'     => $kumiren2member->feed2ndteam,
+            'team'            => $kumiren2member->team,
+        ]);
+        return $kumirenmemberinfo;
     }
     //リザルト画面用の関数
     public function result(Request $request)
