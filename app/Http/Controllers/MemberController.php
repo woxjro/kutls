@@ -405,7 +405,7 @@ class MemberController extends Controller
         $kumiren2member4F->save();
 
     }
-
+    //役割とかメンバーの名前とかを同時に持つ関数を追加
     public function getKumirenMemberInfo($kumiren2member_id){
         $kumiren2member = Kumiren2member::where('id',$kumiren2member_id)->get();
         $member = Member::where('id',$kumiren2member->member_id);
@@ -422,6 +422,16 @@ class MemberController extends Controller
             'team'            => $kumiren2member->team,
         ]);
         return $kumirenmemberinfo;
+    }
+    //上のやつを親紙分のメンバーを返す。
+    public function getKumirenMembersInfo($kumiren_id){
+        $kumiren2members = Kumiren2member::where('kumiren_id',$latest_kumiren_id)->get();
+        $kumirenmembersinfo = collect([]);
+        foreach ($kumiren2members as $kumiren2member) {
+            $kumirememberinfo = $this->getKumirenMemberInfo($kumiren2member_id);
+            $kumirenmembersinfo->push($kumirenmemberifo);
+        }
+        return $kumirenmembersinfo;
     }
     //リザルト画面用の関数
     public function result(Request $request)
