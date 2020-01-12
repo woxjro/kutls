@@ -407,8 +407,8 @@ class MemberController extends Controller
     }
     //役割とかメンバーの名前とかを同時に持つ関数を追加
     public function getKumirenMemberInfo($kumiren2member_id){
-        $kumiren2member = Kumiren2member::where('id',$kumiren2member_id)->get();
-        $member = Member::where('id',$kumiren2member->member_id);
+        $kumiren2member = Kumiren2member::where('id',$kumiren2member_id)->first();
+        $member = Member::where('id',$kumiren2member->member_id)->first();
         $kumirenmemberinfo = collect([
             'id'              => $member->id,
             'enrollment_year' => $member->enrollment_year,
@@ -425,11 +425,11 @@ class MemberController extends Controller
     }
     //上のやつを親紙分のメンバーを返す。
     public function getKumirenMembersInfo($kumiren_id){
-        $kumiren2members = Kumiren2member::where('kumiren_id',$latest_kumiren_id)->get();
+        $kumiren2members = Kumiren2member::where('kumiren_id',$kumiren_id)->get();
         $kumirenmembersinfo = collect([]);
         foreach ($kumiren2members as $kumiren2member) {
-            $kumirememberinfo = $this->getKumirenMemberInfo($kumiren2member_id);
-            $kumirenmembersinfo->push($kumirenmemberifo);
+            $kumirenmemberinfo = $this->getKumirenMemberInfo($kumiren2member->id);
+            $kumirenmembersinfo->push($kumirenmemberinfo);
         }
         return $kumirenmembersinfo;
     }
@@ -472,10 +472,14 @@ class MemberController extends Controller
           "female" => "女性",
       ];
 
+      $kumirenmembersinfo = $this->getKumirenMembersInfo($latest_kumiren_id);
+
+
 
       return view('kumiren_result')->with([
           "members" => $members,
           "kumiren2members" => $kumiren2members,
+          "kumirenmembersinfo" => $kumirenmembersinfo,
           "root" => $root,
           "H" => $H,
           "F" => $F,
