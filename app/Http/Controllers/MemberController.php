@@ -384,27 +384,6 @@ class MemberController extends Controller
     }
 
 
-    //球出しと役職をセットした後に、各チームを二人ずつにするためにBとFチームにメンバーを割り振る関数。
-    public function setTwoMembers4BF($kumiren_id){
-        $members = $this->getMembersGroupBySex($kumiren_id);
-        $maleMember = $members['male']->sortByDesc('level');
-        $maleMemberSize = $maleMember->count();
-        $startPoint = $maleMemberSize/2 - 1;
-
-        $maleMember4BF = $maleMember->splice($startPoint,2);
-        $member_id_4B = $maleMember4BF->pop()->id;
-        $member_id_4F = $maleMember4BF->pop()->id;
-
-        $kumiren2member4B = Kumiren2member::where('kumiren_id',$kumiren_id)->where('member_id',$member_id_4B)->first();
-        $kumiren2member4F = Kumiren2member::where('kumiren_id',$kumiren_id)->where('member_id',$member_id_4F)->first();
-
-        $kumiren2member4B->team = 'B';
-        $kumiren2member4F->team = 'F';
-
-        $kumiren2member4B->save();
-        $kumiren2member4F->save();
-
-    }
     //役割とかメンバーの名前とかを同時に持つ関数を追加
     public function getKumirenMemberInfo($kumiren2member_id){
         $kumiren2member = Kumiren2member::where('id',$kumiren2member_id)->first();
@@ -439,8 +418,6 @@ class MemberController extends Controller
       $this->setstaff($request);
       $this->setfeed($request);
 
-
-
       $allrequest = $request->all();
       $latest_kumiren = DB::table('kumirens')->latest()->first();
       $latest_kumiren_id = $latest_kumiren->id;
@@ -448,7 +425,6 @@ class MemberController extends Controller
       $kumiren2members = Kumiren2member::where('kumiren_id',$latest_kumiren_id)->get();
 
       $feeds = $this->getfeed();
-      $this->setTwoMembers4BF($latest_kumiren_id);
       $this->setmember();
 
       $now_year = date("Y");
