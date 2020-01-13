@@ -258,11 +258,15 @@ class MemberController extends Controller
         return $groupedmembers;
     }
 
+
+
     public function getMemberNum($kumiren_id,$team){
         $kumiren2members = Kumiren2member::where('kumiren_id',$kumiren_id)->where('team',$team)->get();
         $membernum = $kumiren2members->count();
         return $membernum;
     }
+
+
 
     public function getMaleNum($kumiren_id,$team){
         $kumiren2members = Kumiren2member::where('kumiren_id',$kumiren_id)->where('team',$team)->get();
@@ -274,6 +278,10 @@ class MemberController extends Controller
         return $malenum;
     }
 
+
+
+
+
     public function getFemaleNum($kumiren_id,$team){
         $kumiren2members = Kumiren2member::where('kumiren_id',$kumiren_id)->where('team',$team)->get();
         $femalenum = 0;
@@ -283,6 +291,10 @@ class MemberController extends Controller
         }
         return $femalenum;
     }
+
+
+
+
 
     public function setmember(){
         $latest_kumiren = DB::table('kumirens')->latest()->first();
@@ -306,11 +318,6 @@ class MemberController extends Controller
                 $kumiren2members_female_noteam->push($kumiren2member_noteam);
             }
         }
-
-
-
-
-
 
 
 
@@ -341,10 +348,6 @@ class MemberController extends Controller
         }
 
 
-
-
-
-
         $male_num_teams = collect([
             ["team" => "A", "member_num" => $this->getMemberNum($latest_kumiren_id,"A")],
             ["team" => "B", "member_num" => $this->getMemberNum($latest_kumiren_id,"B")],
@@ -370,16 +373,6 @@ class MemberController extends Controller
                 ["team" => "F", "member_num" => $this->getMemberNum($latest_kumiren_id,"F")],
             ]);
         }
-
-
-
-
-
-
-
-
-
-
 
     }
 
@@ -412,6 +405,23 @@ class MemberController extends Controller
         }
         return $kumirenmembersinfo;
     }
+
+    public function culcTeamLevel($kumirenmembersinfo){
+      $TeamsLevel = collect([
+        "A" => 0,
+        "B" => 0,
+        "C" => 0,
+        "D" => 0,
+        "E" => 0,
+        "F" => 0,
+      ]);
+      foreach ($kumirenmembersinfo as $kumirenmemberinfo) {
+        $TeamsLevel[$kumirenmemberinfo["team"]] += $kumirenmemberinfo["level"];
+      }
+      return $TeamsLevel;
+    }
+
+
     //リザルト画面用の関数
     public function result(Request $request)
     {
@@ -449,18 +459,19 @@ class MemberController extends Controller
       ];
 
       $kumirenmembersinfo = $this->getKumirenMembersInfo($latest_kumiren_id);
-
+      $teamslevel =$this->culcTeamLevel($kumirenmembersinfo);
 
 
       return view('kumiren_result')->with([
-          "members" => $members,
-          "kumiren2members" => $kumiren2members,
-          "kumirenmembersinfo" => $kumirenmembersinfo,
-          "root" => $root,
-          "H" => $H,
-          "F" => $F,
-          "S" => $S,
-          "sex" => $sex,
+          "members"             => $members,
+          "kumiren2members"     => $kumiren2members,
+          "kumirenmembersinfo"  => $kumirenmembersinfo,
+          "teamslevel"          => $teamslevel,
+          "root"  => $root,
+          "H"     => $H,
+          "F"     => $F,
+          "S"     => $S,
+          "sex"   => $sex,
           "feeds" => $feeds,
           "fiscal_year" => $fiscal_year,
       ]);
