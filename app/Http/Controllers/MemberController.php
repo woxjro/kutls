@@ -438,7 +438,7 @@ class MemberController extends Controller
     {
       $this->setstaff($request);
       $this->setfeed($request);
-      $this->setmember();
+
 
 
       $allrequest = $request->all();
@@ -449,7 +449,7 @@ class MemberController extends Controller
 
       $feeds = $this->getfeed();
       $this->setTwoMembers4BF($latest_kumiren_id);
-
+      $this->setmember();
 
       $now_year = date("Y");
       $now_month = date("n");
