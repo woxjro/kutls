@@ -173,3 +173,6 @@
 	pointer-events: none;
 	opacity: 0.5;
 }
+.show {
+    border : solid 1px;
+}

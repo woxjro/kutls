@@ -22,14 +22,14 @@
                     </div>
                     <div>
 
-                        <div>
+                        <div class="show staffs">
                             <p>・根：<?php echo ($fiscal_year - $root->enrollment_year + 1)."回生：".$sex[$root->sex]."：".$root->last_name;?></p>
                             <p>・H：<?php echo ($fiscal_year - $H->enrollment_year + 1)."回生：".$sex[$H->sex]."：".$H->last_name;?></p>
                             <p>・S：<?php echo ($fiscal_year - $S->enrollment_year + 1)."回生：".$sex[$S->sex]."：".$S->last_name;?></p>
                             <p>・F：<?php echo ($fiscal_year - $F->enrollment_year + 1)."回生：".$sex[$F->sex]."：".$F->last_name;?></p>
                         </div>
-
-                        <div>
+                        <br />
+                        <div class="show feeds">
                             <p>・球出し：<?php echo ($fiscal_year - $feeds[0]->enrollment_year + 1)."回生：".$sex[$feeds[0]->sex]."：".$feeds[0]->last_name;?></p>
                             <p>・球出し：<?php echo ($fiscal_year - $feeds[1]->enrollment_year + 1)."回生：".$sex[$feeds[1]->sex]."：".$feeds[1]->last_name;?></p>
                             <p>・球出し：<?php echo ($fiscal_year - $feeds[2]->enrollment_year + 1)."回生：".$sex[$feeds[2]->sex]."：".$feeds[2]->last_name;?></p>
@@ -37,8 +37,8 @@
                             <p>・球出し：<?php echo ($fiscal_year - $feeds[4]->enrollment_year + 1)."回生：".$sex[$feeds[4]->sex]."：".$feeds[4]->last_name;?></p>
                             <p>・球出し：<?php echo ($fiscal_year - $feeds[5]->enrollment_year + 1)."回生：".$sex[$feeds[5]->sex]."：".$feeds[5]->last_name;?></p>
                         </div>
-
-                        <div>
+                        <br />
+                        <div class="show teamlevel">
                             <p><?php echo "・TeamA：Level".$teamslevel["A"] ?></p>
                             <p><?php echo "・TeamB：Level".$teamslevel["B"] ?></p>
                             <p><?php echo "・TeamC：Level".$teamslevel["C"] ?></p>
@@ -46,8 +46,8 @@
                             <p><?php echo "・TeamE：Level".$teamslevel["E"] ?></p>
                             <p><?php echo "・TeamF：Level".$teamslevel["F"] ?></p>
                         </div>
-
-                        <div>
+                        <br />
+                        <div class="show">
                             @foreach($kumirenmembersinfo as $kumirenmemberinfo)
                                 @if($kumirenmemberinfo["team"]=="A")
                                     <p><?php echo "・".$kumirenmemberinfo["team"]."：".$kumirenmemberinfo["role"]."：".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
