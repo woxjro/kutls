@@ -28,43 +28,66 @@
                                 "female" => "女性",
                             ]?>
 
+                            <div class="cp_ipselect">
 
-                            <div class="role-part">
-                                ・根：
-                                <select name="root" size="1">
+                                <select name="root" size="1" class="cp_sl06" required>
+                                    <option value="" hidden disabled selected></option>
                                     @foreach($kumiren_members as $member)
                                         <?php echo '<option value="'.$member->id.'">'.($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name.'</option>'; ?>
                                     @endforeach
                                 </select>
+
+                                <span class="cp_sl06_highlight"></span>
+                                <span class="cp_sl06_selectbar"></span>
+                                <label class="cp_sl06_selectlabel">根</label>
+
                             </div>
-                            <p></p>
-                            <div class="role-part">
-                                ・H：
-                                <select name="H" size="1">
+
+                            <div class="cp_ipselect">
+
+                                <select name="H" size="1" class="cp_sl06" required>
+                                    <option value="" hidden disabled selected></option>
                                     @foreach($kumiren_members as $member)
                                         <?php echo '<option value="'.$member->id.'">'.($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name.'</option>'; ?>
                                     @endforeach
                                 </select>
+
+                                <span class="cp_sl06_highlight"></span>
+                                <span class="cp_sl06_selectbar"></span>
+                                <label class="cp_sl06_selectlabel">H</label>
+
                             </div>
-                            <p></p>
-                            <div class="role-part">
-                                ・S：
-                                <select name="S" size="1">
+
+                            <div class="cp_ipselect">
+
+                                <select name="F" size="1" class="cp_sl06" required>
+                                    <option value="" hidden disabled selected></option>
                                     @foreach($kumiren_members as $member)
                                         <?php echo '<option value="'.$member->id.'">'.($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name.'</option>'; ?>
                                     @endforeach
                                 </select>
+
+                                <span class="cp_sl06_highlight"></span>
+                                <span class="cp_sl06_selectbar"></span>
+                                <label class="cp_sl06_selectlabel">F</label>
+
                             </div>
-                            <p></p>
-                            <div class="role-part">
-                                ・F：
-                                <select name="F" size="1">
+
+                            <div class="cp_ipselect">
+
+                                <select name="S" size="1" class="cp_sl06" required>
+                                    <option value="" hidden disabled selected></option>
                                     @foreach($kumiren_members as $member)
                                         <?php echo '<option value="'.$member->id.'">'.($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name.'</option>'; ?>
                                     @endforeach
                                 </select>
+
+                                <span class="cp_sl06_highlight"></span>
+                                <span class="cp_sl06_selectbar"></span>
+                                <label class="cp_sl06_selectlabel">S</label>
+
                             </div>
-                            <p></p>
+
 
 
 
@@ -81,6 +104,12 @@
 
 
                         </form>
+
+
+
+
+
+
                     </div>
                 </div>
             </div>
