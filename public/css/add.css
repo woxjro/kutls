@@ -10,6 +10,9 @@
     left: 50%;
 
 }
+.btn{
+    border:solid 1px;
+}
 .card-body{
     font-size: 11.5px;
 }
