@@ -10,6 +10,11 @@
     left: 50%;
 
 }
+.show .members{
+    position:relative;
+    width:50%;
+    float: left;
+}
 
 
 .cp_menu {
