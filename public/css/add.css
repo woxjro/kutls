@@ -37,7 +37,7 @@
     }
  }
 
- @media screen and (max-width:1199px) {
+ @media screen and (max-width:1200px) {
      .show .members{
          height: 300px;
          margin: 1px;
@@ -79,7 +79,7 @@
 	cursor: pointer;
     border-radius:5px;
 }
-.cp_menu .grade-male-label::after {
+.cp_menu input[type=checkbox] + .grade-male-label::after {
 	position: absolute;
 	content: '▼';
 	color: #ffffff;
@@ -87,6 +87,15 @@
 	top: 25%;
 
 }
+.cp_menu input[type=checkbox]:checked + .grade-male-label::after {
+	position: absolute;
+	transform: rotate(180deg);
+	color: #ffffff;
+	right: 0.5em;
+	top: 25%;
+
+}
+
 .cp_menu .grade-female-label {
 	display: block;
 	position: relative;
@@ -98,9 +107,16 @@
 	cursor: pointer;
     border-radius:5px;
 }
-.cp_menu .grade-female-label::after {
+.cp_menu input[type=checkbox] + .grade-female-label::after {
 	position: absolute;
 	content: '▼';
+	color: #ffffff;
+	right: 0.5em;
+	top: 25%;
+}
+.cp_menu input[type=checkbox]:checked + .grade-female-label::after {
+	position: absolute;
+	transform: rotate(180deg);
 	color: #ffffff;
 	right: 0.5em;
 	top: 25%;
