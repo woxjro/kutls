@@ -53,7 +53,7 @@
      }
   }
 
-
+/*アコーディオンの部分：始まり*/
 
 .cp_menu {
 	max-width: 360px;
@@ -68,7 +68,7 @@
 	color: #000000;
 	line-height: 1;
 }
-.cp_menu .grade-label {
+.cp_menu .grade-male-label {
 	display: block;
 	position: relative;
 	margin: 0 0 2px 0;
@@ -79,7 +79,26 @@
 	cursor: pointer;
     border-radius:5px;
 }
-.cp_menu .grade-label::after {
+.cp_menu .grade-male-label::after {
+	position: absolute;
+	content: '▼';
+	color: #ffffff;
+	right: 0.5em;
+	top: 25%;
+
+}
+.cp_menu .grade-female-label {
+	display: block;
+	position: relative;
+	margin: 0 0 2px 0;
+	padding: 12px;
+	line-height: 1;
+	color: #ffffff;
+	background: #c2185b;
+	cursor: pointer;
+    border-radius:5px;
+}
+.cp_menu .grade-female-label::after {
 	position: absolute;
 	content: '▼';
 	color: #ffffff;
@@ -129,6 +148,36 @@
 	max-height: 46px;
 	opacity: 1;
 }
+#cp_menu_bar7:checked ~ #link7 li {
+	max-height: 46px;
+	opacity: 1;
+}
+#cp_menu_bar8:checked ~ #link8 li {
+	max-height: 46px;
+	opacity: 1;
+}
+#cp_menu_bar9:checked ~ #link9 li {
+	max-height: 46px;
+	opacity: 1;
+}
+#cp_menu_bar10:checked ~ #link10 li {
+	max-height: 46px;
+	opacity: 1;
+}
+#cp_menu_bar11:checked ~ #link11 li {
+	max-height: 46px;
+	opacity: 1;
+}
+#cp_menu_bar12:checked ~ #link12 li {
+	max-height: 46px;
+	opacity: 1;
+}
+
+.select-members-part{
+    margin-bottom: 20px;
+}
+/*アコーディオンの部分：終わり*/
+/*役職選択のところ：始まり*/
 .cp_ipselect {
 	position: relative;
 	width: 70%;
@@ -216,3 +265,4 @@
 	pointer-events: none;
 	opacity: 0.5;
 }
+/*役職選択のところ：終わり*/
