@@ -16,24 +16,44 @@
 .card-body{
     font-size: 11.5px;
 }
-.show .members{
-    position:relative;
-    width:49%;
-    float: left;
-    height: 300px;
-    margin: 1px;
-    border : solid 1px;
-}
-.information .show{
-    position: relative;
-    width: 33%;
-    float: left;
-    height: 270px;
-    border : solid 1px;
-    margin-left: 1px;
-    margin-right: 1px;
-    margin-bottom: 20px;
-}
+@media screen and (min-width:1200px) {
+    .show .members{
+        position:relative;
+        width:49%;
+        float: left;
+        height: 300px;
+        margin: 1px;
+        border : solid 1px;
+    }
+    .information .show{
+        position: relative;
+        width: 33%;
+        float: left;
+        height: 270px;
+        border : solid 1px;
+        margin-left: 1px;
+        margin-right: 1px;
+        margin-bottom: 20px;
+    }
+ }
+
+ @media screen and (max-width:1199px) {
+     .show .members{
+         height: 300px;
+         margin: 1px;
+         margin-bottom: 20px;
+         border : solid 1px;
+     }
+     .information .show{
+         height: 270px;
+         border : solid 1px;
+         margin-left: 1px;
+         margin-right: 1px;
+         margin-bottom: 20px;
+     }
+  }
+
+
 
 .cp_menu {
 	max-width: 360px;
