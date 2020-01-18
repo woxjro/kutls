@@ -21,7 +21,7 @@
         position:relative;
         width:49%;
         float: left;
-        height: 300px;
+        height: 400px;
         margin: 1px;
         border : solid 1px;
     }
@@ -37,9 +37,9 @@
     }
  }
 
- @media screen and (max-width:1200px) {
+@media screen and (max-width:1200px) {
      .show .members{
-         height: 300px;
+         height: 400px;
          margin: 1px;
          margin-bottom: 20px;
          border : solid 1px;
@@ -51,7 +51,25 @@
          margin-right: 1px;
          margin-bottom: 20px;
      }
-  }
+}
+
+.show-feeds {
+    width:90%;
+    margin-left: 5%;
+    border : solid 1px;
+    border-width: 0px 0px 1px 0px;
+    margin-bottom: 10px;
+}
+.show-members {
+    width:90%;
+    margin-left: 5%;
+}
+.team-label{
+    width:90%;
+    margin-left: 5%;
+    margin-top: 10px;
+}
+
 
 /*アコーディオンの部分：始まり*/
 

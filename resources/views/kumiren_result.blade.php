@@ -48,53 +48,115 @@
 
                         <div class="show teams">
                             <div class="show members">
-                                <p>A</p>
-                                @foreach($kumirenmembersinfo as $kumirenmemberinfo)
-                                    @if($kumirenmemberinfo["team"]=="A")
-                                        <p><?php echo "・".$kumirenmemberinfo["role"]."：".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
-                                    @endif
-                                @endforeach
+                                <div class="team-label"><p>A</p></div>
+                                <div class="show-feeds">
+                                    @foreach($kumirenmembersinfo as $kumirenmemberinfo)
+                                        @if($kumirenmemberinfo["feed1stteam"]=="A" || $kumirenmemberinfo["feed2ndteam"]=="A")
+                                            <p><?php echo "・".$kumirenmemberinfo["role"]."：".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
+                                        @endif
+                                    @endforeach
+                                </div>
+
+                                <div class="show-members">
+                                    @foreach($kumirenmembersinfo as $kumirenmemberinfo)
+                                        @if($kumirenmemberinfo["team"]=="A")
+                                            <p><?php echo "・".$kumirenmemberinfo["role"]."：".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
+                                        @endif
+                                    @endforeach
+                                </div>
                             </div>
 
                             <div class="show members">
-                                <p>B</p>
-                                @foreach($kumirenmembersinfo as $kumirenmemberinfo)
-                                    @if($kumirenmemberinfo["team"]=="B")
-                                        <p><?php echo "・".$kumirenmemberinfo["role"]."：".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
-                                    @endif
-                                @endforeach
+                                <div class="team-label"><p>B</p></div>
+                                <div class="show-feeds">
+                                    @foreach($kumirenmembersinfo as $kumirenmemberinfo)
+                                        @if($kumirenmemberinfo["feed1stteam"]=="B" || $kumirenmemberinfo["feed2ndteam"]=="B")
+                                            <p><?php echo "・".$kumirenmemberinfo["role"]."：".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
+                                        @endif
+                                    @endforeach
+                                </div>
+
+                                <div class="show-members">
+                                    @foreach($kumirenmembersinfo as $kumirenmemberinfo)
+                                        @if($kumirenmemberinfo["team"]=="B")
+                                            <p><?php echo "・".$kumirenmemberinfo["role"]."：".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
+                                        @endif
+                                    @endforeach
+                                </div>
                             </div>
                             <div class="show members">
-                                <p>C</p>
-                                @foreach($kumirenmembersinfo as $kumirenmemberinfo)
-                                    @if($kumirenmemberinfo["team"]=="C")
-                                        <p><?php echo "・".$kumirenmemberinfo["role"]."：".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
-                                    @endif
-                                @endforeach
+                                <div class="team-label"><p>C</p></div>
+                                <div class="show-feeds">
+                                    @foreach($kumirenmembersinfo as $kumirenmemberinfo)
+                                        @if($kumirenmemberinfo["feed1stteam"]=="C" || $kumirenmemberinfo["feed2ndteam"]=="C")
+                                            <p><?php echo "・".$kumirenmemberinfo["role"]."：".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
+                                        @endif
+                                    @endforeach
+                                </div>
+
+                                <div class="show-members">
+                                    @foreach($kumirenmembersinfo as $kumirenmemberinfo)
+                                        @if($kumirenmemberinfo["team"]=="C")
+                                            <p><?php echo "・".$kumirenmemberinfo["role"]."：".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
+                                        @endif
+                                    @endforeach
+                                </div>
                             </div>
                             <div class="show members">
-                                <p>D</p>
-                                @foreach($kumirenmembersinfo as $kumirenmemberinfo)
-                                    @if($kumirenmemberinfo["team"]=="D")
-                                        <p><?php echo "・".$kumirenmemberinfo["role"]."：".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
-                                    @endif
-                                @endforeach
+                                <div class="team-label"><p>D</p></div>
+                                <div class="show-feeds">
+                                    @foreach($kumirenmembersinfo as $kumirenmemberinfo)
+                                        @if($kumirenmemberinfo["feed1stteam"]=="D" || $kumirenmemberinfo["feed2ndteam"]=="D")
+                                            <p><?php echo "・".$kumirenmemberinfo["role"]."：".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
+                                        @endif
+                                    @endforeach
+                                </div>
+
+                                <div class="show-members">
+                                    @foreach($kumirenmembersinfo as $kumirenmemberinfo)
+                                        @if($kumirenmemberinfo["team"]=="D")
+                                            <p><?php echo "・".$kumirenmemberinfo["role"]."：".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
+                                        @endif
+                                    @endforeach
+                                </div>
                             </div>
                             <div class="show members">
-                                <p>E</p>
-                                @foreach($kumirenmembersinfo as $kumirenmemberinfo)
-                                    @if($kumirenmemberinfo["team"]=="E")
-                                        <p><?php echo "・".$kumirenmemberinfo["role"]."：".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
-                                    @endif
-                                @endforeach
+                                <div class="team-label"><p>E</p></div>
+                                <div class="show-feeds">
+                                    @foreach($kumirenmembersinfo as $kumirenmemberinfo)
+                                        @if($kumirenmemberinfo["feed1stteam"]=="E" || $kumirenmemberinfo["feed2ndteam"]=="E")
+                                            <p><?php echo "・".$kumirenmemberinfo["role"]."：".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
+                                        @endif
+                                    @endforeach
+                                </div>
+
+                                <div class="show-members">
+                                    @foreach($kumirenmembersinfo as $kumirenmemberinfo)
+                                        @if($kumirenmemberinfo["team"]=="E")
+                                            <p><?php echo "・".$kumirenmemberinfo["role"]."：".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
+                                        @endif
+                                    @endforeach
+                                </div>
+
                             </div>
                             <div class="show members">
-                                <p>F</p>
-                                @foreach($kumirenmembersinfo as $kumirenmemberinfo)
-                                    @if($kumirenmemberinfo["team"]=="F")
-                                        <p><?php echo "・".$kumirenmemberinfo["role"]."：".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
-                                    @endif
-                                @endforeach
+                                <div class="team-label"><p>F</p></div>
+                                <div class="show-feeds">
+                                    @foreach($kumirenmembersinfo as $kumirenmemberinfo)
+                                        @if($kumirenmemberinfo["feed1stteam"]=="F" || $kumirenmemberinfo["feed2ndteam"]=="F")
+                                            <p><?php echo "・".$kumirenmemberinfo["role"]."：".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
+                                        @endif
+                                    @endforeach
+                                </div>
+
+                                <div class="show-members">
+                                    @foreach($kumirenmembersinfo as $kumirenmemberinfo)
+                                        @if($kumirenmemberinfo["team"]=="F")
+                                            <p><?php echo "・".$kumirenmemberinfo["role"]."：".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
+                                        @endif
+                                    @endforeach
+                                </div>
+
                             </div>
                         </div>
 

@@ -422,9 +422,9 @@ class MemberController extends Controller
     }
 
 
+
     //リザルト画面用の関数
-    public function result(Request $request)
-    {
+    public function result(Request $request){
       $this->setstaff($request);
       $this->setfeed($request);
 
