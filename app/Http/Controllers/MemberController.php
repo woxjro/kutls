@@ -74,7 +74,7 @@ class MemberController extends Controller
         }
 
 
-        $kumiren_members = Member::all()->whereIn('id',$membersId);
+        $kumiren_members = Member::all()->whereIn('id',$membersId)->sortBy('enrollment_year');
         $now_year  = date("Y");
         $now_month = date("n");
         $fiscal_year = $now_year;
