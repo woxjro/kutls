@@ -20,14 +20,14 @@
 
                     <div class="information">
                             <div class="show info">
-                                <p>役職</p>
+                                <div class="info-label"><p>役職</p></div>
                                 <p>・根：<?php echo ($fiscal_year - $root->enrollment_year + 1)."回生：".$sex[$root->sex]."：".$root->last_name;?></p>
                                 <p>・H：<?php echo ($fiscal_year - $H->enrollment_year + 1)."回生：".$sex[$H->sex]."：".$H->last_name;?></p>
                                 <p>・S：<?php echo ($fiscal_year - $S->enrollment_year + 1)."回生：".$sex[$S->sex]."：".$S->last_name;?></p>
                                 <p>・F：<?php echo ($fiscal_year - $F->enrollment_year + 1)."回生：".$sex[$F->sex]."：".$F->last_name;?></p>
                             </div>
                             <div class="show info">
-                                <p>球出し</p>
+                                <div class="info-label"><p>球出し</p></div>
                                 <p>・<?php echo ($fiscal_year - $feeds[0]->enrollment_year + 1)."回生：".$sex[$feeds[0]->sex]."：".$feeds[0]->last_name;?></p>
                                 <p>・<?php echo ($fiscal_year - $feeds[1]->enrollment_year + 1)."回生：".$sex[$feeds[1]->sex]."：".$feeds[1]->last_name;?></p>
                                 <p>・<?php echo ($fiscal_year - $feeds[2]->enrollment_year + 1)."回生：".$sex[$feeds[2]->sex]."：".$feeds[2]->last_name;?></p>
@@ -36,7 +36,7 @@
                                 <p>・<?php echo ($fiscal_year - $feeds[5]->enrollment_year + 1)."回生：".$sex[$feeds[5]->sex]."：".$feeds[5]->last_name;?></p>
                             </div>
                             <div class="show info">
-                                <p>チーム別レベル</p>
+                                <div class="info-label"><p>チーム別レベル</p></div>
                                 <p><?php echo "・TeamA：Level".$teamslevel["A"] ?></p>
                                 <p><?php echo "・TeamB：Level".$teamslevel["B"] ?></p>
                                 <p><?php echo "・TeamC：Level".$teamslevel["C"] ?></p>
@@ -52,7 +52,7 @@
                                 <div class="show-feeds">
                                     @foreach($kumirenmembersinfo as $kumirenmemberinfo)
                                         @if($kumirenmemberinfo["feed1stteam"]=="A" || $kumirenmemberinfo["feed2ndteam"]=="A")
-                                            <p><?php echo "・".$kumirenmemberinfo["role"]."：".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
+                                            <p><?php echo "・".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
                                         @endif
                                     @endforeach
                                 </div>
@@ -60,7 +60,11 @@
                                 <div class="show-members">
                                     @foreach($kumirenmembersinfo as $kumirenmemberinfo)
                                         @if($kumirenmemberinfo["team"]=="A")
-                                            <p><?php echo "・".$kumirenmemberinfo["role"]."：".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
+                                            @if($kumirenmemberinfo["role"]!="NONE" && $kumirenmemberinfo["role"]!="feed")
+                                                <p><?php echo "・".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"]." ⬅ ".$kumirenmemberinfo["role"];?></p>
+                                            @else
+                                                <p><?php echo "・".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
+                                            @endif
                                         @endif
                                     @endforeach
                                 </div>
@@ -71,7 +75,7 @@
                                 <div class="show-feeds">
                                     @foreach($kumirenmembersinfo as $kumirenmemberinfo)
                                         @if($kumirenmemberinfo["feed1stteam"]=="B" || $kumirenmemberinfo["feed2ndteam"]=="B")
-                                            <p><?php echo "・".$kumirenmemberinfo["role"]."：".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
+                                            <p><?php echo "・".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
                                         @endif
                                     @endforeach
                                 </div>
@@ -79,7 +83,11 @@
                                 <div class="show-members">
                                     @foreach($kumirenmembersinfo as $kumirenmemberinfo)
                                         @if($kumirenmemberinfo["team"]=="B")
-                                            <p><?php echo "・".$kumirenmemberinfo["role"]."：".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
+                                            @if($kumirenmemberinfo["role"]!="NONE" && $kumirenmemberinfo["role"]!="feed")
+                                                <p><?php echo "・".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"]." ⬅ ".$kumirenmemberinfo["role"];?></p>
+                                            @else
+                                                <p><?php echo "・".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
+                                            @endif
                                         @endif
                                     @endforeach
                                 </div>
@@ -89,7 +97,7 @@
                                 <div class="show-feeds">
                                     @foreach($kumirenmembersinfo as $kumirenmemberinfo)
                                         @if($kumirenmemberinfo["feed1stteam"]=="C" || $kumirenmemberinfo["feed2ndteam"]=="C")
-                                            <p><?php echo "・".$kumirenmemberinfo["role"]."：".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
+                                            <p><?php echo "・".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
                                         @endif
                                     @endforeach
                                 </div>
@@ -97,7 +105,11 @@
                                 <div class="show-members">
                                     @foreach($kumirenmembersinfo as $kumirenmemberinfo)
                                         @if($kumirenmemberinfo["team"]=="C")
-                                            <p><?php echo "・".$kumirenmemberinfo["role"]."：".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
+                                            @if($kumirenmemberinfo["role"]!="NONE" && $kumirenmemberinfo["role"]!="feed")
+                                                <p><?php echo "・".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"]." ⬅ ".$kumirenmemberinfo["role"];?></p>
+                                            @else
+                                                <p><?php echo "・".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
+                                            @endif
                                         @endif
                                     @endforeach
                                 </div>
@@ -107,7 +119,7 @@
                                 <div class="show-feeds">
                                     @foreach($kumirenmembersinfo as $kumirenmemberinfo)
                                         @if($kumirenmemberinfo["feed1stteam"]=="D" || $kumirenmemberinfo["feed2ndteam"]=="D")
-                                            <p><?php echo "・".$kumirenmemberinfo["role"]."：".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
+                                            <p><?php echo "・".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
                                         @endif
                                     @endforeach
                                 </div>
@@ -115,7 +127,11 @@
                                 <div class="show-members">
                                     @foreach($kumirenmembersinfo as $kumirenmemberinfo)
                                         @if($kumirenmemberinfo["team"]=="D")
-                                            <p><?php echo "・".$kumirenmemberinfo["role"]."：".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
+                                            @if($kumirenmemberinfo["role"]!="NONE" && $kumirenmemberinfo["role"]!="feed")
+                                                <p><?php echo "・".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"]." ⬅ ".$kumirenmemberinfo["role"];?></p>
+                                            @else
+                                                <p><?php echo "・".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
+                                            @endif
                                         @endif
                                     @endforeach
                                 </div>
@@ -125,7 +141,7 @@
                                 <div class="show-feeds">
                                     @foreach($kumirenmembersinfo as $kumirenmemberinfo)
                                         @if($kumirenmemberinfo["feed1stteam"]=="E" || $kumirenmemberinfo["feed2ndteam"]=="E")
-                                            <p><?php echo "・".$kumirenmemberinfo["role"]."：".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
+                                            <p><?php echo "・".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
                                         @endif
                                     @endforeach
                                 </div>
@@ -133,7 +149,11 @@
                                 <div class="show-members">
                                     @foreach($kumirenmembersinfo as $kumirenmemberinfo)
                                         @if($kumirenmemberinfo["team"]=="E")
-                                            <p><?php echo "・".$kumirenmemberinfo["role"]."：".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
+                                            @if($kumirenmemberinfo["role"]!="NONE" && $kumirenmemberinfo["role"]!="feed")
+                                                <p><?php echo "・".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"]." ⬅ ".$kumirenmemberinfo["role"];?></p>
+                                            @else
+                                                <p><?php echo "・".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
+                                            @endif
                                         @endif
                                     @endforeach
                                 </div>
@@ -144,7 +164,7 @@
                                 <div class="show-feeds">
                                     @foreach($kumirenmembersinfo as $kumirenmemberinfo)
                                         @if($kumirenmemberinfo["feed1stteam"]=="F" || $kumirenmemberinfo["feed2ndteam"]=="F")
-                                            <p><?php echo "・".$kumirenmemberinfo["role"]."：".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
+                                            <p><?php echo "・".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
                                         @endif
                                     @endforeach
                                 </div>
@@ -152,7 +172,11 @@
                                 <div class="show-members">
                                     @foreach($kumirenmembersinfo as $kumirenmemberinfo)
                                         @if($kumirenmemberinfo["team"]=="F")
-                                            <p><?php echo "・".$kumirenmemberinfo["role"]."：".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
+                                            @if($kumirenmemberinfo["role"]!="NONE" && $kumirenmemberinfo["role"]!="feed")
+                                                <p><?php echo "・".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"]." ⬅ ".$kumirenmemberinfo["role"];?></p>
+                                            @else
+                                                <p><?php echo "・".($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生：".$sex[$kumirenmemberinfo["sex"]]."：".$kumirenmemberinfo["last_name"];?></p>
+                                            @endif
                                         @endif
                                     @endforeach
                                 </div>
