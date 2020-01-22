@@ -27,6 +27,9 @@
                     <div class="cp_menu">
                         <form method="post" action="{{url('/kumiren/select_members/select_staffs')}}">
                             @csrf
+
+
+
                             <div class="select-members-part">
                                 <input type="checkbox" name="checkbox" id="cp_menu_bar1" class="accordion" />
                                 <label  class="grade-male-label" for="cp_menu_bar1">6回生</label>
@@ -243,7 +246,11 @@
                                 </div>
                             </div>
 
+
                         </form>
+
+
+
                     </div>
 
 
