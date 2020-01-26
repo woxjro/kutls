@@ -38,3 +38,8 @@ Route::get('/kumiren/select_members/select_staffs/result',function(){
 
 
 Route::post('/kumiren/select_members/select_staffs/result','MemberController@result')->name('result');
+
+//jquery shapeshiftのテストページ
+Route::get('/test',function(){
+    return view('test');
+});
