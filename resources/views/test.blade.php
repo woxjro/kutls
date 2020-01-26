@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Basic Demo</title>
+  <title>KUTLS</title>
 
   <!-- jQuery / jQuery UI -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
@@ -19,6 +19,9 @@
     .container {
       border: 1px dashed #CCC;
       position: relative;
+    }
+    p {
+      text-align: center;
     }
 
     .container > div {
@@ -43,14 +46,14 @@
 </head>
 <body>
   <div class="container">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+    <div><p>a</p></div>
+    <div><p>b</p></div>
+    <div><p>c</p></div>
+    <div><p>d</p></div>
+    <div><p>e</p></div>
+    <div><p>f</p></div>
+    <div><p>g</p></div>
+    <div><p>h</p></div>
   </div>
 
   <div class="container">
