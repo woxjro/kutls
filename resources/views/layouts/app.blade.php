@@ -19,8 +19,17 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/add.css') }}" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+
+    <!-- jQuery / jQuery UI -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+    <!-- jQuery Touch Punch - Enable Touch Drag and Drop -->
+    <script src="{{ asset('js/jquery.shapeshift/core/vendor/jquery.touch-punch.min.js') }}"></script>
+
+    <!-- jQuery.Shapeshift -->
+    <script src="{{ asset('js/jquery.shapeshift/core/jquery.shapeshift.js') }}"></script>
 
 </head>
 <body>
