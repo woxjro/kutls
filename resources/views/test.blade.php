@@ -1,70 +1,52 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>KUTLS</title>
+@extends('layouts.test4shapeshift')
 
-  <!-- jQuery / jQuery UI -->
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+@section('content')
 
-  <!-- jQuery Touch Punch - Enable Touch Drag and Drop -->
-  <script src="{{ asset('js/jquery.shapeshift/core/vendor/jquery.touch-punch.min.js') }}"></script>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">shapeshiftのテスト</div>
 
-  <!-- jQuery.Shapeshift -->
-  <script src="{{ asset('js/jquery.shapeshift/core/jquery.shapeshift.js') }}"></script>
+                <div class="card-body">
 
-  <!-- CSS -->
-  <style>
-    .container {
-      border: 1px dashed #CCC;
-      position: relative;
-    }
-    p {
-      text-align: center;
-    }
+                    <div class="card-body">
+                        @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('status') }}
+                            </div>
+                        @endif
 
-    .container > div {
-      background: #AAA;
-      position: absolute;
-      height: 100px;
-      width: 100px;
-    }
 
-    .container > .ss-placeholder-child {
-      background: transparent;
-      border: 1px dashed blue;
-    }
-  </style>
+                        <div class="form-group">
+                            shapeshiftのテスト
+                        </div>
+                        <!-- Javascript -->
+                          <script>
+                              function shapeshifttest() {
+                                $(".container-shapeshift").shapeshift();
+                              }
+                              function al(){
+                                alert("asdf");
+                              };
+                              $(document).ready(shapeshifttest());
+                              al();
 
-  <!-- Javascript -->
-  <script>
-    $(document).ready(function() {
-      $(".container").shapeshift();
-    })
-  </script>
-</head>
-<body>
-  <div class="container">
-    <div><p>a</p></div>
-    <div><p>b</p></div>
-    <div><p>c</p></div>
-    <div><p>d</p></div>
-    <div><p>e</p></div>
-    <div><p>f</p></div>
-    <div><p>g</p></div>
-    <div><p>h</p></div>
-  </div>
+                          </script>
 
-  <div class="container">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-</body>
-</html>
+
+                        <div>
+                            <div class="container-shapeshift">
+                              <div><p>a</p></div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
