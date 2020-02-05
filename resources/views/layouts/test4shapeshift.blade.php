@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'KUTLS') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -36,18 +36,25 @@
 
     <!-- CSS -->
     <style>
-      .container-shapeshift {
+      .container-shapeshift1 {
         position: relative;
+        width: 200px;
       }
 
-      .container-shapeshift > div {
+      .container-shapeshift1 > div {
         background: #AAA;
         position: absolute;
         height: 100px;
         width: 100px;
       }
+      .container-shapeshift1 > p {
+        background: #AAA;
+        position: absolute;
+        height: 20px;
+        width: 100px;
+      }
 
-      .container-shapeshift > .ss-placeholder-child {
+      .container-shapeshift1 > .ss-placeholder-child {
         background: transparent;
         border: 1px dashed blue;
       }
@@ -55,9 +62,42 @@
           height: 500px;
       }
 
+      .container-shapeshift2 {
+        position: relative;
+        width: 200px;
+      }
+
+      .container-shapeshift2 > div {
+        background: #AAA;
+        position: absolute;
+        height: 100px;
+        width: 100px;
+      }
+      .container-shapeshift2 > p {
+        background: #AAA;
+        position: absolute;
+        height: 20px;
+        width: 100px;
+      }
+
+
+      .container-shapeshift2 > .ss-placeholder-child {
+        background: transparent;
+        border: 1px dashed blue;
+      }
+
     </style>
 
 
+    <script>
+
+
+        $(document).ready(function(){
+            $("#test1").shapeshift();
+            $("#test2").shapeshift();
+        });
+
+    </script>
 
 
 

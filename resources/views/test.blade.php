@@ -22,22 +22,25 @@
                             shapeshiftのテスト
                         </div>
                         <!-- Javascript -->
-                          <script>
-                              function shapeshifttest() {
-                                $(".container-shapeshift").shapeshift();
-                              }
-                              function al(){
-                                alert("asdf");
-                              };
-                              $(document).ready(shapeshifttest());
-                              al();
 
-                          </script>
 
 
                         <div>
-                            <div class="container-shapeshift">
-                              <div><p>a</p></div>
+                            <p>上段</p>
+                            <div class="container-shapeshift1" id="test1">
+                                <p>ABCD</p>
+                                <p>ABCD</p>
+                                <p>ABCD</p>
+                                <p>ABCD</p>
+                            </div>
+                        </div>
+                        <div>
+                            <p>下段</p>
+                            <div class="container-shapeshift2" id="test2">
+                                <p>ABCD</p>
+                                <p>ABCD</p>
+                                <p>ABCD</p>
+                                <p>ABCD</p>
                             </div>
                         </div>
 
