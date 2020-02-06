@@ -12,6 +12,7 @@
     <!-- Scripts -->
 
 
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -41,22 +42,19 @@
         width: 200px;
       }
 
-      .container-shapeshift1 > div {
-        background: #AAA;
-        position: absolute;
-        height: 100px;
-        width: 100px;
-      }
+
       .container-shapeshift1 > p {
-        background: #AAA;
+        background: transparent;
+        text-align: center;
         position: absolute;
-        height: 20px;
+        height: 25px;
         width: 100px;
+        border: 1px solid #e8e8e8;
       }
 
       .container-shapeshift1 > .ss-placeholder-child {
         background: transparent;
-        border: 1px dashed blue;
+        border: 1px dashed #e8e8e8;
       }
       .card-body{
           height: 500px;
@@ -67,23 +65,20 @@
         width: 200px;
       }
 
-      .container-shapeshift2 > div {
-        background: #AAA;
-        position: absolute;
-        height: 100px;
-        width: 100px;
-      }
+
       .container-shapeshift2 > p {
-        background: #AAA;
+        background: transparent;
+        text-align: center;
         position: absolute;
-        height: 20px;
+        height: 25px;
         width: 100px;
+        border: 1px solid #e8e8e8;
       }
 
 
       .container-shapeshift2 > .ss-placeholder-child {
         background: transparent;
-        border: 1px dashed blue;
+        border: 1px dashed #e8e8e8;
       }
 
     </style>
@@ -121,37 +116,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
                 </div>
             </div>
         </nav>

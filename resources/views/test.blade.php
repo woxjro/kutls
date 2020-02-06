@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">shapeshiftのテスト</div>
+                <div class="card-header">動作テスト</div>
 
                 <div class="card-body">
 
@@ -19,7 +19,7 @@
 
 
                         <div class="form-group">
-                            shapeshiftのテスト
+                            動作テスト
                         </div>
                         <!-- Javascript -->
 
@@ -28,19 +28,19 @@
                         <div>
                             <p>上段</p>
                             <div class="container-shapeshift1" id="test1">
-                                <p>ABCD</p>
-                                <p>ABCD</p>
-                                <p>ABCD</p>
-                                <p>ABCD</p>
+                                <p>PlayerA</p>
+                                <p>PlayerB</p>
+                                <p>PlayerC</p>
+                                <p>PlayerD</p>
                             </div>
                         </div>
                         <div>
                             <p>下段</p>
                             <div class="container-shapeshift2" id="test2">
-                                <p>ABCD</p>
-                                <p>ABCD</p>
-                                <p>ABCD</p>
-                                <p>ABCD</p>
+                                <p>PlayerE</p>
+                                <p>PlayerF</p>
+                                <p>PlayerG</p>
+                                <p>PlayerH</p>
                             </div>
                         </div>
 

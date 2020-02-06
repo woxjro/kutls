@@ -14,9 +14,6 @@
                         </div>
                     @endif
 
-                    <p>
-                        ログインしてる。。。
-                    </p>
 
                     <div class="form-group">
                         <div class="col-sm-offset-3 col-sm-6">
