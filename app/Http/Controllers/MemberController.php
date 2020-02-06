@@ -31,76 +31,18 @@ class MemberController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function showMembers(){
-        $kumiren = new Kumiren;
 
-        $kumiren->name = uniqid(date("Ymd")."-");
-        $kumiren->save();
-
-        $members = Member::all();
-        $members = $members->sortBy('enrollment_year');
-
-        $now_year = date("Y");
-        $now_month = date("n");
-        $fiscal_year = $now_year;
-        if ($now_month<4) {
-            $fiscal_year = $now_year - 1;
-        }
-        return view('kumiren_select_members')->with([
-            "kumiren" => $kumiren,
-            "members" => $members,
-            "fiscal_year" => $fiscal_year,
-        ]);
-    }
-    //
-    public function showKumirenMembers(Request $request,$kumirenid){
-        $kumiren = Kumiren::where('id',$kumirenid)->first();
-        $latest_kumiren = DB::table('kumirens')->latest()->first();
-        $latest_kumiren_id = $latest_kumiren->id;
-
-
-
-        $allrequest = $request->all();
-        $membersId = $allrequest["selectedMember"];
-        $sizeofmemberId = sizeof($membersId);
-        for ($i = 0; $i < $sizeofmemberId; $i++) {
-            $kumiren2member = new Kumiren2member;
-            $kumiren2member->kumiren_id = $latest_kumiren_id;
-            $kumiren2member->member_id  = $membersId[$i];
-            $kumiren2member->role       = "NONE";
-            $kumiren2member->feed1stteam= "NONE";
-            $kumiren2member->feed2ndteam= "NONE";
-            $kumiren2member->team       = "NONE";
-            $kumiren2member->save();
-        }
-
-
-        $kumiren_members = Member::all()->whereIn('id',$membersId)->sortBy('enrollment_year');
-        $now_year  = date("Y");
-        $now_month = date("n");
-        $fiscal_year = $now_year;
-        if ($now_month<4) {
-            $fiscal_year = $now_year - 1;
-        }
-
-        return view('kumiren_select_staffs')->with([
-            "kumiren" => $kumiren,
-            "kumiren_members" => $kumiren_members,
-            "Id" => $membersId,
-            "fiscal_year" => $fiscal_year,
-        ]);
-    }
 
     //根回し、HSFをセット
-    public function setstaff(Request $request){
+    public function setstaff(Request $request,$kumiren_id){
         $allrequest = $request->all();
         $rootId = $allrequest["root"];
         $HId    = $allrequest["H"];
         $SId    = $allrequest["S"];
         $FId    = $allrequest["F"];
 
-        $latest_kumiren = DB::table('kumirens')->latest()->first();
-        $latest_kumiren_id = $latest_kumiren->id;
+        $kumiren = Kumiren::where('id',$kumiren_id)->first();
+        $latest_kumiren_id = $kumiren->id;
 
         $root = Kumiren2member::where('kumiren_id',$latest_kumiren_id)->where('member_id',$rootId)->first();
         $H    = Kumiren2member::where('kumiren_id',$latest_kumiren_id)->where('member_id',$HId)->first();
@@ -126,10 +68,10 @@ class MemberController extends Controller
     }
 
     //球出しメンバーをセット
-    public function setfeed(Request $request){
+    public function setfeed(Request $request,$kumiren_id){
         $allrequest = $request->all();
-        $latest_kumiren = DB::table('kumirens')->latest()->first();
-        $latest_kumiren_id = $latest_kumiren->id;
+        $kumiren = Kumiren::where('id',$kumiren_id)->first();
+        $latest_kumiren_id = $kumiren->id;
         $kumiren2members = Kumiren2member::where('kumiren_id',$latest_kumiren_id)->get();
 
         $members = Member::all();
@@ -153,7 +95,7 @@ class MemberController extends Controller
         }
 
 
-        $feeds = $this->getfeed();
+        $feeds = $this->getfeed($kumiren_id);
         $feeds = $feeds->sortByDesc('level');
         $feeds4ACE = collect([]);
         $feeds4BDF = collect([]);
@@ -224,10 +166,10 @@ class MemberController extends Controller
     //チームが振られていない女性の数を求める関数を書く。
 
     //球出しメンバーを取得
-    public function getfeed(){
+    public function getfeed($kumiren_id){
         $feedsarray = [];
-        $latest_kumiren = DB::table('kumirens')->latest()->first();
-        $latest_kumiren_id = $latest_kumiren->id;
+        $kumiren = Kumiren::where('id',$kumiren_id)->first();
+        $latest_kumiren_id = $kumiren->id;
         $feeds = Kumiren2member::where('kumiren_id',$latest_kumiren_id)->where('role','feed')->get();
         $members = Member::all();
         $sortedmembers = $members->sortByDesc('level');
@@ -242,6 +184,12 @@ class MemberController extends Controller
 
         return collect($feedsarray);
     }
+
+
+
+
+
+
 
     //kumiren_idから組連のメンバーを取得する関数
     public function getMembersByKumire2member($kumiren_id){
@@ -260,15 +208,11 @@ class MemberController extends Controller
         return $groupedmembers;
     }
 
-
-
     public function getMemberNum($kumiren_id,$team){
         $kumiren2members = Kumiren2member::where('kumiren_id',$kumiren_id)->where('team',$team)->get();
         $membernum = $kumiren2members->count();
         return $membernum;
     }
-
-
 
     public function getMaleNum($kumiren_id,$team){
         $kumiren2members = Kumiren2member::where('kumiren_id',$kumiren_id)->where('team',$team)->get();
@@ -280,10 +224,6 @@ class MemberController extends Controller
         return $malenum;
     }
 
-
-
-
-
     public function getFemaleNum($kumiren_id,$team){
         $kumiren2members = Kumiren2member::where('kumiren_id',$kumiren_id)->where('team',$team)->get();
         $femalenum = 0;
@@ -294,13 +234,9 @@ class MemberController extends Controller
         return $femalenum;
     }
 
-
-
-
-
-    public function setmember(){
-        $latest_kumiren = DB::table('kumirens')->latest()->first();
-        $latest_kumiren_id = $latest_kumiren->id;
+    public function setmember($kumiren_id){
+        $kumiren = Kumiren::where('id',$kumiren_id)->first();
+        $latest_kumiren_id = $kumiren->id;
         $kumiren2members_noteam = Kumiren2member::where('kumiren_id',$latest_kumiren_id)->where('team','NONE')->get();
 
         $members_male_noteam          = collect([]);
@@ -378,7 +314,6 @@ class MemberController extends Controller
 
     }
 
-
     //役割とかメンバーの名前とかを同時に持つ関数を追加
     public function getKumirenMemberInfo($kumiren2member_id){
         $kumiren2member = Kumiren2member::where('id',$kumiren2member_id)->first();
@@ -425,20 +360,78 @@ class MemberController extends Controller
 
 
 
+
+    public function showMembers(){
+        $kumiren = new Kumiren;
+
+        $kumiren->name = uniqid(date("Ymd")."-");
+        $kumiren->save();
+
+        $members = Member::all();
+        $members = $members->sortBy('enrollment_year');
+
+        $now_year = date("Y");
+        $now_month = date("n");
+        $fiscal_year = $now_year;
+        if ($now_month<4) {
+            $fiscal_year = $now_year - 1;
+        }
+        return view('kumiren_select_members')->with([
+            "kumiren" => $kumiren,
+            "members" => $members,
+            "fiscal_year" => $fiscal_year,
+        ]);
+    }
+    //
+    public function showKumirenMembers(Request $request,$kumiren_id){
+        $kumiren = Kumiren::where('id',$kumiren_id)->first();
+        $latest_kumiren_id = $kumiren->id;
+
+
+
+        $allrequest = $request->all();
+        $membersId = $allrequest["selectedMember"];
+        $sizeofmemberId = sizeof($membersId);
+        for ($i = 0; $i < $sizeofmemberId; $i++) {
+            $kumiren2member = new Kumiren2member;
+            $kumiren2member->kumiren_id = $latest_kumiren_id;
+            $kumiren2member->member_id  = $membersId[$i];
+            $kumiren2member->role       = "NONE";
+            $kumiren2member->feed1stteam= "NONE";
+            $kumiren2member->feed2ndteam= "NONE";
+            $kumiren2member->team       = "NONE";
+            $kumiren2member->save();
+        }
+
+
+        $kumiren_members = Member::all()->whereIn('id',$membersId)->sortBy('enrollment_year');
+        $now_year  = date("Y");
+        $now_month = date("n");
+        $fiscal_year = $now_year;
+        if ($now_month<4) {
+            $fiscal_year = $now_year - 1;
+        }
+
+        return view('kumiren_select_staffs')->with([
+            "kumiren" => $kumiren,
+            "kumiren_members" => $kumiren_members,
+            "Id" => $membersId,
+            "fiscal_year" => $fiscal_year,
+        ]);
+    }
     //リザルト画面用の関数
-    public function result(Request $request,$kumirenid){
-      $kumiren = Kumiren::where('id',$kumirenid)->first();
-      $this->setstaff($request);
-      $this->setfeed($request);
+    public function result(Request $request,$kumiren_id){
+      $kumiren = Kumiren::where('id',$kumiren_id)->first();
+      $this->setstaff($request,$kumiren_id);
+      $this->setfeed($request,$kumiren_id);
 
       $allrequest = $request->all();
-      $latest_kumiren = DB::table('kumirens')->latest()->first();
-      $latest_kumiren_id = $latest_kumiren->id;
+      $latest_kumiren_id = $kumiren->id;
       $members = Member::all();
       $kumiren2members = Kumiren2member::where('kumiren_id',$latest_kumiren_id)->get();
 
-      $feeds = $this->getfeed();
-      $this->setmember();
+      $feeds = $this->getfeed($kumiren_id);
+      $this->setmember($kumiren_id);
 
       $now_year = date("Y");
       $now_month = date("n");

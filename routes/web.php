@@ -26,18 +26,18 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/kumiren/select_members','MemberController@showMembers')->name('select.members');
 
-Route::post('/kumiren/{kumirenid}/select_members/select_staffs','MemberController@showKumirenMembers')->name('select.staffs');
+Route::post('/kumiren/{kumiren_id}/select_members/select_staffs','MemberController@showKumirenMembers')->name('select.staffs');
 
-Route::get('/kumiren/{kumirenid}/select_members/select_staffs',function(){
+Route::get('/kumiren/{kumiren_id}/select_members/select_staffs',function(){
     return redirect('/');
 });
 
-Route::get('/kumiren/{kumirenid}/select_members/select_staffs/result',function(){
+Route::get('/kumiren/{kumiren_id}/select_members/select_staffs/result',function(){
     return redirect('/');
 });
 
 
-Route::post('/kumiren/{kumirenid}/select_members/select_staffs/result','MemberController@result')->name('result');
+Route::post('/kumiren/{kumiren_id}/select_members/select_staffs/result','MemberController@result')->name('result');
 
 //jquery shapeshiftのテストページ
 Route::get('/test',function(){
