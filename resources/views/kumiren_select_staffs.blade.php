@@ -21,7 +21,7 @@
                             組連スタッフを選びましょう。
                         </div>
 
-                        <form method="post" action="{{url('/kumiren/select_members/select_staffs/result')}}">
+                        <form method="post" action="{{url('/kumiren/'.$kumiren->id.'/select_members/select_staffs/result')}}">
                             @csrf
                             <?php $sex = [
                                 "male" => "男性",

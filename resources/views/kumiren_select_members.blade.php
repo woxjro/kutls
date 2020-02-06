@@ -25,7 +25,7 @@
                     ]?>
 
                     <div class="cp_menu">
-                        <form method="post" action="{{url('/kumiren/select_members/select_staffs')}}">
+                        <form method="post" action="{{url('/kumiren/'.$kumiren->id.'/select_members/select_staffs')}}">
                             @csrf
 
 

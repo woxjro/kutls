@@ -34,7 +34,6 @@ class MemberController extends Controller
     public function showMembers(){
         $kumiren = new Kumiren;
 
-
         $kumiren->name = uniqid(date("Ymd")."-");
         $kumiren->save();
 
@@ -48,12 +47,14 @@ class MemberController extends Controller
             $fiscal_year = $now_year - 1;
         }
         return view('kumiren_select_members')->with([
+            "kumiren" => $kumiren,
             "members" => $members,
             "fiscal_year" => $fiscal_year,
         ]);
     }
     //
-    public function showKumirenMembers(Request $request){
+    public function showKumirenMembers(Request $request,$kumirenid){
+        $kumiren = Kumiren::where('id',$kumirenid)->first();
         $latest_kumiren = DB::table('kumirens')->latest()->first();
         $latest_kumiren_id = $latest_kumiren->id;
 
@@ -83,6 +84,7 @@ class MemberController extends Controller
         }
 
         return view('kumiren_select_staffs')->with([
+            "kumiren" => $kumiren,
             "kumiren_members" => $kumiren_members,
             "Id" => $membersId,
             "fiscal_year" => $fiscal_year,
@@ -424,7 +426,8 @@ class MemberController extends Controller
 
 
     //リザルト画面用の関数
-    public function result(Request $request){
+    public function result(Request $request,$kumirenid){
+      $kumiren = Kumiren::where('id',$kumirenid)->first();
       $this->setstaff($request);
       $this->setfeed($request);
 
@@ -463,6 +466,7 @@ class MemberController extends Controller
 
 
       return view('kumiren_result')->with([
+          "kumiren"             => $kumiren,
           "members"             => $members,
           "kumiren2members"     => $kumiren2members,
           "kumirenmembersinfo"  => $kumirenmembersinfo,
