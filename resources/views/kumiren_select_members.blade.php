@@ -25,7 +25,7 @@
                     ]?>
 
                     <div class="cp_menu">
-                        <form method="post" action="{{url('/kumiren/'.$kumiren->id.'/select_members/select_staffs')}}">
+                        <form method="post" action="{{url('/kumiren/'.$kumiren->id.'/select_members/select_staffs')}}" onSubmit="return check()">
                             @csrf
 
 
@@ -284,6 +284,24 @@
                             </div>
 
                             <script>
+
+                            function check(){
+                                var KumirenMembersId = $('input[name="selectedMember[]"]:checked').map(function(){
+                                    return $(this).val();
+                                });
+
+                                if(KumirenMembersId.length < 10) {
+                                    alert("10人以上選択してください");
+                                    return false;
+                                }
+
+                            	if(window.confirm(String(KumirenMembersId.length) + "人選択されています。\nスタッフ選択に進みますか？")){ // 確認ダイアログを表示
+                            		return true; // 「OK」時は送信を実行
+                            	}else{
+                            		return false; // 送信を中止
+                            	}
+                            }
+
                             $(function() {
                                 //6回生用の全選択ボタン
                                 $('.grade6-male #all').on('click', function() {
