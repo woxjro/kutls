@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">組連のメンバー一覧</div>
+                <div class="card-header">組連のスタッフ選択</div>
 
                 <div class="card-body">
 
@@ -18,10 +18,10 @@
 
 
                         <div class="form-group">
-                            組連スタッフを選びましょう。
+                            組連スタッフを選択してください。
                         </div>
 
-                        <form method="post" action="{{url('/kumiren/'.$kumiren->id.'/select_members/select_staffs/result')}}">
+                        <form method="post" action="{{url('/kumiren/'.$kumiren->id.'/select_members/select_staffs/result')}}" onSubmit="return StaffsCheck()">
                             @csrf
                             <?php $sex = [
                                 "male" => "男性",
@@ -106,7 +106,23 @@
                         </form>
 
 
-
+                        <script>
+                        function StaffsCheck(){
+                            var StaffsId = [];
+                            StaffsId.push($('[name=root]').val());
+                            StaffsId.push($('[name=H]').val());
+                            StaffsId.push($('[name=F]').val());
+                            StaffsId.push($('[name=S]').val());
+                            StaffsId.sort();
+                            for (var i = 0; i < StaffsId.length - 1; i++) {
+                                if(StaffsId[i]==StaffsId[i+1]){
+                                    alert("同じ人が選択されています。");
+                                    return false;
+                                }
+                            }
+                            return true;
+                        }
+                        </script>
 
 
 

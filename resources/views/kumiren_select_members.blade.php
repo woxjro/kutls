@@ -25,7 +25,7 @@
                     ]?>
 
                     <div class="cp_menu">
-                        <form method="post" action="{{url('/kumiren/'.$kumiren->id.'/select_members/select_staffs')}}" onSubmit="return check()">
+                        <form method="post" action="{{url('/kumiren/'.$kumiren->id.'/select_members/select_staffs')}}" onSubmit="return MembersCheck()">
                             @csrf
 
 
@@ -285,7 +285,7 @@
 
                             <script>
 
-                            function check(){
+                            function MembersCheck(){
                                 var KumirenMembersId = $('input[name="selectedMember[]"]:checked').map(function(){
                                     return $(this).val();
                                 });
