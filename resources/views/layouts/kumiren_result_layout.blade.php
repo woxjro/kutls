@@ -38,6 +38,13 @@
         $(".teamDplayers").shapeshift();
         $(".teamEplayers").shapeshift();
         $(".teamFplayers").shapeshift();
+        $(".teamAfeeds").shapeshift();
+        $(".teamBfeeds").shapeshift();
+        $(".teamCfeeds").shapeshift();
+        $(".teamDfeeds").shapeshift();
+        $(".teamEfeeds").shapeshift();
+        $(".teamFfeeds").shapeshift();
+
       });
     </script>
 
