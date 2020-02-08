@@ -45,7 +45,10 @@
             }
 
             .title {
-                font-size: 84px;
+                font-family: Gill Sans,Gill Sans MT,Calibri,sans-serif;
+                font-size: 90px;
+                font-weight: 200;
+                color: #002f6c;
             }
 
             .links > a {

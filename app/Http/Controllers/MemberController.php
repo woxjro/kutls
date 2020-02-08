@@ -68,8 +68,7 @@ class MemberController extends Controller
     }
 
     //球出しメンバーをセット
-    public function setfeed(Request $request,$kumiren_id){
-        $allrequest = $request->all();
+    public function setfeed($kumiren_id){
         $kumiren = Kumiren::where('id',$kumiren_id)->first();
         $latest_kumiren_id = $kumiren->id;
         $kumiren2members = Kumiren2member::where('kumiren_id',$latest_kumiren_id)->get();
@@ -423,9 +422,9 @@ class MemberController extends Controller
     public function result(Request $request,$kumiren_id){
       $kumiren = Kumiren::where('id',$kumiren_id)->first();
       $this->setstaff($request,$kumiren_id);
-      $this->setfeed($request,$kumiren_id);
+      $this->setfeed($kumiren_id);
 
-      $allrequest = $request->all();
+
       $latest_kumiren_id = $kumiren->id;
       $members = Member::all();
       $kumiren2members = Kumiren2member::where('kumiren_id',$latest_kumiren_id)->get();
