@@ -47,7 +47,7 @@
             .title {
                 font-family: Gill Sans,Gill Sans MT,Calibri,sans-serif;
                 font-size: 90px;
-                font-weight: 200;
+                font-weight: 300;
                 color: #002f6c;
             }
 

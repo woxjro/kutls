@@ -37,25 +37,24 @@
 
     <!-- CSS -->
     <style>
-      .container-shapeshift1 {
-        position: relative;
-        width: 200px;
-      }
+    .container-shapeshift1 {
+      position: relative;
+      width: 200px;
+    }
 
+    .container-shapeshift1 > p {
+      background: transparent;
+      text-align: center;
+      position: absolute;
+      height: 25px;
+      width: 100px;
+      border: 1px solid #e8e8e8;
+    }
 
-      .container-shapeshift1 > p {
-        background: transparent;
-        text-align: center;
-        position: absolute;
-        height: 25px;
-        width: 100px;
-        border: 1px solid #e8e8e8;
-      }
-
-      .container-shapeshift1 > .ss-placeholder-child {
-        background: transparent;
-        border: 1px dashed #e8e8e8;
-      }
+    .container-shapeshift1 > .ss-placeholder-child {
+      background: transparent;
+      border: 1px dashed #e8e8e8;
+    }
       .card-body{
           height: 500px;
       }

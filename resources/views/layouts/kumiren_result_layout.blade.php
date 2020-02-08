@@ -30,6 +30,17 @@
     <!-- jQuery.Shapeshift -->
     <script src="{{ asset('js/jquery.shapeshift/core/jquery.shapeshift.js') }}"></script>
 
+    <script>
+      $(document).ready(function(){
+        $(".teamAplayers").shapeshift();
+        $(".teamBplayers").shapeshift();
+        $(".teamCplayers").shapeshift();
+        $(".teamDplayers").shapeshift();
+        $(".teamEplayers").shapeshift();
+        $(".teamFplayers").shapeshift();
+      });
+    </script>
+
 </head>
 <body>
     <div id="app">

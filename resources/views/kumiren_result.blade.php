@@ -57,7 +57,7 @@
                                     @endforeach
                                 </div>
 
-                                <div class="show-members">
+                                <div class="show-members teamAplayers" id="showmembers">
                                     @foreach($kumirenmembersinfo as $kumirenmemberinfo)
                                         @if($kumirenmemberinfo["team"]=="A")
                                             @if($kumirenmemberinfo["role"]!="NONE" && $kumirenmemberinfo["role"]!="feed")
@@ -69,7 +69,6 @@
                                     @endforeach
                                 </div>
                             </div>
-
                             <div class="show members">
                                 <div class="team-label"><p>B</p></div>
                                 <div class="show-feeds">
@@ -80,7 +79,7 @@
                                     @endforeach
                                 </div>
 
-                                <div class="show-members">
+                                <div class="show-members teamBplayers" id="showmembers">
                                     @foreach($kumirenmembersinfo as $kumirenmemberinfo)
                                         @if($kumirenmemberinfo["team"]=="B")
                                             @if($kumirenmemberinfo["role"]!="NONE" && $kumirenmemberinfo["role"]!="feed")
@@ -102,7 +101,7 @@
                                     @endforeach
                                 </div>
 
-                                <div class="show-members">
+                                <div class="show-members teamCplayers" id="showmembers">
                                     @foreach($kumirenmembersinfo as $kumirenmemberinfo)
                                         @if($kumirenmemberinfo["team"]=="C")
                                             @if($kumirenmemberinfo["role"]!="NONE" && $kumirenmemberinfo["role"]!="feed")
@@ -124,7 +123,7 @@
                                     @endforeach
                                 </div>
 
-                                <div class="show-members">
+                                <div class="show-members teamDplayers" id="showmembers">
                                     @foreach($kumirenmembersinfo as $kumirenmemberinfo)
                                         @if($kumirenmemberinfo["team"]=="D")
                                             @if($kumirenmemberinfo["role"]!="NONE" && $kumirenmemberinfo["role"]!="feed")
@@ -146,7 +145,7 @@
                                     @endforeach
                                 </div>
 
-                                <div class="show-members">
+                                <div class="show-members teamEplayers" id="showmembers">
                                     @foreach($kumirenmembersinfo as $kumirenmemberinfo)
                                         @if($kumirenmemberinfo["team"]=="E")
                                             @if($kumirenmemberinfo["role"]!="NONE" && $kumirenmemberinfo["role"]!="feed")
@@ -169,7 +168,7 @@
                                     @endforeach
                                 </div>
 
-                                <div class="show-members">
+                                <div class="show-members teamFplayers" id="showmembers">
                                     @foreach($kumirenmembersinfo as $kumirenmemberinfo)
                                         @if($kumirenmemberinfo["team"]=="F")
                                             @if($kumirenmemberinfo["role"]!="NONE" && $kumirenmemberinfo["role"]!="feed")
