@@ -24,6 +24,7 @@
         height: 400px;
         margin: 1px;
         border : solid 1px;
+        border-radius: 3px;
     }
     .information .show{
         position: relative;
@@ -34,6 +35,7 @@
         margin-left: 1px;
         margin-right: 1px;
         margin-bottom: 20px;
+        border-radius: 3px;
     }
 
  }
@@ -45,12 +47,14 @@
 #showmembers >.ss-placeholder-child{
       background: transparent;
       border: 1px dashed #e8e8e8;
+      border-radius: 4px;
  }
 #showmembers > p {
        background: transparent;
        width: 80%;
        position: absolute;
        border: 1px solid #e8e8e8;
+       border-radius: 4px;
  }
 
 
@@ -60,6 +64,7 @@
          margin: 1px;
          margin-bottom: 20px;
          border : solid 1px;
+         border-radius: 3px;
      }
      .information .show{
          height: 270px;
@@ -67,6 +72,7 @@
          margin-left: 1px;
          margin-right: 1px;
          margin-bottom: 20px;
+         border-radius: 3px;
      }
 
 }
