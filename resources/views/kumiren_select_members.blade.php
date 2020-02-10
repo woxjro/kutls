@@ -25,7 +25,7 @@
                     ]?>
 
                     <div class="cp_menu">
-                        <form method="post" action="{{url('/kumiren/'.$kumiren->id.'/select_members/select_staffs')}}" onSubmit="return MembersCheck()">
+                        <form method="post" action="{{url('/kumiren/'.$kumiren->id.'/select_members/select_staffs')}}" id="SubmitKumirenMembers">
                             @csrf
 
 
@@ -279,30 +279,55 @@
 
                             <div class="form-group">
                                 <div class="col-sm-offset-3 col-sm-6">
-                                      <button type="submit" class="btn btn-default"><i class="fa fa-btn fa-plus"></i>次へ</button>
+                                      <button type="button" class="btn btn-default" id="KumirenMembersButton"><i class="fa fa-btn fa-plus"></i>次へ</button>
                                 </div>
                             </div>
 
                             <script>
 
-                            function MembersCheck(){
-                                var KumirenMembersId = $('input[name="selectedMember[]"]:checked').map(function(){
-                                    return $(this).val();
-                                });
 
-                                if(KumirenMembersId.length < 10) {
-                                    alert("10人以上選択してください");
-                                    return false;
-                                }
 
-                            	if(window.confirm(String(KumirenMembersId.length) + "人選択されています。\nスタッフ選択に進みますか？")){ // 確認ダイアログを表示
-                            		return true; // 「OK」時は送信を実行
-                            	}else{
-                            		return false; // 送信を中止
-                            	}
-                            }
 
                             $(function() {
+                                $('#KumirenMembersButton').click(function(){
+
+                                    var KumirenMembersId = $('input[name="selectedMember[]"]:checked').map(function(){
+                                        return $(this).val();
+                                    });
+                                    var message = String(KumirenMembersId.length)+"人選択されています。";
+                                    if(KumirenMembersId.length < 10) {
+                                        Swal.fire({
+                                          title: '人数が足りません。',
+                                          text: "10人以上選択してください。",
+                                          icon: 'error',
+                                          confirmButtonText: '戻る',
+                                          showCloseButton: true,
+                                        })
+                                    }else{
+                                        Swal.fire({
+                                          title: 'スタッフ選択に進みますか？',
+                                          text: message,
+                                          iconHtml: '？',
+                                          icon: 'question',
+                                          confirmButtonText: '進む',
+                                          cancelButtonText: '戻る',
+                                          showCancelButton: true,
+                                          showCloseButton: true,
+                                        }).then((result) => {
+                                          if (result.value) {
+                                            $('#SubmitKumirenMembers').submit();
+                                          }
+                                        })
+                                    }
+
+
+
+
+
+
+                                    //バリデーションチェックの結果submitしない場合、return falseすることでsubmitを中止することができる。
+
+                                })
                                 //6回生用の全選択ボタン
                                 $('.grade6-male #all').on('click', function() {
                                   $(".grade6-male > input[name='selectedMember[]']").prop('checked', this.checked);
