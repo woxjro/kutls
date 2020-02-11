@@ -21,81 +21,17 @@
 
                         </div>
 
-                        <form method="post" class="select_staffs_form" action="{{url('/kumiren/'.$kumiren->id.'/select_members/select_staffs/result')}}" onSubmit="return StaffsCheck()">
+                        <form method="post" class="select_staffs_form" action="{{url('/kumiren/'.$kumiren->id.'/select_members/select_staffs/result')}}">
                             @csrf
                             <?php $sex = [
                                 "male" => "男性",
                                 "female" => "女性",
                             ]?>
 
-                            <!--
-
-                            <div class="cp_ipselect">
-
-                                <select name="root" size="1" class="cp_sl06" required>
-                                    <option value="" hidden disabled selected></option>
-                                    @foreach($kumiren_members as $member)
-                                        <?php echo '<option value="'.$member->id.'">'.($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name.'</option>'; ?>
-                                    @endforeach
-                                </select>
-
-                                <span class="cp_sl06_highlight"></span>
-                                <span class="cp_sl06_selectbar"></span>
-                                <label class="cp_sl06_selectlabel">根</label>
-
-                            </div>
-
-                            <div class="cp_ipselect">
-
-                                <select name="H" size="1" class="cp_sl06" required>
-                                    <option value="" hidden disabled selected></option>
-                                    @foreach($kumiren_members as $member)
-                                        <?php echo '<option value="'.$member->id.'">'.($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name.'</option>'; ?>
-                                    @endforeach
-                                </select>
-
-                                <span class="cp_sl06_highlight"></span>
-                                <span class="cp_sl06_selectbar"></span>
-                                <label class="cp_sl06_selectlabel">H</label>
-
-                            </div>
-
-                            <div class="cp_ipselect">
-
-                                <select name="F" size="1" class="cp_sl06" required>
-                                    <option value="" hidden disabled selected></option>
-                                    @foreach($kumiren_members as $member)
-                                        <?php echo '<option value="'.$member->id.'">'.($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name.'</option>'; ?>
-                                    @endforeach
-                                </select>
-
-                                <span class="cp_sl06_highlight"></span>
-                                <span class="cp_sl06_selectbar"></span>
-                                <label class="cp_sl06_selectlabel">F</label>
-
-                            </div>
-
-                            <div class="cp_ipselect">
-
-                                <select name="S" size="1" class="cp_sl06" required>
-                                    <option value="" hidden disabled selected></option>
-                                    @foreach($kumiren_members as $member)
-                                        <?php echo '<option value="'.$member->id.'">'.($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name.'</option>'; ?>
-                                    @endforeach
-                                </select>
-
-                                <span class="cp_sl06_highlight"></span>
-                                <span class="cp_sl06_selectbar"></span>
-                                <label class="cp_sl06_selectlabel">S</label>
-
-                            </div>
-
-                            -->
-
                             <div>
                                 <label for="H" style="width:75%" class="selectboxlabel">
                                     Headを選択してください。
-                                    <select class="selectbox4staffs" name="H" id="H" style="width:80%">
+                                    <select class="selectbox4staffs" name="H" id="H" style="width:100%">
                                         <option value="" hidden disabled selected></option>
                                         <optgroup label="6回生">
                                             @foreach($kumiren_members as $member)
@@ -145,7 +81,7 @@
 
                                 <label for="root" style="width:75%" class="selectboxlabel">
                                     根回しを選択してください。
-                                    <select class="selectbox4staffs" name="root" id="root" style="width:80%">
+                                    <select class="selectbox4staffs" name="root" id="root" style="width:100%">
                                         <option value="" hidden disabled selected></option>
                                         <optgroup label="6回生">
                                             @foreach($kumiren_members as $member)
@@ -195,7 +131,7 @@
 
                                 <label for="F" style="width:75%" class="selectboxlabel">
                                     FirstCallerを選択してください。
-                                    <select class="selectbox4staffs" name="F" id="F" style="width:80%">
+                                    <select class="selectbox4staffs" name="F" id="F" style="width:100%">
                                         <option value="" hidden disabled selected></option>
                                         <optgroup label="6回生">
                                             @foreach($kumiren_members as $member)
@@ -245,7 +181,7 @@
 
                                 <label for="S" style="width:75%" class="selectboxlabel">
                                     SecondCallerを選択してください。
-                                    <select class="selectbox4staffs" name="S" id="S" style="width:80%">
+                                    <select class="selectbox4staffs" name="S" id="S" style="width:100%">
                                         <option value="" hidden disabled selected></option>
                                         <optgroup label="6回生">
                                             @foreach($kumiren_members as $member)
@@ -305,7 +241,7 @@
 
                             <div class="form-group">
                                 <div class="col-sm-offset-3 col-sm-6">
-                                      <button type="submit" class="btn btn-default"><i class="fa fa-btn fa-plus"></i>作成</button>
+                                      <button type="button" class="btn btn-default" id="staffsbutton"><i class="fa fa-btn fa-plus"></i>作成</button>
                                 </div>
                             </div>
 
@@ -323,13 +259,26 @@
                                 StaffsId.sort();
                                 for (var i = 0; i < StaffsId.length - 1; i++) {
                                     if(StaffsId[i]==StaffsId[i+1]){
-                                        alert("同じ人が選択されています。");
                                         return false;
                                     }
                                 }
                                 return true;
                             }
                             $(".selectbox4staffs").select2();
+                            $('#staffsbutton').click(function(){
+                                if(StaffsCheck()){
+                                    $('.select_staffs_form').submit();
+                                }else{
+                                    Swal.fire({
+                                    title: '同じ人が選択されています。',
+                                    text: "選択しなおしてください。",
+                                    icon: 'error',
+                                    confirmButtonText: '戻る',
+                                    showCloseButton: true,
+                                    })
+                                }
+                            });
+
                         </script>
 
 
