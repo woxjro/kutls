@@ -12,6 +12,7 @@
 }
 .btn{
     border:solid 1px;
+    background-color: white;
 }
 .card-body{
     font-size: 11.5px;
@@ -23,7 +24,7 @@
         float: left;
         height: 400px;
         margin: 1px;
-        border : solid 1px;
+        border : solid 1px #102027;
         border-radius: 3px;
     }
     .information .show{
@@ -31,7 +32,7 @@
         width: 33%;
         float: left;
         height: 270px;
-        border : solid 1px;
+        border : solid 1px #102027;
         margin-left: 1px;
         margin-right: 1px;
         margin-bottom: 20px;
@@ -63,12 +64,12 @@
          height: 400px;
          margin: 1px;
          margin-bottom: 20px;
-         border : solid 1px;
+         border : solid 1px #102027;
          border-radius: 3px;
      }
      .information .show{
          height: 270px;
-         border : solid 1px;
+         border : solid 1px #102027;
          margin-left: 1px;
          margin-right: 1px;
          margin-bottom: 20px;
@@ -237,92 +238,25 @@
     margin-bottom: 20px;
 }
 /*アコーディオンの部分：終わり*/
-/*役職選択のところ：始まり*/
-.cp_ipselect {
-	position: relative;
-	width: 70%;
-	margin: 2em auto;
-	text-align: center;
+.selectstaffscardbody{
+    position: relative;
+    height: 380px;
+
 }
-.cp_sl06 {
-	position: relative;
-	font-family: inherit;
-	background-color: transparent;
-	width: 100%;
-	padding: 10px 10px 10px 0;
-	font-size: 14px;
-	border-radius: 0;
-	border: none;
-	border-bottom: 1px solid rgba(0,0,0, 0.3);
+.select_staffs_form{
+    position: absolute;
+    left: 15%;
 }
-.cp_sl06:focus {
-	outline: none;
-	border-bottom: 1px solid rgba(0,0,0, 0);
+optgroup{
+    color:#000;
 }
-.cp_ipselect .cp_sl06 {
-	appearance: none;
-	-webkit-appearance:none
+.selectboxlabel{
+    padding-bottom: 20px;
 }
-.cp_ipselect select::-ms-expand {
-	display: none;
+
+/*
+p{
+  -ms-filter: blur(6px);
+  filter: blur(6px);
 }
-.cp_ipselect:after {
-	position: absolute;
-	top: 18px;
-	right: 10px;
-	width: 0;
-	height: 0;
-	padding: 0;
-	content: '';
-	border-left: 6px solid transparent;
-	border-right: 6px solid transparent;
-	border-top: 6px solid rgba(0, 0, 0, 0.3);
-	pointer-events: none;
-}
-.cp_sl06_selectlabel {
-	color: rgba(0,0,0, 0.5);
-	font-size: 15px;
-	font-weight: normal;
-	position: absolute;
-	pointer-events: none;
-	left: 0;
-	top: 10px;
-	transition: 0.2s ease all;
-}
-.cp_sl06:focus ~ .cp_sl06_selectlabel, .cp_sl06:valid ~ .cp_sl06_selectlabel {
-	color: #da3c41;
-	top: -20px;
-	transition: 0.2s ease all;
-	font-size: 15px;
-}
-.cp_sl06_selectbar {
-	position: relative;
-	display: block;
-	width: 100%;
-}
-.cp_sl06_selectbar:before, .cp_sl06_selectbar:after {
-	content: '';
-	height: 2px;
-	width: 0;
-	bottom: 1px;
-	position: absolute;
-	background: #da3c41;
-	transition: 0.2s ease all;
-}
-.cp_sl06_selectbar:before {
-	left: 50%;
-}
-.cp_sl06_selectbar:after {
-	right: 50%;
-}
-.cp_sl06:focus ~ .cp_sl06_selectbar:before, .cp_sl06:focus ~ .cp_sl06_selectbar:after {
-	width: 50%;
-}
-.cp_sl06_highlight {
-	position: absolute;
-	top: 25%;
-	left: 0;
-	pointer-events: none;
-	opacity: 0.5;
-}
-/*役職選択のところ：終わり*/
+*/

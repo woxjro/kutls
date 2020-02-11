@@ -9,7 +9,7 @@
 
                 <div class="card-body">
 
-                    <div class="card-body">
+                    <div class="card-body selectstaffscardbody">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('status') }}
@@ -18,15 +18,17 @@
 
 
                         <div class="form-group">
-                            組連スタッフを選択してください。
+
                         </div>
 
-                        <form method="post" action="{{url('/kumiren/'.$kumiren->id.'/select_members/select_staffs/result')}}" onSubmit="return StaffsCheck()">
+                        <form method="post" class="select_staffs_form" action="{{url('/kumiren/'.$kumiren->id.'/select_members/select_staffs/result')}}" onSubmit="return StaffsCheck()">
                             @csrf
                             <?php $sex = [
                                 "male" => "男性",
                                 "female" => "女性",
                             ]?>
+
+                            <!--
 
                             <div class="cp_ipselect">
 
@@ -88,6 +90,211 @@
 
                             </div>
 
+                            -->
+
+                            <div>
+                                <label for="H" style="width:75%" class="selectboxlabel">
+                                    Headを選択してください。
+                                    <select class="js-example-disabled-results" name="H" id="H" style="width:80%">
+                                        <option value="" hidden disabled selected></option>
+                                        <optgroup label="6回生">
+                                            @foreach($kumiren_members as $member)
+                                                @if($fiscal_year - $member->enrollment_year + 1 == 6)
+                                                    <?php echo '<option value="'.$member->id.'">'.($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name.'</option>'; ?>
+                                                @endif
+                                            @endforeach
+                                        </optgroup>
+                                        <optgroup label="5回生">
+                                            @foreach($kumiren_members as $member)
+                                                @if($fiscal_year - $member->enrollment_year + 1 == 5)
+                                                    <?php echo '<option value="'.$member->id.'">'.($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name.'</option>'; ?>
+                                                @endif
+                                            @endforeach
+                                        </optgroup>
+                                        <optgroup label="4回生">
+                                            @foreach($kumiren_members as $member)
+                                                @if($fiscal_year - $member->enrollment_year + 1 == 4)
+                                                    <?php echo '<option value="'.$member->id.'">'.($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name.'</option>'; ?>
+                                                @endif
+                                            @endforeach
+                                        </optgroup>
+                                        <optgroup label="3回生">
+                                            @foreach($kumiren_members as $member)
+                                                @if($fiscal_year - $member->enrollment_year + 1 == 3)
+                                                    <?php echo '<option value="'.$member->id.'">'.($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name.'</option>'; ?>
+                                                @endif
+                                            @endforeach
+                                        </optgroup>
+                                        <optgroup label="2回生">
+                                            @foreach($kumiren_members as $member)
+                                                @if($fiscal_year - $member->enrollment_year + 1 == 2)
+                                                    <?php echo '<option value="'.$member->id.'">'.($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name.'</option>'; ?>
+                                                @endif
+                                            @endforeach
+                                        </optgroup>
+                                        <optgroup label="1回生">
+                                            @foreach($kumiren_members as $member)
+                                                @if($fiscal_year - $member->enrollment_year + 1 == 1)
+                                                    <?php echo '<option value="'.$member->id.'">'.($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name.'</option>'; ?>
+                                                @endif
+                                            @endforeach
+                                        </optgroup>
+
+                                    </select>
+                                </label>
+
+                                <label for="root" style="width:75%" class="selectboxlabel">
+                                    根回しを選択してください。
+                                    <select class="js-example-disabled-results" name="root" id="root" style="width:80%">
+                                        <option value="" hidden disabled selected></option>
+                                        <optgroup label="6回生">
+                                            @foreach($kumiren_members as $member)
+                                                @if($fiscal_year - $member->enrollment_year + 1 == 6)
+                                                    <?php echo '<option value="'.$member->id.'">'.($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name.'</option>'; ?>
+                                                @endif
+                                            @endforeach
+                                        </optgroup>
+                                        <optgroup label="5回生">
+                                            @foreach($kumiren_members as $member)
+                                                @if($fiscal_year - $member->enrollment_year + 1 == 5)
+                                                    <?php echo '<option value="'.$member->id.'">'.($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name.'</option>'; ?>
+                                                @endif
+                                            @endforeach
+                                        </optgroup>
+                                        <optgroup label="4回生">
+                                            @foreach($kumiren_members as $member)
+                                                @if($fiscal_year - $member->enrollment_year + 1 == 4)
+                                                    <?php echo '<option value="'.$member->id.'">'.($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name.'</option>'; ?>
+                                                @endif
+                                            @endforeach
+                                        </optgroup>
+                                        <optgroup label="3回生">
+                                            @foreach($kumiren_members as $member)
+                                                @if($fiscal_year - $member->enrollment_year + 1 == 3)
+                                                    <?php echo '<option value="'.$member->id.'">'.($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name.'</option>'; ?>
+                                                @endif
+                                            @endforeach
+                                        </optgroup>
+                                        <optgroup label="2回生">
+                                            @foreach($kumiren_members as $member)
+                                                @if($fiscal_year - $member->enrollment_year + 1 == 2)
+                                                    <?php echo '<option value="'.$member->id.'">'.($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name.'</option>'; ?>
+                                                @endif
+                                            @endforeach
+                                        </optgroup>
+                                        <optgroup label="1回生">
+                                            @foreach($kumiren_members as $member)
+                                                @if($fiscal_year - $member->enrollment_year + 1 == 1)
+                                                    <?php echo '<option value="'.$member->id.'">'.($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name.'</option>'; ?>
+                                                @endif
+                                            @endforeach
+                                        </optgroup>
+
+                                    </select>
+                                </label>
+
+                                <label for="F" style="width:75%" class="selectboxlabel">
+                                    FirstCallerを選択してください。
+                                    <select class="js-example-disabled-results" name="F" id="F" style="width:80%">
+                                        <option value="" hidden disabled selected></option>
+                                        <optgroup label="6回生">
+                                            @foreach($kumiren_members as $member)
+                                                @if($fiscal_year - $member->enrollment_year + 1 == 6)
+                                                    <?php echo '<option value="'.$member->id.'">'.($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name.'</option>'; ?>
+                                                @endif
+                                            @endforeach
+                                        </optgroup>
+                                        <optgroup label="5回生">
+                                            @foreach($kumiren_members as $member)
+                                                @if($fiscal_year - $member->enrollment_year + 1 == 5)
+                                                    <?php echo '<option value="'.$member->id.'">'.($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name.'</option>'; ?>
+                                                @endif
+                                            @endforeach
+                                        </optgroup>
+                                        <optgroup label="4回生">
+                                            @foreach($kumiren_members as $member)
+                                                @if($fiscal_year - $member->enrollment_year + 1 == 4)
+                                                    <?php echo '<option value="'.$member->id.'">'.($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name.'</option>'; ?>
+                                                @endif
+                                            @endforeach
+                                        </optgroup>
+                                        <optgroup label="3回生">
+                                            @foreach($kumiren_members as $member)
+                                                @if($fiscal_year - $member->enrollment_year + 1 == 3)
+                                                    <?php echo '<option value="'.$member->id.'">'.($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name.'</option>'; ?>
+                                                @endif
+                                            @endforeach
+                                        </optgroup>
+                                        <optgroup label="2回生">
+                                            @foreach($kumiren_members as $member)
+                                                @if($fiscal_year - $member->enrollment_year + 1 == 2)
+                                                    <?php echo '<option value="'.$member->id.'">'.($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name.'</option>'; ?>
+                                                @endif
+                                            @endforeach
+                                        </optgroup>
+                                        <optgroup label="1回生">
+                                            @foreach($kumiren_members as $member)
+                                                @if($fiscal_year - $member->enrollment_year + 1 == 1)
+                                                    <?php echo '<option value="'.$member->id.'">'.($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name.'</option>'; ?>
+                                                @endif
+                                            @endforeach
+                                        </optgroup>
+
+                                    </select>
+                                </label>
+
+                                <label for="S" style="width:75%" class="selectboxlabel">
+                                    SecondCallerを選択してください。
+                                    <select class="js-example-disabled-results" name="S" id="S" style="width:80%">
+                                        <option value="" hidden disabled selected></option>
+                                        <optgroup label="6回生">
+                                            @foreach($kumiren_members as $member)
+                                                @if($fiscal_year - $member->enrollment_year + 1 == 6)
+                                                    <?php echo '<option value="'.$member->id.'">'.($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name.'</option>'; ?>
+                                                @endif
+                                            @endforeach
+                                        </optgroup>
+                                        <optgroup label="5回生">
+                                            @foreach($kumiren_members as $member)
+                                                @if($fiscal_year - $member->enrollment_year + 1 == 5)
+                                                    <?php echo '<option value="'.$member->id.'">'.($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name.'</option>'; ?>
+                                                @endif
+                                            @endforeach
+                                        </optgroup>
+                                        <optgroup label="4回生">
+                                            @foreach($kumiren_members as $member)
+                                                @if($fiscal_year - $member->enrollment_year + 1 == 4)
+                                                    <?php echo '<option value="'.$member->id.'">'.($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name.'</option>'; ?>
+                                                @endif
+                                            @endforeach
+                                        </optgroup>
+                                        <optgroup label="3回生">
+                                            @foreach($kumiren_members as $member)
+                                                @if($fiscal_year - $member->enrollment_year + 1 == 3)
+                                                    <?php echo '<option value="'.$member->id.'">'.($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name.'</option>'; ?>
+                                                @endif
+                                            @endforeach
+                                        </optgroup>
+                                        <optgroup label="2回生">
+                                            @foreach($kumiren_members as $member)
+                                                @if($fiscal_year - $member->enrollment_year + 1 == 2)
+                                                    <?php echo '<option value="'.$member->id.'">'.($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name.'</option>'; ?>
+                                                @endif
+                                            @endforeach
+                                        </optgroup>
+                                        <optgroup label="1回生">
+                                            @foreach($kumiren_members as $member)
+                                                @if($fiscal_year - $member->enrollment_year + 1 == 1)
+                                                    <?php echo '<option value="'.$member->id.'">'.($fiscal_year - $member->enrollment_year + 1)."回生：".$sex[$member->sex]."：".$member->last_name.'</option>'; ?>
+                                                @endif
+                                            @endforeach
+                                        </optgroup>
+
+                                    </select>
+                                </label>
+
+                            </div>
+
 
 
 
@@ -107,21 +314,22 @@
 
 
                         <script>
-                        function StaffsCheck(){
-                            var StaffsId = [];
-                            StaffsId.push($('[name=root]').val());
-                            StaffsId.push($('[name=H]').val());
-                            StaffsId.push($('[name=F]').val());
-                            StaffsId.push($('[name=S]').val());
-                            StaffsId.sort();
-                            for (var i = 0; i < StaffsId.length - 1; i++) {
-                                if(StaffsId[i]==StaffsId[i+1]){
-                                    alert("同じ人が選択されています。");
-                                    return false;
+                            function StaffsCheck(){
+                                var StaffsId = [];
+                                StaffsId.push($('[name=root]').val());
+                                StaffsId.push($('[name=H]').val());
+                                StaffsId.push($('[name=F]').val());
+                                StaffsId.push($('[name=S]').val());
+                                StaffsId.sort();
+                                for (var i = 0; i < StaffsId.length - 1; i++) {
+                                    if(StaffsId[i]==StaffsId[i+1]){
+                                        alert("同じ人が選択されています。");
+                                        return false;
+                                    }
                                 }
+                                return true;
                             }
-                            return true;
-                        }
+                            $(".js-example-disabled-results").select2();
                         </script>
 
 
