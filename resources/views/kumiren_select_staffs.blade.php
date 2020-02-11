@@ -95,7 +95,7 @@
                             <div>
                                 <label for="H" style="width:75%" class="selectboxlabel">
                                     Headを選択してください。
-                                    <select class="js-example-disabled-results" name="H" id="H" style="width:80%">
+                                    <select class="selectbox4staffs" name="H" id="H" style="width:80%">
                                         <option value="" hidden disabled selected></option>
                                         <optgroup label="6回生">
                                             @foreach($kumiren_members as $member)
@@ -145,7 +145,7 @@
 
                                 <label for="root" style="width:75%" class="selectboxlabel">
                                     根回しを選択してください。
-                                    <select class="js-example-disabled-results" name="root" id="root" style="width:80%">
+                                    <select class="selectbox4staffs" name="root" id="root" style="width:80%">
                                         <option value="" hidden disabled selected></option>
                                         <optgroup label="6回生">
                                             @foreach($kumiren_members as $member)
@@ -195,7 +195,7 @@
 
                                 <label for="F" style="width:75%" class="selectboxlabel">
                                     FirstCallerを選択してください。
-                                    <select class="js-example-disabled-results" name="F" id="F" style="width:80%">
+                                    <select class="selectbox4staffs" name="F" id="F" style="width:80%">
                                         <option value="" hidden disabled selected></option>
                                         <optgroup label="6回生">
                                             @foreach($kumiren_members as $member)
@@ -245,7 +245,7 @@
 
                                 <label for="S" style="width:75%" class="selectboxlabel">
                                     SecondCallerを選択してください。
-                                    <select class="js-example-disabled-results" name="S" id="S" style="width:80%">
+                                    <select class="selectbox4staffs" name="S" id="S" style="width:80%">
                                         <option value="" hidden disabled selected></option>
                                         <optgroup label="6回生">
                                             @foreach($kumiren_members as $member)
@@ -329,7 +329,7 @@
                                 }
                                 return true;
                             }
-                            $(".js-example-disabled-results").select2();
+                            $(".selectbox4staffs").select2();
                         </script>
 
 
