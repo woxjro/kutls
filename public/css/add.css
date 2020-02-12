@@ -11,7 +11,7 @@
 
 }
 .btn{
-    border:solid 1px;
+    border:solid 1px!important;
     background-color: white;
 }
 .card-body{

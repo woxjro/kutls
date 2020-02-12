@@ -30,9 +30,9 @@
                             <div class="container-shapeshift1" id="test1">
 
 
-                                <p>PlayerA</p>
-                                <p>PlayerA</p>
-                                <p>PlayerA</p>
+                                <p><i class="fas fa-circle" style="color: #1b2538"></i>PlayerA</p>
+                                <p><i class="fas fa-circle" style="color: #1b2538"></i>PlayerA</p>
+                                <p><i class="fas fa-circle" style="color: #c2185b"></i>PlayerA</p>
 
 
                             </div>
