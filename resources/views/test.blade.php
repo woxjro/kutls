@@ -22,16 +22,19 @@
                             動作テスト
                         </div>
                         <!-- Javascript -->
-
-
+                        <div class="spantest male"></div>
+                        <div class="spantest female"></div>
 
                         <div>
                             <p>上段</p>
                             <div class="container-shapeshift1" id="test1">
+
+
                                 <p>PlayerA</p>
-                                <p>PlayerB</p>
-                                <p>PlayerC</p>
-                                <p>PlayerD</p>
+                                <p>PlayerA</p>
+                                <p>PlayerA</p>
+
+
                             </div>
                         </div>
                         <div>

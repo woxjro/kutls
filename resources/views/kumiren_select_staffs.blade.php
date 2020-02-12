@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.kumiren_staffs_layout')
 
 @section('content')
 <div class="container">
@@ -264,17 +264,34 @@
                                 }
                                 return true;
                             }
+                            function countStaffs(){
+                                var StaffsId = [];
+                                StaffsId.push($('[name=root]').val());
+                                StaffsId.push($('[name=H]').val());
+                                StaffsId.push($('[name=F]').val());
+                                StaffsId.push($('[name=S]').val());
+
+                            }
                             $(".selectbox4staffs").select2();
+
                             $('#staffsbutton').click(function(){
                                 if(StaffsCheck()){
                                     $('.select_staffs_form').submit();
+                                }else if ($('[name=root]').val()==null || $('[name=H]').val()==null || $('[name=F]').val()==null || $('[name=S]').val()==null) {
+                                    Swal.fire({
+                                        title: '全ての役職を埋めてください。',
+                                        text: "選択しなおしてください。",
+                                        icon: 'error',
+                                        confirmButtonText: '戻る',
+                                        showCloseButton: true,
+                                    })
                                 }else{
                                     Swal.fire({
-                                    title: '同じ人が選択されています。',
-                                    text: "選択しなおしてください。",
-                                    icon: 'error',
-                                    confirmButtonText: '戻る',
-                                    showCloseButton: true,
+                                        title: '同じ人が選択されています。',
+                                        text: "選択しなおしてください。",
+                                        icon: 'error',
+                                        confirmButtonText: '戻る',
+                                        showCloseButton: true,
                                     })
                                 }
                             });

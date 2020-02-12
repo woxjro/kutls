@@ -7,8 +7,14 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'KUTLS') }}</title>
+    <title>KUTLS</title>
 
+    <!-- Scripts -->
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <!-- Optional: include a polyfill for ES6 Promises for IE11 -->
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
 
 
     <!-- Fonts -->
@@ -21,32 +27,12 @@
 
 
     <!-- jQuery / jQuery UI -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 
-    <!-- jQuery Touch Punch - Enable Touch Drag and Drop -->
-    <script src="{{ asset('js/jquery.shapeshift/core/vendor/jquery.touch-punch.min.js') }}"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
 
-    <!-- jQuery.Shapeshift -->
-    <script src="{{ asset('js/jquery.shapeshift/core/jquery.shapeshift.js') }}"></script>
 
-    <script>
-      $(document).ready(function(){
-        $(".teamAplayers").shapeshift();
-        $(".teamBplayers").shapeshift();
-        $(".teamCplayers").shapeshift();
-        $(".teamDplayers").shapeshift();
-        $(".teamEplayers").shapeshift();
-        $(".teamFplayers").shapeshift();
-        $(".teamAfeeds").shapeshift();
-        $(".teamBfeeds").shapeshift();
-        $(".teamCfeeds").shapeshift();
-        $(".teamDfeeds").shapeshift();
-        $(".teamEfeeds").shapeshift();
-        $(".teamFfeeds").shapeshift();
-
-      });
-    </script>
 
 </head>
 <body>
@@ -54,7 +40,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'KUTLS') }}
+                    KUTLS
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

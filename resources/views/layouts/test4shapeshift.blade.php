@@ -42,18 +42,38 @@
       width: 200px;
     }
 
-    .container-shapeshift1 > p {
+    .container-shapeshift1 > p{
       background: transparent;
       text-align: center;
       position: absolute;
       height: 25px;
       width: 100px;
       border: 1px solid #e8e8e8;
+      vertical-align: center;
+
+
+    }
+    .spantest{
+        height:10px;
+        width:10px;
+        background-color: black;
+        border-radius: 50%;
+        margin-bottom: 10px;
+    }
+    .male{
+        background-color: #1b2538;
+    }
+    .female{
+        background-color: #c2185b;
     }
 
-    .container-shapeshift1 > .ss-placeholder-child {
+
+
+
+    .container-shapeshift1 > .ss-placeholder-child{
       background: transparent;
       border: 1px dashed #e8e8e8;
+    　
     }
       .card-body{
           height: 500px;
@@ -89,6 +109,7 @@
         $(document).ready(function(){
             $("#test1").shapeshift();
             $("#test2").shapeshift();
+
         });
 
     </script>
