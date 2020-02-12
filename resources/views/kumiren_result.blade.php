@@ -22,29 +22,29 @@
                             <div class="show info">
                                 <div class="info-label"><p>役職</p></div>
                                 @if($root->sex == "male")
-                                    <p>&emsp;根&nbsp;&nbsp;&nbsp;<i class="fas fa-circle" style="color: #1b2538"></i>&emsp;<?php echo ($fiscal_year - $root->enrollment_year + 1)."回生"."&emsp;".$root->last_name;?></p>
+                                    <p>&emsp;根&nbsp;&nbsp;&nbsp;<i class="fas fa-people-carry" style="color: #1b2538"></i>&emsp;<?php echo ($fiscal_year - $root->enrollment_year + 1)."回生"."&emsp;".$root->last_name;?></p>
                                 @else
-                                    <p>&emsp;根&nbsp;&nbsp;&nbsp;<i class="fas fa-circle" style="color: #c2185b"></i>&emsp;<?php echo ($fiscal_year - $root->enrollment_year + 1)."回生"."&emsp;".$root->last_name;?></p>
+                                    <p>&emsp;根&nbsp;&nbsp;&nbsp;<i class="fas fa-people-carry" style="color: #c2185b"></i>&emsp;<?php echo ($fiscal_year - $root->enrollment_year + 1)."回生"."&emsp;".$root->last_name;?></p>
                                 @endif
 
                                 @if($H->sex == "male")
-                                    <p>&emsp;H&emsp;<i class="fas fa-circle" style="color: #1b2538"></i>&emsp;<?php echo ($fiscal_year - $H->enrollment_year + 1)."回生"."&emsp;".$H->last_name;?></p>
+                                    <p>&emsp;H&emsp;<i class="fas fa-heading" style="color: #1b2538"></i>&emsp;<?php echo ($fiscal_year - $H->enrollment_year + 1)."回生"."&emsp;".$H->last_name;?></p>
                                 @else
-                                    <p>&emsp;H&emsp;<i class="fas fa-circle" style="color: #c2185b"></i>&emsp;<?php echo ($fiscal_year - $H->enrollment_year + 1)."回生"."&emsp;".$H->last_name;?></p>
+                                    <p>&emsp;H&emsp;<i class="fas fa-heading" style="color: #c2185b"></i>&emsp;<?php echo ($fiscal_year - $H->enrollment_year + 1)."回生"."&emsp;".$H->last_name;?></p>
                                 @endif
 
 
 
                                 @if($F->sex == "male")
-                                    <p>&emsp;F&emsp;<i class="fas fa-circle" style="color: #1b2538"></i>&emsp;<?php echo ($fiscal_year - $F->enrollment_year + 1)."回生"."&emsp;".$F->last_name;?></p>
+                                    <p>&emsp;&nbsp;F&emsp;<i class="fab fa-facebook-square" style="color: #1b2538"></i>&emsp;<?php echo ($fiscal_year - $F->enrollment_year + 1)."回生"."&emsp;".$F->last_name;?></p>
                                 @else
-                                    <p>&emsp;F&emsp;<i class="fas fa-circle" style="color: #c2185b"></i>&emsp;<?php echo ($fiscal_year - $F->enrollment_year + 1)."回生"."&emsp;".$F->last_name;?></p>
+                                    <p>&emsp;&nbsp;F&emsp;<i class="fab fa-facebook-square" style="color: #c2185b"></i>&emsp;<?php echo ($fiscal_year - $F->enrollment_year + 1)."回生"."&emsp;".$F->last_name;?></p>
                                 @endif
 
                                 @if($S->sex == "male")
-                                    <p>&emsp;S&emsp;<i class="fas fa-circle" style="color: #1b2538"></i>&emsp;<?php echo ($fiscal_year - $S->enrollment_year + 1)."回生"."&emsp;".$S->last_name;?></p>
+                                    <p>&emsp;&nbsp;S&emsp;<i class="fab fa-stripe-s" style="color: #1b2538"></i>&emsp;<?php echo ($fiscal_year - $S->enrollment_year + 1)."回生"."&emsp;".$S->last_name;?></p>
                                 @else
-                                    <p>&emsp;S&emsp;<i class="fas fa-circle" style="color: #c2185b"></i>&emsp;<?php echo ($fiscal_year - $S->enrollment_year + 1)."回生"."&emsp;".$S->last_name;?></p>
+                                    <p>&emsp;&nbsp;S&emsp;<i class="fab fa-stripe-s" style="color: #c2185b"></i>&emsp;<?php echo ($fiscal_year - $S->enrollment_year + 1)."回生"."&emsp;".$S->last_name;?></p>
                                 @endif
 
 
@@ -120,9 +120,9 @@
                                         @if($kumirenmemberinfo["team"]=="A")
                                             @if($kumirenmemberinfo["role"]!="NONE" && $kumirenmemberinfo["role"]!="feed")
                                                 @if($kumirenmemberinfo["sex"] == "male")
-                                                    <p>&emsp;<i class="fas fa-circle" style="color: #1b2538"></i>&emsp;<?php echo ($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生　".$kumirenmemberinfo["last_name"];?></p>
+                                                    <p>&emsp;<i class="fas fa-people-carry" style="color: #1b2538"></i>&emsp;<?php echo ($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生　".$kumirenmemberinfo["last_name"];?></p>
                                                 @else
-                                                    <p>&emsp;<i class="fas fa-circle" style="color: #c2185b"></i>&emsp;<?php echo ($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生　".$kumirenmemberinfo["last_name"];?></p>
+                                                    <p>&emsp;<i class="fas fa-people-carry" style="color: #c2185b"></i>&emsp;<?php echo ($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生　".$kumirenmemberinfo["last_name"];?></p>
                                                 @endif
                                             @else
                                                 @if($kumirenmemberinfo["sex"] == "male")
@@ -188,9 +188,9 @@
                                         @if($kumirenmemberinfo["team"]=="C")
                                             @if($kumirenmemberinfo["role"]!="NONE" && $kumirenmemberinfo["role"]!="feed")
                                                 @if($kumirenmemberinfo["sex"] == "male")
-                                                    <p>&emsp;<i class="fas fa-circle" style="color: #1b2538"></i>&emsp;<?php echo ($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生　".$kumirenmemberinfo["last_name"];?></p>
+                                                    <p>&emsp;<i class="fas fa-heading" style="color: #1b2538"></i>&emsp;<?php echo ($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生　".$kumirenmemberinfo["last_name"];?></p>
                                                 @else
-                                                    <p>&emsp;<i class="fas fa-circle" style="color: #c2185b"></i>&emsp;<?php echo ($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生　".$kumirenmemberinfo["last_name"];?></p>
+                                                    <p>&emsp;<i class="fas fa-heading" style="color: #c2185b"></i>&emsp;<?php echo ($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生　".$kumirenmemberinfo["last_name"];?></p>
                                                 @endif
                                             @else
                                                 @if($kumirenmemberinfo["sex"] == "male")
@@ -222,9 +222,9 @@
                                         @if($kumirenmemberinfo["team"]=="D")
                                             @if($kumirenmemberinfo["role"]!="NONE" && $kumirenmemberinfo["role"]!="feed")
                                                 @if($kumirenmemberinfo["sex"] == "male")
-                                                    <p>&emsp;<i class="fas fa-circle" style="color: #1b2538"></i>&emsp;<?php echo ($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生　".$kumirenmemberinfo["last_name"];?></p>
+                                                    <p>&emsp;<i class="fab fa-stripe-s" style="color: #1b2538"></i>&emsp;<?php echo ($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生　".$kumirenmemberinfo["last_name"];?></p>
                                                 @else
-                                                    <p>&emsp;<i class="fas fa-circle" style="color: #c2185b"></i>&emsp;<?php echo ($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生　".$kumirenmemberinfo["last_name"];?></p>
+                                                    <p>&emsp;<i class="fab fa-stripe-s" style="color: #c2185b"></i>&emsp;<?php echo ($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生　".$kumirenmemberinfo["last_name"];?></p>
                                                 @endif
                                             @else
                                                 @if($kumirenmemberinfo["sex"] == "male")
@@ -264,9 +264,9 @@
                                         @if($kumirenmemberinfo["team"]=="E")
                                             @if($kumirenmemberinfo["role"]!="NONE" && $kumirenmemberinfo["role"]!="feed")
                                                 @if($kumirenmemberinfo["sex"] == "male")
-                                                    <p>&emsp;<i class="fas fa-circle" style="color: #1b2538"></i>&emsp;<?php echo ($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生　".$kumirenmemberinfo["last_name"];?></p>
+                                                    <p>&emsp;<i class="fab fa-facebook-square" style="color: #1b2538"></i>&emsp;<?php echo ($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生　".$kumirenmemberinfo["last_name"];?></p>
                                                 @else
-                                                    <p>&emsp;<i class="fas fa-circle" style="color: #c2185b"></i>&emsp;<?php echo ($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生　".$kumirenmemberinfo["last_name"];?></p>
+                                                    <p>&emsp;<i class="fab fa-facebook-square" style="color: #c2185b"></i>&emsp;<?php echo ($fiscal_year - $kumirenmemberinfo["enrollment_year"] + 1)."回生　".$kumirenmemberinfo["last_name"];?></p>
                                                 @endif
                                             @else
                                                 @if($kumirenmemberinfo["sex"] == "male")
