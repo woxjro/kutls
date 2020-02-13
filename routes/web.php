@@ -43,3 +43,5 @@ Route::post('/kumiren/{kumiren_id}/select_members/select_staffs/result','MemberC
 Route::get('/test',function(){
     return view('test');
 });
+
+Route::get('/kumiren/oyagami','KumirenController@show');
