@@ -1,4 +1,4 @@
-@extends('layouts.kumiren_members_layout')
+@extends('layouts.kumiren_oyagami_layout')
 
 @section('content')
 <div class="container">
@@ -18,8 +18,13 @@
                     <div class="form-group">
                         組連メンバーを選びましょう。
                     </div>
-
-
+                    <?php $num = 1; ?>
+                    @foreach($oyagamis as $oyagami)
+                        <div>
+                            <span style="text-align:center">No.<?php if ($num < 10) {echo "0".$num;}else{echo $num;}$num++; ?>：</span>
+                            <a href="{{ url('/kumiren/'.$oyagami->id.'/select_members/select_staffs')}}">{{$oyagami->name}}</a>
+                        </div>
+                    @endforeach
 
                 </div>
 

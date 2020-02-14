@@ -13,7 +13,11 @@ class KumirenController extends Controller
     }
 
     public function show(){
-        return view('kumiren_oyagami');
+        $oyagamis = Kumiren::all()->take(-20)->reverse();
+
+        return view('kumiren_oyagami')->with([
+            "oyagamis" => $oyagamis
+        ]);
     }
 
 
