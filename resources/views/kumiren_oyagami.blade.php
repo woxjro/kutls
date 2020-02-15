@@ -8,30 +8,31 @@
                 <div class="card-header">新規親紙を作成</div>
                 <div class="card-body">
                     <!-- バリデーションエラーの表示 -->
+                    @include('common.errors')
 
-
-                    <!-- 新タスクフォーム -->
+                    <!-- 新親紙フォーム -->
                     <form action="{{url('/kumiren/select_members')}}" method="POST" class="form-horizontal">
                         @csrf
 
-                        <!-- タスク名 -->
+                        <!-- 親紙名 -->
                         <div class="form-group">
                             <label for="task-name" class="col-sm-3 control-label">親紙名を記入</label>
 
                             <div class="col-sm-6">
-                                <input type="text" name="oyagami_name" id="task-name" class="form-control" value="" placeholder="例) 強連・水曜担用">
+                                <input type="text" name="oyagami_name" id="oyagami-name" class="form-control" placeholder="例) 強連・水曜担用">
                             </div>
                         </div>
 
-                        <!-- タスク追加ボタン -->
+                        <!-- 親紙追加ボタン -->
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-6">
-                                <button style="border:1px solid black;"type="submit" class="btn btn-default">
+                                <button style="border:1px solid black;"type="submit" class="btn btn-default" id="new-oyagami-button">
                                     <i class="fa fa-btn fa-plus"></i> 作成
                                 </button>
                             </div>
                         </div>
                     </form>
+
                 </div>
             </div>
 
@@ -78,9 +79,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="show_oyagamis">
 
-                    </div>
 
 
                 </div>

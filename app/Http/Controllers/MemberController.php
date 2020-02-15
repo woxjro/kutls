@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Collection;
+use Validator, Input, Redirect;
 
 class MemberController extends Controller
 {
@@ -383,6 +384,15 @@ class MemberController extends Controller
     }
 
     public function showMembers4post(Request $request){
+        $validator = Validator::make($request->all(), [
+            'oyagami_name' => 'required|max:255',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('/kumiren/oyagami')
+                ->withInput()
+                ->withErrors($validator);
+        }
         $kumiren = new Kumiren;
         $allrequest = $request->all();
         $kumiren->name = date("Ymd")."-".$allrequest["oyagami_name"];
