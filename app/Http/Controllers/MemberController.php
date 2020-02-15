@@ -29,7 +29,6 @@ class MemberController extends Controller
 
     /**
      * Show the application dashboard.
-     *
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
