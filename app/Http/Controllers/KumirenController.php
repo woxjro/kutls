@@ -36,8 +36,13 @@ class KumirenController extends Controller
 
         $kumiren_members = collect([]);
         foreach ($kumiren2members as $kumiren2member) {
+            $kumiren2member->role = "NONE";
+            $kumiren2member->feed1stteam = "NONE";
+            $kumiren2member->feed2ndteam = "NONE";
+            $kumiren2member->team = "NONE";
             $member = Member::where('id',$kumiren2member->member_id)->first();
             $kumiren_members->push($member);
+            $kumiren2member->save();
         }
 
 

@@ -17,7 +17,7 @@
 
                     <div class="form-group">
                         <div class="col-sm-offset-3 col-sm-6">
-                              <button onclick="location.href='{{url('/')}}'" class="btn btn-default"><i class="fa fa-btn fa-plus"></i>Topへ戻る</button>
+                              <button style="border:1px solid black;"onclick="location.href='{{url('/')}}'" class="btn btn-default"><i class="fa fa-btn fa-plus"></i>Topへ</button>
                         </div>
                     </div>
 
