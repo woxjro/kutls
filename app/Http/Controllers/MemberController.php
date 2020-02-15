@@ -413,7 +413,7 @@ class MemberController extends Controller
             "fiscal_year" => $fiscal_year,
         ]);
     }
-    //
+
     public function showKumirenMembers(Request $request,$kumiren_id){
         $kumiren = Kumiren::where('id',$kumiren_id)->first();
         $latest_kumiren_id = $kumiren->id;
