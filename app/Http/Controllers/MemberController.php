@@ -414,7 +414,7 @@ class MemberController extends Controller
         return view('kumiren_select_staffs')->with([
             "kumiren" => $kumiren,
             "kumiren_members" => $kumiren_members,
-            "Id" => $membersId,
+            //"Id" => $membersId,
             "fiscal_year" => $fiscal_year,
         ]);
     }

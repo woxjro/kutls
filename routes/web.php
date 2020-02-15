@@ -28,9 +28,7 @@ Route::get('/kumiren/select_members','MemberController@showMembers')->name('sele
 
 Route::post('/kumiren/{kumiren_id}/select_members/select_staffs','MemberController@showKumirenMembers')->name('select.staffs');
 
-Route::get('/kumiren/{kumiren_id}/select_members/select_staffs',function(){
-    return redirect('/');
-});
+Route::get('/kumiren/{kumiren_id}/select_members/select_staffs','KumirenController@select_staffs');
 
 Route::get('/kumiren/{kumiren_id}/select_members/select_staffs/result',function(){
     return redirect('/');
