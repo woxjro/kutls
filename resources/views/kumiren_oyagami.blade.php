@@ -47,11 +47,6 @@
                     @endif
 
 
-                    <div class="form-group">
-
-                    </div>
-
-
 
 
                     <div class="panel panel-default">
