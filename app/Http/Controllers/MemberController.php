@@ -381,6 +381,28 @@ class MemberController extends Controller
             "fiscal_year" => $fiscal_year,
         ]);
     }
+
+    public function showMembers4post(Request $request){
+        $kumiren = new Kumiren;
+        $allrequest = $request->all();
+        $kumiren->name = date("Ymd")."-".$allrequest["oyagami_name"];
+        $kumiren->save();
+
+        $members = Member::all();
+        $members = $members->sortBy('enrollment_year');
+
+        $now_year = date("Y");
+        $now_month = date("n");
+        $fiscal_year = $now_year;
+        if ($now_month<4) {
+            $fiscal_year = $now_year - 1;
+        }
+        return view('kumiren_select_members')->with([
+            "kumiren" => $kumiren,
+            "members" => $members,
+            "fiscal_year" => $fiscal_year,
+        ]);
+    }
     //
     public function showKumirenMembers(Request $request,$kumiren_id){
         $kumiren = Kumiren::where('id',$kumiren_id)->first();

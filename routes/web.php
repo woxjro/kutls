@@ -25,6 +25,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/kumiren/select_members','MemberController@showMembers')->name('select.members');
+Route::post('/kumiren/select_members','MemberController@showMembers4post')->name('select.members');
+
 
 Route::post('/kumiren/{kumiren_id}/select_members/select_staffs','MemberController@showKumirenMembers')->name('select.staffs');
 

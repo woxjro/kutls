@@ -4,8 +4,39 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            <div style="margin-bottom:20px;"class="card">
+                <div class="card-header">新規親紙を作成</div>
+                <div class="card-body">
+                    <!-- バリデーションエラーの表示 -->
+
+
+                    <!-- 新タスクフォーム -->
+                    <form action="{{url('/kumiren/select_members')}}" method="POST" class="form-horizontal">
+                        @csrf
+
+                        <!-- タスク名 -->
+                        <div class="form-group">
+                            <label for="task-name" class="col-sm-3 control-label">親紙名を記入</label>
+
+                            <div class="col-sm-6">
+                                <input type="text" name="oyagami_name" id="task-name" class="form-control" value="" placeholder="例) 強連・水曜担用">
+                            </div>
+                        </div>
+
+                        <!-- タスク追加ボタン -->
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-6">
+                                <button style="border:1px solid black;"type="submit" class="btn btn-default">
+                                    <i class="fa fa-btn fa-plus"></i> 作成
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
             <div class="card">
-                <div class="card-header">親紙一覧</div>
+                <div class="card-header">既存親紙一覧</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -16,17 +47,39 @@
 
 
                     <div class="form-group">
-                        組連メンバーを選びましょう。
+                        親紙を選択してください。
                     </div>
 
+
+
+
+                    <div class="panel panel-default">
+                        <table class="table table-striped oyagami-table">
+
+                            <thead>
+                                <tr>
+                                    <th>既存の親紙</th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php $num = 1; ?>
+                                @foreach($oyagamis as $oyagami)
+                                    <tr>
+                                        <td class="table-text">
+                                            <a href="{{ url('/kumiren/'.$oyagami->id.'/select_members/select_staffs')}}">{{$oyagami->name}}</a>
+                                        </td>
+                                        <td>
+
+                                        </td>
+
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                     <div class="show_oyagamis">
-                        <?php $num = 1; ?>
-                        @foreach($oyagamis as $oyagami)
-                            <div>
-                                <span style="text-align:center">No.<?php if ($num < 10) {echo "0".$num;}else{echo $num;}$num++; ?>：</span>
-                                <a href="{{ url('/kumiren/'.$oyagami->id.'/select_members/select_staffs')}}">{{$oyagami->name}}</a>
-                            </div>
-                        @endforeach
+
                     </div>
 
 

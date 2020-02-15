@@ -15,7 +15,7 @@ class KumirenController extends Controller
     }
 
     public function show(){
-        $oyagamis = Kumiren::all()->take(-20)->reverse();
+        $oyagamis = Kumiren::all()->take(-15)->reverse();
 
         return view('kumiren_oyagami')->with([
             "oyagamis" => $oyagamis
@@ -32,6 +32,7 @@ class KumirenController extends Controller
         if ($now_month<4) {
             $fiscal_year = $now_year - 1;
         }
+
 
         $kumiren_members = collect([]);
         foreach ($kumiren2members as $kumiren2member) {

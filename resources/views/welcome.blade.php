@@ -92,7 +92,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="{{ url('/kumiren/select_members')}}">組連</a>
+                    <a href="{{ url('/kumiren/oyagami')}}">組連</a>
                 </div>
             </div>
         </div>
