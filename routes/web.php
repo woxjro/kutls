@@ -45,3 +45,5 @@ Route::get('/test',function(){
 });
 
 Route::get('/kumiren/oyagami','KumirenController@show');
+
+Route::delete('/kumiren/oyagami/{kumiren}', 'KumirenController@delete_kumiren');
