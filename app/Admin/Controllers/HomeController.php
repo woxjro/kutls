@@ -14,6 +14,10 @@ class HomeController extends Controller
     {
         return $content
             ->title('Dashboard')
+            ->description('Description...');
+        /*
+        return $content
+            ->title('Dashboard')
             ->description('Description...')
             ->row(Dashboard::title())
             ->row(function (Row $row) {
@@ -30,5 +34,6 @@ class HomeController extends Controller
                     $column->append(Dashboard::dependencies());
                 });
             });
+        */
     }
 }
