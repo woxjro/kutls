@@ -58,6 +58,7 @@ class KumirenController extends Controller
             "fiscal_year" => $fiscal_year,
         ]);
     }
+
     public function delete_kumiren(Kumiren $kumiren) {
         $kumiren->delete();
         return redirect('/kumiren/oyagami');
