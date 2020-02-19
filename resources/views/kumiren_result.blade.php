@@ -21,31 +21,89 @@
                     <div class="information">
                             <div class="show info">
                                 <div class="info-label"><p>役職</p></div>
-                                @if($root->sex == "male")
-                                    <p>&emsp;根&nbsp;&nbsp;&nbsp;<i class="fas fa-people-carry" style="color: #1b2538"></i>&emsp;<?php echo ($fiscal_year - $root->enrollment_year + 1)."回生"."&emsp;".$root->last_name;?></p>
-                                @else
-                                    <p>&emsp;根&nbsp;&nbsp;&nbsp;<i class="fas fa-people-carry" style="color: #c2185b"></i>&emsp;<?php echo ($fiscal_year - $root->enrollment_year + 1)."回生"."&emsp;".$root->last_name;?></p>
-                                @endif
+                                <table style="height: 150px;">
+                                    <tr style="height:10px;">
+                                        <th>&emsp;&emsp;</th>
+                                        <th>&emsp;&emsp;</th>
+                                        <th>&emsp;&emsp;</th>
+                                        <th>&emsp;&emsp;&emsp;&emsp;</th>
+                                        <th>&emsp;&emsp;&emsp;&emsp;</th>
+                                    </tr>
+                                    @if($root->sex == "male")
+                                        <tr>
+                                            <td>&emsp;&emsp;</td>
+                                            <td>根</td>
+                                            <td><i class="fas fa-people-carry" style="color: #1b2538"></i></td>
+                                            <td><?php  echo ($fiscal_year - $root->enrollment_year + 1)."回生"?></td>
+                                            <td><?php echo $root->last_name;?></td>
+                                        </tr>
+                                    @else
+                                        <tr>
+                                            <td>&emsp;&emsp;</td>
+                                            <td>根</td>
+                                            <td><i class="fas fa-people-carry" style="color: #c2185b"></i></td>
+                                            <td><?php  echo ($fiscal_year - $root->enrollment_year + 1)."回生"?></td>
+                                            <td><?php echo $root->last_name;?></td>
+                                        </tr>
+                                    @endif
 
-                                @if($H->sex == "male")
-                                    <p>&emsp;H&emsp;<i class="fas fa-heading" style="color: #1b2538"></i>&emsp;<?php echo ($fiscal_year - $H->enrollment_year + 1)."回生"."&emsp;".$H->last_name;?></p>
-                                @else
-                                    <p>&emsp;H&emsp;<i class="fas fa-heading" style="color: #c2185b"></i>&emsp;<?php echo ($fiscal_year - $H->enrollment_year + 1)."回生"."&emsp;".$H->last_name;?></p>
-                                @endif
+                                    @if($H->sex == "male")
+                                        <tr>
+                                            <td>&emsp;&emsp;</td>
+                                            <td>H</td>
+                                            <td><i class="fas fa-heading" style="color: #1b2538"></i></td>
+                                            <td><?php  echo ($fiscal_year - $H->enrollment_year + 1)."回生"?></td>
+                                            <td><?php echo $H->last_name;?></td>
+                                        </tr>
+                                    @else
+                                        <tr>
+                                            <td>&emsp;&emsp;</td>
+                                            <td>H</td>
+                                            <td><i class="fas fa-heading" style="color: #c2185b"></i></td>
+                                            <td><?php  echo ($fiscal_year - $H->enrollment_year + 1)."回生"?></td>
+                                            <td><?php echo $H->last_name;?></td>
+                                        </tr>
+                                    @endif
 
 
 
-                                @if($F->sex == "male")
-                                    <p>&emsp;&nbsp;F&emsp;<i class="fab fa-facebook-square" style="color: #1b2538"></i>&emsp;<?php echo ($fiscal_year - $F->enrollment_year + 1)."回生"."&emsp;".$F->last_name;?></p>
-                                @else
-                                    <p>&emsp;&nbsp;F&emsp;<i class="fab fa-facebook-square" style="color: #c2185b"></i>&emsp;<?php echo ($fiscal_year - $F->enrollment_year + 1)."回生"."&emsp;".$F->last_name;?></p>
-                                @endif
+                                    @if($F->sex == "male")
+                                        <tr>
+                                            <td>&emsp;&emsp;</td>
+                                            <td>F</td>
+                                            <td><i class="fab fa-facebook-square" style="color: #1b2538"></i></td>
+                                            <td><?php  echo ($fiscal_year - $F->enrollment_year + 1)."回生"?></td>
+                                            <td><?php echo $F->last_name;?></td>
+                                        </tr>
+                                    @else
+                                        <tr>
+                                            <td>&emsp;&emsp;</td>
+                                            <td>F</td>
+                                            <td><i class="fab fa-facebook-square" style="color: #c2185b"></i></td>
+                                            <td><?php  echo ($fiscal_year - $F->enrollment_year + 1)."回生"?></td>
+                                            <td><?php echo $F->last_name;?></td>
+                                        </tr>
+                                    @endif
 
-                                @if($S->sex == "male")
-                                    <p>&emsp;&nbsp;S&emsp;<i class="fab fa-stripe-s" style="color: #1b2538"></i>&emsp;<?php echo ($fiscal_year - $S->enrollment_year + 1)."回生"."&emsp;".$S->last_name;?></p>
-                                @else
-                                    <p>&emsp;&nbsp;S&emsp;<i class="fab fa-stripe-s" style="color: #c2185b"></i>&emsp;<?php echo ($fiscal_year - $S->enrollment_year + 1)."回生"."&emsp;".$S->last_name;?></p>
-                                @endif
+                                    @if($S->sex == "male")
+                                        <tr>
+                                            <td>&emsp;&emsp;</td>
+                                            <td>S</td>
+                                            <td><i class="fab fa-stripe-s" style="color: #1b2538"></i></td>
+                                            <td><?php  echo ($fiscal_year - $S->enrollment_year + 1)."回生"?></td>
+                                            <td><?php echo $S->last_name;?></td>
+                                        </tr>
+                                    @else
+                                        <tr>
+                                            <td>&emsp;&emsp;</td>
+                                            <td>S</td>
+                                            <td><i class="fab fa-stripe-s" style="color: #c2185b"></i></td>
+                                            <td><?php  echo ($fiscal_year - $S->enrollment_year + 1)."回生"?></td>
+                                            <td><?php echo $S->last_name;?></td>
+                                        </tr>
+                                    @endif
+
+                                </table>
 
 
                             </div>
