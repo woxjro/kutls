@@ -15,7 +15,13 @@ class KumirenController extends Controller
     }
 
     public function show(){
-        $oyagamis = Kumiren::all()->take(-15)->reverse();
+        $oyagamis = collect([]);
+        $tmp_oyagamis = Kumiren::all()->take(-30)->reverse();
+        foreach ($tmp_oyagamis as $tmp_oyagami) {
+            $tmp_oyagami_members = Kumiren2member::where('kumiren_id',$tmp_oyagami->id)->get();
+            if($tmp_oyagami_members->count() > 10) $oyagamis->push($tmp_oyagami);
+            if($oyagamis->count() >= 15) break;
+        }
 
         return view('kumiren_oyagami')->with([
             "oyagamis" => $oyagamis
