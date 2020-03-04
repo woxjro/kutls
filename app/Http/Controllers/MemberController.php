@@ -20,12 +20,15 @@ class MemberController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
+     public function __construct()
+     {
+         $this->middleware('auth');
+     }
+
+    public function index(){
+        $members = Member::paginate(10);
+        return \Response::json($members);
     }
-
-
 
     /**
      * Show the application dashboard.

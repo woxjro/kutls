@@ -22,6 +22,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/api/members', 'MemberController@index');
+
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/kumiren/select_members','MemberController@showMembers')->name('select.members');
