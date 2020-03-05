@@ -54,7 +54,14 @@ header .container{
   margin: auto;
 }
 
+@media screen and (max-width:500px) {
+    header{
+        max-width: 500px;
+    }
+}
+
 @media screen and (max-width:1000px) {
+
   .ABOUT{
     height:750px!important;
   }
@@ -249,7 +256,6 @@ header .container{
 
 
 .top-wrapper .container{
-  /*width: 1170px;*/
   width:100%;
   padding: 0px 15px;
   margin: auto;
