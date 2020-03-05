@@ -55,7 +55,7 @@ header .container{
   margin: auto;
 }
 
-@media screen and (max-width:800px) {
+@media screen and (max-width:1000px) {
   .ABOUT{
     height:750px!important;
   }
@@ -186,7 +186,7 @@ header .container{
 
 }
 
-@media screen and (min-width:800px) {
+@media screen and (min-width:1000px) {
   .header-list ul{
     margin-top:0px;
     display: flex;
