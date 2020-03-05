@@ -1,4 +1,6 @@
-
+*{
+    box-sizing: border-box;
+}
 html{
   background-color: #111;
 }
@@ -263,7 +265,7 @@ header .container{
   text-align: center;
   vertical-align: middle;
   padding-top: 40vh;
-  background-image: url(../img/flag3.jpeg);
+  background-image: url(../img/flag_blur.jpg);
   color:white;
   background-size:cover;
   background-position: 80% 80%;
@@ -272,18 +274,7 @@ header .container{
   position: relative;
 }
 
-.top-wrapper::before {
-  background: inherit;
-  content: '';
-  -webkit-filter: blur(5px);
-  filter: blur(5px);
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  margin-bottom: 7px;
-}
+
 
 
 .top-wrapper h1{
