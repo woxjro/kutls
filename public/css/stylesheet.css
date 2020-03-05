@@ -3,8 +3,9 @@
 html{
   background-color: #111;
 }
-
-
+li{
+    list-style: none;
+}
 a {
   text-decoration: none;
 }
@@ -185,7 +186,7 @@ header .container{
 
 }
 
-@media screen and (min-width:1000px) {
+@media screen and (min-width:800px) {
   .header-list ul{
     margin-top:0px;
     display: flex;
