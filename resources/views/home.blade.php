@@ -14,6 +14,12 @@
                         </div>
                     @endif
 
+                    <div class="content">
+                        <div class="links">
+                            <li><a href="{{ url('/kumiren/oyagami')}}">組連</a></li>
+                        </div>
+                    </div>
+
 
                     <div class="form-group">
                         <div class="col-sm-offset-3 col-sm-6">

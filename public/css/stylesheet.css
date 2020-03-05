@@ -1,0 +1,486 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
+@import url('https://fonts.googleapis.com/css?family=Kosugi');
+html{
+  background-color: #111;
+}
+
+
+a {
+  text-decoration: none;
+}
+.logo{
+  margin-left: 0px;
+  margin-top:20px;
+  color: white;
+  font-size: 23px;
+  opacity: 0.9;
+}
+
+body {
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN";
+}
+header{
+  top: 0;
+  width: 100%;
+  height:65px;
+  background-color:rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  position: fixed;
+  z-index: 10;
+}
+header *{
+  font-family: Gill Sans,Gill Sans MT,Calibri,sans-serif;
+}
+header .logo a{
+  color:white;
+  transition: all 1s;
+}
+header .logo a:hover{
+  color:#d81b60;
+}
+header .logo span{
+  color:white!important;
+}
+header .header-left{
+  float:left;
+  /*border:1px solid #d81b60;*/
+  width:110px;
+  height:65px;
+}
+header .container{
+  width: 90%;
+  margin: auto;
+}
+
+@media screen and (max-width:800px) {
+  .ABOUT{
+    height:750px!important;
+  }
+  .WORKS{
+    height:750px!important;
+  }
+  h1{
+    font-size: 25px;
+  }
+  .top-wrapper h1{
+    font-size: 100px!important;
+  }
+
+  .header-list {
+    display: none;
+
+  }
+  .global-nav {
+    position: fixed;
+    right: -320px; /* これで隠れる */
+    top: 0;
+    width: 300px; /* スマホに収まるくらい */
+    height: 100vh;
+    padding-top: 65px;
+    background-color:rgba(0, 0, 0, 0.7);
+    transition: all .6s;
+    z-index: 200;
+    overflow-y: auto; /* メニューが多くなったらスクロールできるように */
+  }
+  .hamburger {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px; /* クリックしやすいようにちゃんと幅を指定する */
+    height: 36px; /* クリックしやすいようにちゃんと高さを指定する */
+    cursor: pointer;
+    z-index: 300;
+    border:1px solid white;
+    border-radius: 7px;
+    top:12px;
+    right: 20px;
+  }
+  .global-nav__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .global-nav__item {
+    text-align: center;
+    padding: 0 14px;
+  }
+  .global-nav__item a {
+    display: block;
+    border-radius: 5px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    text-decoration: none;
+    color: white;
+    margin-bottom: 15px;
+    transition: all 0.5s;
+  }
+  .global-nav__item a:hover {
+    background-color:rgba(255, 255, 255, 0.5);
+    color: rgba(34, 49, 52);
+  }
+  .hamburger__line {
+    position: absolute;
+    left: 11px;
+    width: 18px;
+    height: 1px;
+    background-color: white;
+    transition: all .6s;
+  }
+  .hamburger__line--1 {
+    top: 12px;
+  }
+  .hamburger__line--2 {
+    top: 18px;
+  }
+  .hamburger__line--3 {
+    top: 24px;
+  }
+
+  .black-bg {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    background-color: #000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .6s;
+    cursor: pointer;
+  }
+  /* 表示された時用のCSS */
+  .nav-open .global-nav {
+    right: 0;
+  }
+  .nav-open .black-bg {
+    opacity: .8;
+    visibility: visible;
+  }
+  .nav-open .hamburger__line--1 {
+    transform: rotate(45deg);
+    top: 18px;
+  }
+  .nav-open .hamburger__line--2 {
+    width: 0;
+    left: 50%;
+  }
+  .nav-open .hamburger__line--3 {
+    transform: rotate(-45deg);
+    top: 18px;
+  }
+
+  .tennis-court-info{
+    width:100%;
+
+    margin-bottom:10px;
+    display: inline-block;
+  }
+  .tennis-court-info iframe{
+    width:100%!important;
+    height: 100%!important;
+  }
+
+}
+
+@media screen and (min-width:1000px) {
+  .header-list ul{
+    margin-top:0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  .header-list li{
+    margin:16px 5px 0px 0px;
+    list-style: none;
+  }
+  .header-list a{
+    line-height: 35px;
+    border-radius: 3px;
+    padding:0px 13px;
+    color:white;
+    transition: all 0.5s;
+    display: block;
+  }
+  .header-list a:hover{
+    background-color:rgba(255, 255, 255, 0.5);
+    color: rgba(34, 49, 52);
+  }
+
+  nav{
+    display: none;
+
+
+  }
+  .hamburger{
+    display: none;
+  }
+  .black-bg{
+    display: none;
+  }
+
+  .tennis-court-info{
+    float: left;
+    margin-left:30px;
+    display: inline-block;
+  }
+}
+
+
+
+
+
+.blinking{
+  -webkit-animation:blink 2s ease-in-out infinite alternate;
+  -moz-animation:blink 2s ease-in-out infinite alternate;
+  animation:blink 2s ease-in-out infinite alternate;
+}
+@keyframes blink{
+  80% {opacity:0.8;}
+  100% {opacity:1;}
+}
+@-webkit-keyframes blink{
+  80% {opacity:0.8;}
+  100% {opacity:1;}
+}
+
+
+
+.top-wrapper .container{
+  /*width: 1170px;*/
+  width:100%;
+  padding: 0px 15px;
+  margin: auto;
+}
+.top-wrapper{
+  height: 800px;
+  text-align: center;
+  padding:300px 0px 0px 0px;
+  /**background-image: url(https://oceanobservatories.org/wp-content/uploads/2020/01/AGU-ocean-wave-splash.jpg);**/
+  background-image: url(../img/flag3.jpeg);
+  color:white;
+  background-size:cover;
+  background-position: 80% 80%;
+  background-attachment: fixed;
+	background-repeat: no-repeat;
+  position: relative;
+}
+
+.top-wrapper::before {
+  background: inherit;
+  content: '';
+  -webkit-filter: blur(7px);
+  filter: blur(7px);
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  margin-bottom: 7px;
+}
+
+
+.top-wrapper h1{
+  font-family: Gill Sans,Gill Sans MT,Calibri,sans-serif;
+  position: relative;
+  margin-bottom: 0px;
+  font-weight: 400;
+  opacity: 0.8;
+  font-size: 130px;
+  letter-spacing: 3px;
+  transition: all 1s;
+}
+.top-wrapper span{
+  color:white!important;
+}
+.top-wrapper h1:hover{
+  color: #d81b60;
+}
+
+.top-wrapper p{
+  font-family:"Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体";
+  margin-top: 0px;
+  opacity: 0.8;
+  font-weight: 300;
+  font-size: 20px;
+  letter-spacing: 3px;
+  transition: all 1.5s;
+}
+.top-wrapper p:hover{
+  color: #d81b60;
+}
+
+.contents-wrapper *{
+  font-family: Gill Sans,Gill Sans MT,Calibri,sans-serif;
+}
+.contents-wrapper .container{
+  width: 80%;
+  margin:auto;
+  padding-top: 0px;
+}
+.contents-wrapper h1{
+  color: white;
+}
+
+.ABOUT{
+	height: 900px;
+	background-color: #111;
+	z-index: 2;
+}
+.WORKS{
+	height: 900px;
+	background-color: #111;
+	z-index: 2;
+}
+.ACTIVITY{
+  height: 900px;
+	background-color: #111;
+	z-index: 2;
+}
+.SCHEDULE{
+  height: 650px;
+	background-color: #111;
+	z-index: 2;
+}
+.CONTACT{
+  height: 900px;
+	background-color: #111;
+	z-index: 2;
+}
+
+a.anchor{
+    display: block;
+    padding-top: 65px;
+    margin-top: -65px;
+}
+
+
+.middle-wrapper{
+  height: 800px;
+  text-align: center;
+  background-image: url(../img/kyoto_kiyomizu.jpg);
+  color:white;
+  background-size:cover;
+  background-position: center center;
+  background-attachment: fixed;
+	background-repeat: no-repeat;
+	z-index: 0;
+}
+.bottom-wrapper{
+  height: 800px;
+  text-align: center;
+  background-image: url(../img/kyoto_fushimi.jpg);
+  color:white;
+  background-size:cover;
+  background-position: center center;
+  background-attachment: fixed;
+	background-repeat: no-repeat;
+	z-index: 1;
+}
+.activity-wrapper{
+  height: 800px;
+  text-align: center;
+  background-image: url(../img/kyoto_gosho.jpeg);
+  color:white;
+  background-size:cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+.contact-wrapper{
+  height: 800px;
+  text-align: center;
+  background-image: url(../img/kyoto_river.jpeg);
+  color:white;
+  background-size:cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.tennis-court-info iframe{
+  display: block;
+  border-radius: 2px;
+}
+.tennis-court-info a{
+  margin-top: 5px;
+  color:white;
+  float: right;
+}
+.tennis-court-info p{
+  font-family: "Hiragino Kaku Gothic ProN";
+  color:white;
+}
+
+
+
+
+
+.CONTACT .row{
+  display: table;
+  margin:auto;
+}
+.CONTACT .cell{
+  display: table-cell;
+  width: 340px;
+}
+
+
+
+
+.SCHEDULE #calendar-container{
+  background-color: white;
+}
+
+
+footer *{
+  font-family: Gill Sans,Gill Sans MT,Calibri,sans-serif;
+}
+footer{
+  height:65px;
+  background-color: #37474f;
+  color:white;
+}
+footer .container{
+  width: 92%;
+  margin: auto;
+}
+footer .container{
+  display: flex;
+  justify-content: space-between;
+}
+.footer-left{
+  /*float:left;*/
+  /*border:1px solid #d81b60;*/
+  width:200px;
+  height:65px;
+}
+footer .logo{
+  font-size: 20px;
+  transition: all 1s;
+}
+footer .logo span{
+  color: white!important;
+}
+footer .logo:hover{
+  color:#d81b60;
+}
+footer a{
+  color: white;
+}
+footer .madeby > p{
+  margin-top: 22px;
+}
+footer span{
+  color: white!important;
+}
+footer .madeby a{
+  transition: all 1s;
+}
+footer .madeby a:hover{
+   color:#d81b60;
+}
