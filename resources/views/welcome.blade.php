@@ -9,8 +9,7 @@
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
-
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
   </head>
   <body>
@@ -27,7 +26,6 @@
             <li class="global-nav__item"><a id="nav-link5" ontouchstart="" data-scroll href="#SCHEDULE">SCHEDULE</a></li>
             @if (Route::has('login'))
                 @auth
-
                     <li class="global-nav__item"><a id="nav-link6" ontouchstart="" data-scroll href="{{ url('/home') }}">HOME</a></li>
                 @else
                     <li class="global-nav__item"><a id="nav-link7" ontouchstart="" data-scroll href="{{ route('login') }}">LOGIN</a></li>
@@ -43,8 +41,6 @@
         </div>
 
         <div class="black-bg" id="js-black-bg"></div>
-
-
 
         <div class="header-left">
           <p class="logo"><a ontouchstart="" data-scroll href="#TOP">.<span>KUTLS</span></a></p>
@@ -69,7 +65,6 @@
 
 
       </div>
-
     </header>
 
 
@@ -128,15 +123,6 @@
       <div class="container">
         <h1>CONTACT</h1>
         <div class="row">
-          <div class="cell">
-            <a href="https://instagram.com/kutls_2020?r=nametag" target=”_blank”><img src="../img/instagram.jpg" style="height:550px;" alt="" class="blinking"></a>
-          </div>
-          <div class="cell twitterTimeLine">
-            <a class="twitter-timeline" data-width="330" data-height="550" data-theme="dark" href="https://twitter.com/KUTLS_official?ref_src=twsrc%5Etfw">Tweets by KUTLS_official</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-          </div>
-          <div class="cell twitterTimeLine">
-            <a class="twitter-timeline" data-width="330" data-height="550" data-theme="dark" href="https://twitter.com/Kutls2020?ref_src=twsrc%5Etfw">Tweets by Kutls2020</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-          </div>
 
         </div>
 
