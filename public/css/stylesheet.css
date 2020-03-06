@@ -60,12 +60,7 @@ header .container{
 
 @media screen and (max-width:1000px) {
 
-  .ABOUT{
-    height:750px!important;
-  }
-  .WORKS{
-    height:750px!important;
-  }
+
   h1{
     font-size: 25px;
   }
@@ -189,7 +184,6 @@ header .container{
   }
 
 }
-
 @media screen and (min-width:1000px) {
   .header-list ul{
     margin-top:0px;
@@ -320,27 +314,27 @@ header .container{
 }
 
 .ABOUT{
-    height:900px;
+    height:calc(100vh - 65px);
 	background-color: #111;
 	z-index: 2;
 }
 .WORKS{
-	height: 900px;
+	height: calc(100vh - 65px);
 	background-color: #111;
 	z-index: 2;
 }
 .ACTIVITY{
-  height: 900px;
+  height: calc(100vh - 65px);
 	background-color: #111;
 	z-index: 2;
 }
 .SCHEDULE{
-  height: 650px;
+  height: calc(100vh - 130px);
 	background-color: #111;
 	z-index: 2;
 }
 .CONTACT{
-  height: 900px;
+  height: calc(100vh - 65px);
 	background-color: #111;
 	z-index: 2;
 }
