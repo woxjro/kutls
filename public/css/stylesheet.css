@@ -246,20 +246,12 @@ header .container{
   100% {opacity:1;}
 }
 
-
-
-.top-wrapper .container{
-  width:100%;
-  padding: 0px 15px;
-  margin: auto;
-}
 .top-wrapper{
   width: 100%;
   height:105vh;
   object-fit: cover;
+  display: table;
   text-align: center;
-  vertical-align: middle;
-  padding-top: 40vh;
   background-image: url(../img/flag_blur.jpg);
   color:white;
   background-size:cover;
@@ -269,18 +261,22 @@ header .container{
   position: relative;
 }
 
-
-
+.top-wrapper .container{
+  width:100%;
+  vertical-align: middle;
+  display: table-cell;
+}
 
 .top-wrapper h1{
   font-family: Gill Sans,Gill Sans MT,Calibri,sans-serif;
-  position: relative;
+  vertical-align: middle;
   margin-bottom: 0px;
   font-weight: 400;
   opacity: 0.8;
   font-size: 130px;
   letter-spacing: 3px;
   transition: all 1s;
+  margin: auto;
 }
 .top-wrapper span{
   color:white!important;
