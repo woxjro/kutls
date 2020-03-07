@@ -252,12 +252,11 @@ header .container{
   object-fit: cover;
   display: table;
   text-align: center;
-  background-image: url(../img/flag_blur.jpg);
+  background: #000 url(../img/flag_blur.jpg) no-repeat fixed;
   color:white;
   background-size:cover;
-  background-position: 80% 80%;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
+  background-position-x: 60%;
+  background-position-y: 70%;
   position: relative;
 }
 
