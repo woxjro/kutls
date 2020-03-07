@@ -255,8 +255,8 @@ header .container{
   background: #000 url(../img/flag_blur.jpg) no-repeat fixed;
   color:white;
   background-size:cover;
-  background-position-x: 60%;
-  background-position-y: 70%;
+  background-position-x: 50%;
+  background-position-y: center;
   position: relative;
 }
 
