@@ -59,7 +59,7 @@ header .container{
 
 
 
-@media screen and (max-width:1000px) {
+@media screen and (max-width:800px) {
 
 
   h1{
@@ -188,6 +188,13 @@ header .container{
     height: 100%!important;
   }
 
+  .CONTACT{
+      height: auto!important;
+  }
+  .CONTACT .cell{
+      margin-bottom: 40px;
+  }
+
   footer .madeby a{
       color:#d81b60!important
 
@@ -197,7 +204,7 @@ header .container{
       font-size: 18px!important;
   }
 }
-@media screen and (min-width:1000px) {
+@media screen and (min-width:800px) {
   .header-list ul{
     margin-top:0px;
     display: flex;
@@ -238,6 +245,12 @@ header .container{
     margin-left:30px;
     display: inline-block;
   }
+
+  .CONTACT .cell{
+    display: table-cell;
+    width: 30vw;
+  }
+
 }
 
 
@@ -418,14 +431,14 @@ a.anchor{
   color:white;
 }
 
+.CONTACT .row p{
+    color: white;
+}
 .CONTACT .row{
   display: table;
   margin:auto;
 }
-.CONTACT .cell{
-  display: table-cell;
-  width: 30vw;
-}
+
 
 .SCHEDULE #calendar-container{
   background-color: white;

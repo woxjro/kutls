@@ -122,9 +122,25 @@
     <div class="contents-wrapper CONTACT">
       <div class="container">
         <h1>CONTACT</h1>
-        <div class="row">
 
+        <div class="row">
+            <div class="cell">
+                <p>新歓用instagram</p>
+               <a href="https://instagram.com/kutls_2020?r=nametag" target=”_blank”><img src="../img/instagram.jpg" style="width:310px;" alt="" class="blinking"></a>
+            </div>
+
+            <div class="cell twitterTimeLine">
+                <p>公式twitter</p>
+               <a class="twitter-timeline" data-width="310" data-height="530" data-theme="dark" href="https://twitter.com/KUTLS_official?ref_src=twsrc%5Etfw">Tweets by KUTLS_official</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+
+            <div class="cell twitterTimeLine">
+                <p>新歓用twitter</p>
+               <a class="twitter-timeline" data-width="310" data-height="530" data-theme="dark" href="https://twitter.com/Kutls2020?ref_src=twsrc%5Etfw">Tweets by Kutls2020</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
         </div>
+
+
 
 
       </div>
