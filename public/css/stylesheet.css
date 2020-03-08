@@ -68,10 +68,12 @@ header .container{
   .top-wrapper h1{
     font-size: 100px!important;
   }
-
+  .top-wrapper{
+      width: 100vw;
+      height: 100vh;
+  }
   .header-list {
     display: none;
-
   }
   .global-nav {
     position: fixed;
@@ -247,7 +249,7 @@ header .container{
 }
 
 .top-wrapper{
-  width: 100%;
+  width: 100vw;
   height:105vh;
   object-fit: cover;
   display: table;
