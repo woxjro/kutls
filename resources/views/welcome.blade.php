@@ -19,16 +19,16 @@
 
         <nav class="global-nav">
           <ul class="global-nav__list">
-            <li class="global-nav__item"><a id="nav-link1" ontouchstart="" data-scroll href="#ABOUT">ABOUT</a></li>
-            <li class="global-nav__item"><a id="nav-link2" ontouchstart="" data-scroll href="#WORKS">WORKS</a></li>
-            <li class="global-nav__item"><a id="nav-link3" ontouchstart="" data-scroll href="#ACTIVITY">ACTIVITY</a></li>
-            <li class="global-nav__item"><a id="nav-link4" ontouchstart="" data-scroll href="#CONTACT">CONTACT</a></li>
-            <li class="global-nav__item"><a id="nav-link5" ontouchstart="" data-scroll href="#SCHEDULE">SCHEDULE</a></li>
+            <li class="global-nav__item"><div><a id="nav-link1" ontouchstart="" data-scroll href="#ABOUT">ABOUT</a></div></li>
+            <li class="global-nav__item"><div><a id="nav-link2" ontouchstart="" data-scroll href="#WORKS">WORKS</a></div></li>
+            <li class="global-nav__item"><div><a id="nav-link3" ontouchstart="" data-scroll href="#ACTIVITY">ACTIVITY</a></div></li>
+            <li class="global-nav__item"><div><a id="nav-link4" ontouchstart="" data-scroll href="#CONTACT">CONTACT</a></div></li>
+            <li class="global-nav__item"><div><a id="nav-link5" ontouchstart="" data-scroll href="#SCHEDULE">SCHEDULE</a></div></li>
             @if (Route::has('login'))
                 @auth
-                    <li class="global-nav__item"><a id="nav-link6" ontouchstart="" data-scroll href="{{ url('/home') }}">HOME</a></li>
+                    <li class="global-nav__item"><div><a id="nav-link6" ontouchstart="" data-scroll href="{{ url('/home') }}">HOME</a></div></li>
                 @else
-                    <li class="global-nav__item"><a id="nav-link7" ontouchstart="" data-scroll href="{{ route('login') }}">LOGIN</a></li>
+                    <li class="global-nav__item"><div><a id="nav-link7" ontouchstart="" data-scroll href="{{ route('login') }}">LOGIN</a></div></li>
                 @endauth
             @endif
           </ul>

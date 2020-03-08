@@ -86,6 +86,10 @@ header .container{
     z-index: 200;
     overflow-y: auto; /* メニューが多くなったらスクロールできるように */
   }
+  .global-nav__item div{
+      border-bottom: 1px solid #eee;
+      margin: 10px 0px 20px 0px;
+  }
   .hamburger {
     position: absolute;
     right: 0;
@@ -110,12 +114,11 @@ header .container{
   }
   .global-nav__item a {
     display: block;
-
     padding: 8px 0;
-    border-bottom: 1px solid #eee;
     text-decoration: none;
     color: white;
-    margin: 10px 0px 20px 0px;
+    margin-bottom: 2px;
+    border-radius: 7px;
     transition: all 0.5s;
   }
   .global-nav__item a:hover {
@@ -185,6 +188,14 @@ header .container{
     height: 100%!important;
   }
 
+  footer .madeby a{
+      color:#d81b60!important
+
+      ;
+  }
+  footer .logo {
+      font-size: 18px!important;
+  }
 }
 @media screen and (min-width:1000px) {
   .header-list ul{
@@ -407,10 +418,6 @@ a.anchor{
   color:white;
 }
 
-
-
-
-
 .CONTACT .row{
   display: table;
   margin:auto;
@@ -419,9 +426,6 @@ a.anchor{
   display: table-cell;
   width: 30vw;
 }
-
-
-
 
 .SCHEDULE #calendar-container{
   background-color: white;
