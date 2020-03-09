@@ -190,8 +190,6 @@ header .container{
 
 
   .top-wrapper{
-    width: 100%;
-    height:110vh;
     object-fit: cover;
     display: table;
     text-align: center;
