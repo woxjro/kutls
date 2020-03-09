@@ -21,6 +21,19 @@
           </div>
       </div>
       <script>
+          function sleep(msec) {
+             return new Promise(function(resolve) {
+                setTimeout(function() {resolve()}, msec);
+             })
+          }
+          async function stopload2() {
+              await sleep(2000);
+              await bg.classList.add('fadeout-bg');
+              await loader.classList.add('fadeout-loader');
+          }
+
+
+
           var bg = document.getElementById('loader-bg'),
               loader = document.getElementById('loader');
           /* ロード画面の非表示を解除 */
@@ -28,13 +41,14 @@
           loader.classList.remove('is-hide');
 
           /* 読み込み完了 */
-          window.addEventListener('load', stopload);
+          window.addEventListener('load', stopload2);
 
           /* 10秒経ったら強制的にロード画面を非表示にする */
-          setTimeout('stopload()',10000);
+          setTimeout('stopload2()',8000);
 
           /* ロード画面を非表示にする処理 */
           function stopload(){
+              stop();
               bg.classList.add('fadeout-bg');
               loader.classList.add('fadeout-loader');
           }
