@@ -187,6 +187,10 @@ header .container{
     top: 24px;
   }
 
+  .top-wrapper{
+      background: #000 url(../img/flag_blur1.jpg) no-repeat fixed!important;
+  }
+
   .black-bg {
     position: fixed;
     left: 0;
@@ -223,8 +227,7 @@ header .container{
 
   .tennis-court-info{
     width:100%;
-
-    margin-bottom:10px;
+    margin-bottom:30px;
     display: inline-block;
   }
   .tennis-court-info iframe{
@@ -232,11 +235,21 @@ header .container{
     height: 100%!important;
   }
 
+  .ACTIVITY{
+      height:auto!important;
+  }
+
+
   .CONTACT{
       height: auto!important;
   }
   .CONTACT .cell{
       margin-bottom: 40px;
+  }
+
+  .tennis-court-info iframe{
+      height:300px!important;
+      width:300px!important;
   }
 
   footer .madeby a{
@@ -289,6 +302,8 @@ header .container{
     margin-left:30px;
     display: inline-block;
   }
+
+
 
   .CONTACT .cell{
     display: table-cell;
@@ -393,6 +408,7 @@ header .container{
 	background-color: #111;
 	z-index: 2;
 }
+
 .SCHEDULE{
   height: calc(100vh - 130px);
 	background-color: #111;
