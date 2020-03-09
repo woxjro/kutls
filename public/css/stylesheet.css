@@ -190,14 +190,13 @@ header .container{
 
 
   .top-wrapper{
-    object-fit: cover;
+    width: 100%;
+    height:110vh;
     display: table;
     text-align: center;
     background: #000 url(../img/flag_blur1.jpg) no-repeat fixed;
     color:white;
     background-size:cover;
-    background-position-x: 50%;
-    background-position-y: center;
     position: relative;
   }
 
