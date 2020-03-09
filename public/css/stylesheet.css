@@ -223,7 +223,8 @@ header .container{
 
   .tennis-court-info{
     width:100%;
-    margin-bottom:30px;
+
+    margin-bottom:10px;
     display: inline-block;
   }
   .tennis-court-info iframe{
@@ -237,16 +238,11 @@ header .container{
   .CONTACT .cell{
       margin-bottom: 40px;
   }
-  .ACTIVITY{
-      height:auto!important;
-  }
-  .tennis-court-info iframe{
-      height:300px!important;
-      width:300px!important;
-  }
 
   footer .madeby a{
-      color:#d81b60!important;
+      color:#d81b60!important
+
+      ;
   }
   footer .logo {
       font-size: 18px!important;
