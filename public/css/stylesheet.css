@@ -30,15 +30,15 @@
 }
 #loader {
 
-    left: calc(50% - 100px);
+    left: calc(50% - 200px);
     position: fixed;
-    top: calc(50% - 100px);
+    top: calc(50% - 220px);
 
 }
 
 #loader p img {
     display: inline-block;
-    width: 200px;
+    width: 400px;
 }
 
 
