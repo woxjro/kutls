@@ -1,3 +1,47 @@
+/* 非表示 */
+.is-hide {
+    display: none;
+}
+/* ローディング画面をフェードアウト */
+.fadeout-bg {
+    transition-property: opacity;
+    transition-delay: .9s;
+    transition-duration: .8s;
+    opacity: 0;
+    pointer-events: none;
+}
+/* ローダーをフェードアウト */
+.fadeout-loader {
+    transition-property: opacity;
+    transition-delay: .9s;
+    transition-duration: .3s;
+    opacity: 0;
+    pointer-events: none;
+}
+/* ローディング画面 */
+#loader-bg {
+    background: #000;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+#loader {
+
+    left: calc(50% - 100px);
+    position: fixed;
+    top: calc(50% - 100px);
+
+}
+
+#loader p img {
+    display: inline-block;
+    width: 200px;
+}
+
+
 *{
     box-sizing: border-box;
 }
