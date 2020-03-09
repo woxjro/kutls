@@ -187,8 +187,20 @@ header .container{
     top: 24px;
   }
 
+
+
   .top-wrapper{
-      background: #000 url(../img/flag_blur1.jpg) no-repeat fixed!important;
+    width: 100%;
+    height:110vh;
+    object-fit: cover;
+    display: table;
+    text-align: center;
+    background: #000 url(../img/flag_blur1.jpg) no-repeat fixed;
+    color:white;
+    background-size:cover;
+    background-position-x: 50%;
+    background-position-y: center;
+    position: relative;
   }
 
   .black-bg {
@@ -303,6 +315,20 @@ header .container{
     display: inline-block;
   }
 
+  .top-wrapper{
+    width: 100%;
+    height:110vh;
+    object-fit: cover;
+    display: table;
+    text-align: center;
+    background: #000 url(../img/flag_blur.jpg) no-repeat fixed;
+    color:white;
+    background-size:cover;
+    background-position-x: 50%;
+    background-position-y: center;
+    position: relative;
+  }
+
 
 
   .CONTACT .cell{
@@ -330,19 +356,7 @@ header .container{
   100% {opacity:1;}
 }
 
-.top-wrapper{
-  width: 100%;
-  height:110vh;
-  object-fit: cover;
-  display: table;
-  text-align: center;
-  background: #000 url(../img/flag_blur.jpg) no-repeat fixed;
-  color:white;
-  background-size:cover;
-  background-position-x: 50%;
-  background-position-y: center;
-  position: relative;
-}
+
 
 .top-wrapper .container{
   width:100%;
