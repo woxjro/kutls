@@ -223,7 +223,6 @@ header .container{
 
   .tennis-court-info{
     width:100%;
-
     margin-bottom:10px;
     display: inline-block;
   }
@@ -240,9 +239,7 @@ header .container{
   }
 
   footer .madeby a{
-      color:#d81b60!important
-
-      ;
+      color:#d81b60!important;
   }
   footer .logo {
       font-size: 18px!important;
@@ -415,15 +412,15 @@ a.anchor{
 .middle-wrapper{
     width: 100%;
     height:105vh;
-  text-align: center;
-  background-image: url(../img/kyoto_kiyomizu.jpg);
-  color:white;
-  background-size:cover;
-  background-position: center center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  z-index: 0;
-  transform: translate3d(0, 0, 0);
+    text-align: center;
+    background-image: url(../img/kyoto_kiyomizu.jpg);
+    color:white;
+    background-size:cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    z-index: 0;
+    transform: translate3d(0, 0, 0);
 }
 .bottom-wrapper{
     width: 100%;
