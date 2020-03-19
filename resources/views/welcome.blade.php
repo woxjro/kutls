@@ -2,10 +2,20 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>KUTLS</title>
+    <meta name="description" content="京大硬庭 KUTLS の公式ホームページ。200名を超える関西最大級のテニスサークルである京大硬庭は、週５回各４時間京都市内のコートでテニスをしています。">
+    <meta property="og:description" content="京大硬庭 KUTLS の公式ホームページ。200名を超える関西最大級のテニスサークルである京大硬庭は、週５回各４時間京都市内のコートでテニスをしています。">
+    <meta name="keywords" content="KUTLS,京大硬庭,テニサー,京都,テニス,京大,サークル,関西">
+    <meta property="og:title" content="KUTLS 京大硬庭 : 関西最大級のテニスサークル">
+    <meta property="og:type" content="website">
+    <title>KUTLS 京大硬庭 : 関西最大級のテニスサークル</title>
     <link href="{{ asset('css/stylesheet.css') }}" rel="stylesheet">
     <!-- Get minor updates and patch fixes within a major version -->
     <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15/dist/smooth-scroll.polyfills.min.js"></script>
+    <script
+          src="https://code.jquery.com/jquery-3.4.1.min.js"
+          integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+          crossorigin="anonymous">
+    </script>
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
@@ -124,7 +134,7 @@
       </div>
     </div>
 
-    <div class="middle-wrapper"></div>
+    <div id="MIDDLE"class="middle-wrapper"></div>
     <a id="WORKS" class="anchor"></a>
     <div class="contents-wrapper WORKS">
       <div class="container">
@@ -263,7 +273,31 @@
       }
       toggleNav();
 
+      $(function(){
+        var target1 = $("#TOP");
+        var targetPosOT1 = target1.offset().top;
+        var target2 = $("#MIDDLE");
+        var targetPosOT2 = target2.offset().top;
+        var windowH = $(window).height();
+        var scrollYStart1 = targetPosOT1 - windowH;
+        var scrollYStart2 = targetPosOT2 - windowH;
+        $(window).on('scroll',function(){
+          var scrollY = $(this).scrollTop();
+          if(scrollY > scrollYStart1){
+            target1.css('background-position-y', (scrollY - targetPosOT1)*0.3+ 'px');
+          }else{
+            target1.css('background-position','center top');
+          }
+          if(scrollY > scrollYStart2){
+            target2.css('background-position-y', (scrollY - targetPosOT2)*0.3+ 'px');
+          }else{
+            target2.css('background-position','center top');
+          }
+        });
+      });
+
     </script>
+
 
     <footer>
       <div class="container">
