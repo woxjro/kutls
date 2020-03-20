@@ -265,7 +265,7 @@ header .container {
     }
 
     .CONTACT {
-        height: auto !important;
+        height: 2000px!important;
     }
 
     .CONTACT .cell {
@@ -457,18 +457,7 @@ a.anchor {
     margin-top: -65px;
 }
 
-.contact-wrapper {
-    width: 100vw;
-    height: 110vh;
-    text-align: center;
-    background-image: url(../img/spring_ocean.jpg);
-    color: white;
-    background-size: 100vw 110vh;
-    background-position: center center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    z-index: 1;
-}
+
 
 .tennis-court-info iframe {
     display: block;

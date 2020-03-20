@@ -1,0 +1,49 @@
+.top-wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: table;
+    text-align: center;
+    background-image: url(../img/flag_blur.jpg);
+    color: white;
+    background-size: cover;
+}
+
+.middle-wrapper {
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    color: white;
+    background-image: url(../img/kyoto_kiyomizu.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.bottom-wrapper {
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    color: white;
+    background-image: url(../img/kyoto_fushimi.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.activity-wrapper {
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    color: white;
+    background-image: url(../img/kyoto_gosho.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.contact-wrapper {
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    color: white;
+    background-image: url(../img/spring_ocean.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}

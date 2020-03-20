@@ -10,8 +10,24 @@
     <title>KUTLS 京大硬庭 : 関西最大級のテニスサークル</title>
 
     <link href="{{ asset('css/stylesheet.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/background_attachment.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/background_js.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/background_nonIOS.css') }}" rel="stylesheet" id="nonIOSCSS">
+    <link href="{{ asset('css/background_IOS.css') }}"         rel="stylesheet" id="IOSCSS">
+    <script>
+        const isIOS = /[ \(]iP/.test(navigator.userAgent);
+        function switchStyleSheet(){
+            console.log(isIOS);
+            if (isIOS) {
+                document.getElementById('nonIOSCSS').disabled = true;
+                document.getElementById('IOSCSS').disabled = false;
+            }else{
+                document.getElementById('nonIOSCSS').disabled = false;
+                document.getElementById('IOSCSS').disabled = true;
+            }
+        }
+        switchStyleSheet();
+
+
+    </script>
 
     <!-- Get minor updates and patch fixes within a major version -->
     <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15/dist/smooth-scroll.polyfills.min.js"></script>
@@ -201,7 +217,7 @@
     </div>
 
 
-    <div class="bottom-wrapper"></div>
+    <div id="BOTTOM" class="bottom-wrapper"></div>
     <a id="SCHEDULE" class="anchor"></a>
     <div class="contents-wrapper SCHEDULE">
       <div class="container">
@@ -220,120 +236,7 @@
 
     <div class="message-wrapper"></div>
 
-    <script>
-      var scroll = new SmoothScroll('a[href*="#"]', {
-        // Function. Custom easing pattern
-        // If this is set to anything other than null, will override the easing option above
-        customEasing: function (time) {
 
-          // return <your formulate with time as a multiplier>
-
-          // Example: easeInOut Quad
-          return time < 0.5 ? 2 * time * time : -1 + (4 - 2 * time) * time;
-
-        }
-      });
-
-
-      function toggleNav() {
-        var body = document.body;
-        var hamburger = document.getElementById('js-hamburger');
-        var blackBg = document.getElementById('js-black-bg');
-        var navLink1 = document.getElementById('nav-link1');
-        var navLink2 = document.getElementById('nav-link2');
-        var navLink3 = document.getElementById('nav-link3');
-        var navLink4 = document.getElementById('nav-link4');
-        var navLink5 = document.getElementById('nav-link5');
-        var navLink6 = document.getElementById('nav-link6');
-        var navLink7 = document.getElementById('nav-link7');
-
-
-        hamburger.addEventListener('click', function() {
-          body.classList.toggle('nav-open');
-        });
-        blackBg.addEventListener('click', function() {
-          body.classList.remove('nav-open');
-        });
-        navLink1.addEventListener('click', function() {
-          body.classList.remove('nav-open');
-        });
-        navLink2.addEventListener('click', function() {
-          body.classList.remove('nav-open');
-        });
-        navLink3.addEventListener('click', function() {
-          body.classList.remove('nav-open');
-        });
-        navLink4.addEventListener('click', function() {
-          body.classList.remove('nav-open');
-        });
-        navLink5.addEventListener('click', function() {
-          body.classList.remove('nav-open');
-        });
-        navLink6.addEventListener('click', function() {
-          body.classList.remove('nav-open');
-        });
-        navLink7.addEventListener('click', function() {
-          body.classList.remove('nav-open');
-        });
-      }
-      toggleNav();
-
-/*
-      $(function(){
-        var target1 = $("#TOP");
-        var targetPosOT1 = target1.offset().top;
-        var target2 = $("#MIDDLE");
-        var targetPosOT2 = target2.offset().top;
-        var windowH = $(window).height();
-        var scrollYStart1 = targetPosOT1 - windowH;
-        var scrollYStart2 = targetPosOT2 - windowH;
-        $(window).on('scroll',function(){
-          var scrollY = $(this).scrollTop();
-          if(scrollY > scrollYStart1){
-            target1.css('background-position-y', (scrollY - targetPosOT1)*0.3+ 'px');
-          }else{
-            target1.css('background-position','center top');
-          }
-          if(scrollY > scrollYStart2){
-            target2.css('background-position-y', (scrollY - targetPosOT2)*0.3+ 'px');
-          }else{
-            target2.css('background-position','center top');
-          }
-        });
-      });
-*/
-/*
-      var $backIMG1 = document.getElementById('TOP');
-      var $backIMG2 = document.getElementById('MIDDLE');
-
-      const rect1 = $backIMG1.getBoundingClientRect();
-      const rect2 = $backIMG2.getBoundingClientRect();
-
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-      var backIMG1_top = rect1.top + scrollTop;
-      var backIMG2_top = rect2.top + scrollTop;
-
-      var windowH = window.screen.height;
-
-      scrollYStart1 = backIMG1_top - windowH;
-      scrollYStart2 = backIMG2_top - windowH;
-      window.addEventListener('scroll',function(event){
-        var scrollY = window.scrollY;
-        if(scrollY > scrollYStart1){
-          $backIMG1.style.backgroundPositionY　=  (scrollY - backIMG1_top)*0.5+ 'px';
-        }else{
-          $backIMG1.style.backgroundPosition　=  'center top';
-        }
-
-        if(scrollY > scrollYStart2){
-          $backIMG2.style.backgroundPositionY　=  (scrollY - backIMG2_top)*0.5+ 'px';
-        }else{
-          $backIMG2.style.backgroundPosition　=  'center top';
-        }
-      })
-*/
-    </script>
 
 
     <footer>
@@ -348,6 +251,111 @@
     </footer>
   </body>
 
+  <script>
+    if (isIOS) {
+      var $backIMG1 = document.getElementById('TOP');
+      var $backIMG2 = document.getElementById('MIDDLE');
+      var $backIMG5 = document.getElementById('BOTTOM');
 
+      const rect1 = $backIMG1.getBoundingClientRect();
+      const rect2 = $backIMG2.getBoundingClientRect();
+      const rect5 = $backIMG5.getBoundingClientRect();
+
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      var backIMG1_top = rect1.top + scrollTop;
+      var backIMG2_top = rect2.top + scrollTop;
+      var backIMG5_top = rect5.top + scrollTop;
+
+      var windowH = window.screen.height;
+
+      scrollYStart1 = backIMG1_top - windowH;
+      scrollYStart2 = backIMG2_top - windowH;
+      scrollYStart5 = backIMG5_top - windowH;
+      window.addEventListener('scroll',function(event){
+        var scrollY = window.scrollY;
+        if(scrollY > scrollYStart1){
+          $backIMG1.style.backgroundPositionY　=  (scrollY - backIMG1_top)*0.4+ 'px';
+        }else{
+          $backIMG1.style.backgroundPosition　=  'center top';
+        }
+
+        if(scrollY > scrollYStart2){
+          $backIMG2.style.backgroundPositionY　=  (scrollY - backIMG2_top)*0.4+ 'px';
+        }else{
+          $backIMG2.style.backgroundPosition　=  'center top';
+        }
+
+        if(scrollY > scrollYStart5){
+          $backIMG5.style.backgroundPositionY　=  (scrollY - backIMG5_top)*0.4+ 'px';
+        }else{
+          $backIMG5.style.backgroundPosition　=  'center top';
+        }
+      })
+  }
+    var scroll = new SmoothScroll('a[href*="#"]', {
+    // Function. Custom easing pattern
+    // If this is set to anything other than null, will override the easing option above
+    customEasing: function (time) {
+
+      // return <your formulate with time as a multiplier>
+
+      // Example: easeInOut Quad
+      return time < 0.5 ? 2 * time * time : -1 + (4 - 2 * time) * time;
+
+    }
+  });
+
+    function toggleNav() {
+      var body = document.body;
+      var hamburger = document.getElementById('js-hamburger');
+      var blackBg = document.getElementById('js-black-bg');
+      var navLink1 = document.getElementById('nav-link1');
+      var navLink2 = document.getElementById('nav-link2');
+      var navLink3 = document.getElementById('nav-link3');
+      var navLink4 = document.getElementById('nav-link4');
+      var navLink5 = document.getElementById('nav-link5');
+      var navLink6 = document.getElementById('nav-link6');
+      var navLink7 = document.getElementById('nav-link7');
+
+
+      hamburger.addEventListener('click', function() {
+        body.classList.toggle('nav-open');
+      });
+      blackBg.addEventListener('click', function() {
+        body.classList.remove('nav-open');
+      });
+      navLink1.addEventListener('click', function() {
+        body.classList.remove('nav-open');
+      });
+      navLink2.addEventListener('click', function() {
+        body.classList.remove('nav-open');
+      });
+      navLink3.addEventListener('click', function() {
+        body.classList.remove('nav-open');
+      });
+      navLink4.addEventListener('click', function() {
+        body.classList.remove('nav-open');
+      });
+      navLink5.addEventListener('click', function() {
+        body.classList.remove('nav-open');
+      });
+      navLink6.addEventListener('click', function() {
+        body.classList.remove('nav-open');
+      });
+      navLink7.addEventListener('click', function() {
+        body.classList.remove('nav-open');
+      });
+    }
+    toggleNav();
+
+
+
+
+
+
+
+
+  </script>
 
 </html>
