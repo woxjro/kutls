@@ -164,7 +164,7 @@
     </div>
 
 
-    <div class="activity-wrapper"></div>
+    <div id="ACTIVITY-IMG" class="activity-wrapper"></div>
     <a id="ACTIVITY" class="anchor"></a>
     <div class="contents-wrapper ACTIVITY">
       <div class="container">
@@ -187,7 +187,7 @@
     </div>
 
 
-    <div class="contact-wrapper"></div>
+    <div id="CONTACT-IMG"class="contact-wrapper"></div>
     <a id="CONTACT" class="anchor"></a>
     <div class="contents-wrapper CONTACT">
       <div class="container">
@@ -255,22 +255,30 @@
     if (isIOS) {
       var $backIMG1 = document.getElementById('TOP');
       var $backIMG2 = document.getElementById('MIDDLE');
+      var $backIMG3 = document.getElementById('ACTIVITY-IMG');
+      var $backIMG4 = document.getElementById('CONTACT-IMG');
       var $backIMG5 = document.getElementById('BOTTOM');
 
       const rect1 = $backIMG1.getBoundingClientRect();
       const rect2 = $backIMG2.getBoundingClientRect();
+      const rect3 = $backIMG3.getBoundingClientRect();
+      const rect4 = $backIMG4.getBoundingClientRect();
       const rect5 = $backIMG5.getBoundingClientRect();
 
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
       var backIMG1_top = rect1.top + scrollTop;
       var backIMG2_top = rect2.top + scrollTop;
+      var backIMG3_top = rect3.top + scrollTop;
+      var backIMG4_top = rect4.top + scrollTop;
       var backIMG5_top = rect5.top + scrollTop;
 
       var windowH = window.screen.height;
 
       scrollYStart1 = backIMG1_top - windowH;
       scrollYStart2 = backIMG2_top - windowH;
+      scrollYStart3 = backIMG3_top - windowH;
+      scrollYStart4 = backIMG4_top - windowH;
       scrollYStart5 = backIMG5_top - windowH;
       window.addEventListener('scroll',function(event){
         var scrollY = window.scrollY;
@@ -284,6 +292,18 @@
           $backIMG2.style.backgroundPositionY　=  (scrollY - backIMG2_top)*0.4+ 'px';
         }else{
           $backIMG2.style.backgroundPosition　=  'center top';
+        }
+
+        if(scrollY > scrollYStart3){
+          $backIMG3.style.backgroundPositionY　=  (scrollY - backIMG3_top)*0.4+ 'px';
+        }else{
+          $backIMG3.style.backgroundPosition　=  'center top';
+        }
+
+        if(scrollY > scrollYStart4){
+          $backIMG4.style.backgroundPositionY　=  (scrollY - backIMG4_top)*0.4+ 'px';
+        }else{
+          $backIMG4.style.backgroundPosition　=  'center top';
         }
 
         if(scrollY > scrollYStart5){
