@@ -85,7 +85,7 @@ header {
 }
 
 header * {
-    font-family: Gill Sans, Gill Sans MT, Calibri, sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'sans-serif';
 }
 
 header .logo a {
@@ -374,7 +374,7 @@ header .container {
 }
 
 .top-wrapper h1 {
-    font-family: Gill Sans, Gill Sans MT, Calibri, sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'sans-serif';
     vertical-align: middle;
     margin-bottom: 0px;
     font-weight: 400;
@@ -408,7 +408,7 @@ header .container {
 }
 
 .contents-wrapper * {
-    font-family: Gill Sans, Gill Sans MT, Calibri, sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'sans-serif';
 }
 
 .contents-wrapper .container {
@@ -489,7 +489,7 @@ a.anchor {
 }
 
 footer * {
-    font-family: Gill Sans, Gill Sans MT, Calibri, sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'sans-serif';
 }
 
 footer {

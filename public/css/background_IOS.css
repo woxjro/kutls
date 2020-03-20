@@ -6,6 +6,7 @@
     background-image: url(../img/flag_blur.jpg);
     color: white;
     background-size: cover;
+    background-position: bottom;
 }
 
 .middle-wrapper {
