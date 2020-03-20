@@ -447,6 +447,9 @@ header .container {
     color: white;
     z-index: 2;
 }
+.WORKS .container p{
+    margin:30px 0px;
+}
 .WORKS h2{
     border-bottom: 1px solid white;
     width: 90%;
@@ -459,7 +462,7 @@ header .container {
 .WORKS .works-detail{
     width: 50%;
     display: table-cell;
-    margin-bottom:60px;
+    margin-bottom:80px;
 }
 
 .ACTIVITY {
