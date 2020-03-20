@@ -2,6 +2,7 @@
 .is-hide {
     display: none;
 }
+
 /* ローディング画面をフェードアウト */
 .fadeout-bg {
     transition-property: opacity;
@@ -10,6 +11,7 @@
     opacity: 0;
     pointer-events: none;
 }
+
 /* ローダーをフェードアウト */
 .fadeout-loader {
     transition-property: opacity;
@@ -18,6 +20,7 @@
     opacity: 0;
     pointer-events: none;
 }
+
 /* ローディング画面 */
 #loader-bg {
     background: #000;
@@ -28,12 +31,11 @@
     width: 100%;
     z-index: 100;
 }
-#loader {
 
+#loader {
     left: calc(50% - 200px);
     position: fixed;
     top: calc(50% - 220px);
-
 }
 
 #loader p img {
@@ -41,502 +43,518 @@
     width: 400px;
 }
 
-
-*{
+* {
     box-sizing: border-box;
 }
-html{
-  background-color: #111;
+
+html {
+    background-color: #111;
 }
-li{
+
+li {
     list-style: none;
 }
+
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
-.logo{
-  margin-left: 0px;
-  margin-top:20px;
-  color: white;
-  font-size: 23px;
-  opacity: 0.9;
+
+.logo {
+    margin-left: 0px;
+    margin-top: 20px;
+    color: white;
+    font-size: 23px;
+    opacity: 0.9;
 }
 
 body {
-  margin: 0;
-  font-family: "Hiragino Kaku Gothic ProN";
-}
-header{
-  top: 0;
-  width: 100vw;
-  height:65px;
-  background-color:rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  position: fixed;
-  transform: translate3d(0, 0, 0);
-  z-index: 10;
-}
-header *{
-  font-family: Gill Sans,Gill Sans MT,Calibri,sans-serif;
-}
-header .logo a{
-  color:white;
-  transition: all 1s;
-}
-header .logo a:hover{
-  color:#d81b60;
-}
-header .logo span{
-  color:white!important;
-}
-header .header-left{
-  float:left;
-  /*border:1px solid #d81b60;*/
-  width:110px;
-  height:65px;
-}
-header .container{
-  width: 90%;
-  margin: auto;
-}
-
-
-
-@media screen and (max-width:800px) {
-
-
-  h1{
-    font-size: 25px;
-  }
-  .top-wrapper h1{
-    font-size: 100px!important;
-  }
-  .top-wrapper{
-      height:892px;
-  }
-  .header-list {
-    display: none;
-  }
-  .global-nav {
-    position: fixed;
-    right: -320px; /* これで隠れる */
-    top: 0;
-    width: 300px; /* スマホに収まるくらい */
-    height: 100vh;
-    padding-top: 65px;
-    background-color:rgba(0, 0, 0, 0.7);
-    transition: all .6s;
-    z-index: 200;
-    overflow-y: auto; /* メニューが多くなったらスクロールできるように */
-  }
-  .global-nav__item div{
-      border-bottom: 1px solid #eee;
-      margin: 10px 0px 20px 0px;
-  }
-  .hamburger {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 40px; /* クリックしやすいようにちゃんと幅を指定する */
-    height: 36px; /* クリックしやすいようにちゃんと高さを指定する */
-    cursor: pointer;
-    z-index: 300;
-    border:1px solid white;
-    border-radius: 7px;
-    top:12px;
-    right: 20px;
-  }
-  .global-nav__list {
     margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  .global-nav__item {
-    text-align: center;
-    padding: 0 14px;
-  }
-  .global-nav__item a {
-    display: block;
-    padding: 8px 0;
-    text-decoration: none;
-    color: white;
-    margin-bottom: 2px;
-    border-radius: 7px;
-    transition: all 0.5s;
-  }
-  .global-nav__item a:hover {
-    background-color:rgba(255, 255, 255, 0.5);
-    color: rgba(34, 49, 52);
-  }
-  .hamburger__line {
-    position: absolute;
-    left: 11px;
-    width: 18px;
-    height: 1px;
-    background-color: white;
-    transition: all .6s;
-  }
-  .hamburger__line--1 {
-    top: 12px;
-  }
-  .hamburger__line--2 {
-    top: 18px;
-  }
-  .hamburger__line--3 {
-    top: 24px;
-  }
+    font-family: "Hiragino Kaku Gothic ProN";
+}
 
-  .black-bg {
-    position: fixed;
-    left: 0;
+header {
     top: 0;
     width: 100vw;
-    height: 100vh;
-    z-index: 100;
-    background-color: #000;
-    opacity: 0;
-    visibility: hidden;
-    transition: all .6s;
-    cursor: pointer;
-  }
-  /* 表示された時用のCSS */
-  .nav-open .global-nav {
-    right: 0;
-  }
-  .nav-open .black-bg {
-    opacity: .8;
-    visibility: visible;
-  }
-  .nav-open .hamburger__line--1 {
-    transform: rotate(45deg);
-    top: 18px;
-  }
-  .nav-open .hamburger__line--2 {
-    width: 0;
-    left: 50%;
-  }
-  .nav-open .hamburger__line--3 {
-    transform: rotate(-45deg);
-    top: 18px;
-  }
-
-  .tennis-court-info{
-    width:100%;
-    margin-bottom:30px;
-    display: inline-block;
-  }
-  .tennis-court-info iframe{
-    width:100%!important;
-    height: 100%!important;
-  }
-
-  .CONTACT{
-      height: auto!important;
-  }
-  .CONTACT .cell{
-      margin-bottom: 40px;
-  }
-  .ACTIVITY{
-      height:auto!important;
-  }
-  .tennis-court-info iframe{
-      height:300px!important;
-      width:300px!important;
-  }
-
-  footer .madeby a{
-      color:#d81b60!important;
-  }
-  footer .logo {
-      font-size: 18px!important;
-  }
+    height: 65px;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    position: fixed;
+    transform: translate3d(0, 0, 0);
+    z-index: 10;
 }
-@media screen and (min-width:800px) {
-  .header-list ul{
-    margin-top:0px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-  }
-  .header-list li{
-    margin:16px 5px 0px 0px;
-    list-style: none;
-  }
-  .header-list a{
-    line-height: 35px;
-    border-radius: 3px;
-    padding:0px 13px;
-    color:white;
-    transition: all 0.5s;
-    display: block;
-  }
-  .header-list a:hover{
-    background-color:rgba(255, 255, 255, 0.5);
-    color: rgba(34, 49, 52);
-  }
 
-  nav{
-    display: none;
+header * {
+    font-family: Gill Sans, Gill Sans MT, Calibri, sans-serif;
+}
 
+header .logo a {
+    color: white;
+    transition: all 1s;
+}
 
-  }
-  .hamburger{
-    display: none;
-  }
-  .black-bg{
-    display: none;
-  }
+header .logo a:hover {
+    color: #d81b60;
+}
 
-  .tennis-court-info{
+header .logo span {
+    color: white !important;
+}
+
+header .header-left {
     float: left;
-    margin-left:30px;
-    display: inline-block;
-  }
+    /*border:1px solid #d81b60;*/
+    width: 110px;
+    height: 65px;
+}
 
-  .CONTACT .cell{
+header .container {
+    width: 90%;
+    margin: auto;
+}
+
+@media screen and (max-width:800px) {
+    h1 {
+        font-size: 25px;
+    }
+
+    .top-wrapper h1 {
+        font-size: 100px !important;
+    }
+
+    .top-wrapper {
+        height: 892px;
+    }
+
+    .header-list {
+        display: none;
+    }
+
+    .global-nav {
+        position: fixed;
+        right: -320px;
+        /* これで隠れる */
+        top: 0;
+        width: 300px;
+        /* スマホに収まるくらい */
+        height: 100vh;
+        padding-top: 65px;
+        background-color: rgba(0, 0, 0, 0.7);
+        transition: all .6s;
+        z-index: 200;
+        overflow-y: auto;
+        /* メニューが多くなったらスクロールできるように */
+    }
+
+    .global-nav__item div {
+        border-bottom: 1px solid #eee;
+        margin: 10px 0px 20px 0px;
+    }
+
+    .hamburger {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 40px;
+        /* クリックしやすいようにちゃんと幅を指定する */
+        height: 36px;
+        /* クリックしやすいようにちゃんと高さを指定する */
+        cursor: pointer;
+        z-index: 300;
+        border: 1px solid white;
+        border-radius: 7px;
+        top: 12px;
+        right: 20px;
+    }
+
+    .global-nav__list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .global-nav__item {
+        text-align: center;
+        padding: 0 14px;
+    }
+
+    .global-nav__item a {
+        display: block;
+        padding: 8px 0;
+        text-decoration: none;
+        color: white;
+        margin-bottom: 2px;
+        border-radius: 7px;
+        transition: all 0.5s;
+    }
+
+    .global-nav__item a:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+        color: rgba(34, 49, 52);
+    }
+
+    .hamburger__line {
+        position: absolute;
+        left: 11px;
+        width: 18px;
+        height: 1px;
+        background-color: white;
+        transition: all .6s;
+    }
+
+    .hamburger__line--1 {
+        top: 12px;
+    }
+
+    .hamburger__line--2 {
+        top: 18px;
+    }
+
+    .hamburger__line--3 {
+        top: 24px;
+    }
+
+    .black-bg {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 100;
+        background-color: #000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all .6s;
+        cursor: pointer;
+    }
+
+    /* 表示された時用のCSS */
+    .nav-open .global-nav {
+        right: 0;
+    }
+
+    .nav-open .black-bg {
+        opacity: .8;
+        visibility: visible;
+    }
+
+    .nav-open .hamburger__line--1 {
+        transform: rotate(45deg);
+        top: 18px;
+    }
+
+    .nav-open .hamburger__line--2 {
+        width: 0;
+        left: 50%;
+    }
+
+    .nav-open .hamburger__line--3 {
+        transform: rotate(-45deg);
+        top: 18px;
+    }
+
+    .tennis-court-info {
+        width: 100%;
+        margin-bottom: 30px;
+        display: inline-block;
+    }
+
+    .tennis-court-info iframe {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .CONTACT {
+        height: auto !important;
+    }
+
+    .CONTACT .cell {
+        margin-bottom: 40px;
+    }
+
+    .ACTIVITY {
+        height: auto !important;
+    }
+
+    .tennis-court-info iframe {
+        height: 300px !important;
+        width: 300px !important;
+    }
+
+    footer .madeby a {
+        color: #d81b60 !important;
+    }
+
+    footer .logo {
+        font-size: 18px !important;
+    }
+}
+
+@media screen and (min-width:800px) {
+    .header-list ul {
+        margin-top: 0px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    .header-list li {
+        margin: 16px 5px 0px 0px;
+        list-style: none;
+    }
+
+    .header-list a {
+        line-height: 35px;
+        border-radius: 3px;
+        padding: 0px 13px;
+        color: white;
+        transition: all 0.5s;
+        display: block;
+    }
+
+    .header-list a:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+        color: rgba(34, 49, 52);
+    }
+
+    nav {
+        display: none;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    .black-bg {
+        display: none;
+    }
+
+    .tennis-court-info {
+        float: left;
+        margin-left: 30px;
+        display: inline-block;
+    }
+
+    .CONTACT .cell {
+        display: table-cell;
+        width: 30vw;
+    }
+}
+
+.blinking {
+    -webkit-animation: blink 2s ease-in-out infinite alternate;
+    -moz-animation: blink 2s ease-in-out infinite alternate;
+    animation: blink 2s ease-in-out infinite alternate;
+}
+
+@keyframes blink {
+    80% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes blink {
+    80% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.top-wrapper .container {
+    width: 100%;
+    vertical-align: middle;
     display: table-cell;
-    width: 30vw;
-  }
-
 }
 
-
-
-
-
-.blinking{
-  -webkit-animation:blink 2s ease-in-out infinite alternate;
-  -moz-animation:blink 2s ease-in-out infinite alternate;
-  animation:blink 2s ease-in-out infinite alternate;
-}
-@keyframes blink{
-  80% {opacity:0.8;}
-  100% {opacity:1;}
-}
-@-webkit-keyframes blink{
-  80% {opacity:0.8;}
-  100% {opacity:1;}
+.top-wrapper h1 {
+    font-family: Gill Sans, Gill Sans MT, Calibri, sans-serif;
+    vertical-align: middle;
+    margin-bottom: 0px;
+    font-weight: 400;
+    opacity: 0.8;
+    font-size: 130px;
+    letter-spacing: 3px;
+    transition: all 1s;
+    margin: auto;
 }
 
-.top-wrapper{
-  width: 100%;
-  height:110vh;
-  object-fit: cover;
-  display: table;
-  text-align: center;
-  background: #000 url(../img/flag_blur.jpg) no-repeat fixed;
-  color:white;
-  background-size:100vw 110vh;
-  background-position-x: 50%;
-  background-position-y: center;
-  position: relative;
+.top-wrapper span {
+    color: white !important;
 }
 
-.top-wrapper .container{
-  width:100%;
-  vertical-align: middle;
-  display: table-cell;
+.top-wrapper h1:hover {
+    color: #d81b60;
 }
 
-.top-wrapper h1{
-  font-family: Gill Sans,Gill Sans MT,Calibri,sans-serif;
-  vertical-align: middle;
-  margin-bottom: 0px;
-  font-weight: 400;
-  opacity: 0.8;
-  font-size: 130px;
-  letter-spacing: 3px;
-  transition: all 1s;
-  margin: auto;
-}
-.top-wrapper span{
-  color:white!important;
-}
-.top-wrapper h1:hover{
-  color: #d81b60;
+.top-wrapper p {
+    font-family: "Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体";
+    margin-top: 0px;
+    opacity: 0.8;
+    font-weight: 300;
+    font-size: 20px;
+    letter-spacing: 3px;
+    transition: all 1.5s;
 }
 
-.top-wrapper p{
-  font-family:"Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体";
-  margin-top: 0px;
-  opacity: 0.8;
-  font-weight: 300;
-  font-size: 20px;
-  letter-spacing: 3px;
-  transition: all 1.5s;
-}
-.top-wrapper p:hover{
-  color: #d81b60;
+.top-wrapper p:hover {
+    color: #d81b60;
 }
 
-.contents-wrapper *{
-  font-family: Gill Sans,Gill Sans MT,Calibri,sans-serif;
-}
-.contents-wrapper .container{
-  width: 80%;
-  margin:auto;
-  padding-top: 0px;
-}
-.contents-wrapper h1{
-  color: white;
+.contents-wrapper * {
+    font-family: Gill Sans, Gill Sans MT, Calibri, sans-serif;
 }
 
-.ABOUT{
-    height:calc(100vh - 65px);
-	background-color: #111;
-	z-index: 2;
-}
-.WORKS{
-	height: calc(100vh - 65px);
-	background-color: #111;
-	z-index: 2;
-}
-.ACTIVITY{
-  height: calc(100vh - 65px);
-	background-color: #111;
-	z-index: 2;
-}
-.SCHEDULE{
-  height: calc(100vh - 130px);
-	background-color: #111;
-	z-index: 2;
-}
-.CONTACT{
-  height: calc(100vh - 65px);
-	background-color: #111;
-	z-index: 2;
+.contents-wrapper .container {
+    width: 80%;
+    margin: auto;
+    padding-top: 0px;
 }
 
-a.anchor{
+.contents-wrapper h1 {
+    color: white;
+}
+
+.ABOUT {
+    height: calc(100vh - 65px);
+    background-color: #111;
+    z-index: 2;
+}
+
+.WORKS {
+    height: calc(100vh - 65px);
+    background-color: #111;
+    z-index: 2;
+}
+
+.ACTIVITY {
+    height: calc(100vh - 65px);
+    background-color: #111;
+    z-index: 2;
+}
+
+.SCHEDULE {
+    height: calc(100vh - 130px);
+    background-color: #111;
+    z-index: 2;
+}
+
+.CONTACT {
+    height: calc(100vh - 65px);
+    background-color: #111;
+    z-index: 2;
+}
+
+a.anchor {
     display: block;
     padding-top: 65px;
     margin-top: -65px;
 }
 
-
-.middle-wrapper{
-    width: 100%;
-    height:105vh;
-  text-align: center;
-  background-image: url(../img/kyoto_kiyomizu.jpg);
-  color:white;
-  background-size:100vw 110vh;
-  background-position: center center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  z-index: 0;
-}
-.bottom-wrapper{
-    width: 100%;
-    height:105vh;
-  text-align: center;
-  background-image: url(../img/kyoto_fushimi.jpg);
-  color:white;
-  max-width: 100%;
-  background-size:100vw 110vh;
-  background-position: center center;
-  background-attachment: fixed;
-	background-repeat: no-repeat;
-	z-index: 1;
-}
-.activity-wrapper{
-    width: 100%;
-    height:105vh;
-  text-align: center;
-  background-image: url(../img/kyoto_gosho.jpeg);
-  color:white;
-  background-size:100vw 110vh;
-  background-position: center center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  z-index: 1;
-}
-.contact-wrapper{
-    width: 100%;
-    height:105vh;
-  text-align: center;
-  background-image: url(../img/spring_ocean.jpg);
-  color:white;
-  background-size:100vw 110vh;
-  background-position: center center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  z-index: 1;
+.contact-wrapper {
+    width: 100vw;
+    height: 110vh;
+    text-align: center;
+    background-image: url(../img/spring_ocean.jpg);
+    color: white;
+    background-size: 100vw 110vh;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    z-index: 1;
 }
 
-.tennis-court-info iframe{
-  display: block;
-  border-radius: 2px;
-}
-.tennis-court-info a{
-  margin-top: 5px;
-  color:white;
-  float: right;
-}
-.tennis-court-info p{
-  font-family: "Hiragino Kaku Gothic ProN";
-  color:white;
+.tennis-court-info iframe {
+    display: block;
+    border-radius: 2px;
 }
 
-.CONTACT .row p{
+.tennis-court-info a {
+    margin-top: 5px;
+    color: white;
+    float: right;
+}
+
+.tennis-court-info p {
+    font-family: "Hiragino Kaku Gothic ProN";
     color: white;
 }
-.CONTACT .row{
-  display: table;
-  margin:auto;
+
+.CONTACT .row p {
+    color: white;
 }
 
-
-.SCHEDULE #calendar-container{
-  background-color: white;
+.CONTACT .row {
+    display: table;
+    margin: auto;
 }
 
+.SCHEDULE #calendar-container {
+    background-color: white;
+}
 
-footer *{
-  font-family: Gill Sans,Gill Sans MT,Calibri,sans-serif;
+footer * {
+    font-family: Gill Sans, Gill Sans MT, Calibri, sans-serif;
 }
-footer{
-  height:65px;
-  background-color: #37474f;
-  color:white;
+
+footer {
+    height: 65px;
+    background-color: #37474f;
+    color: white;
 }
-footer .container{
-  width: 92%;
-  margin: auto;
+
+footer .container {
+    width: 92%;
+    margin: auto;
 }
-footer .container{
-  display: flex;
-  justify-content: space-between;
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
 }
-.footer-left{
-  /*float:left;*/
-  /*border:1px solid #d81b60;*/
-  width:200px;
-  height:65px;
+
+.footer-left {
+    /*float:left;*/
+    /*border:1px solid #d81b60;*/
+    width: 200px;
+    height: 65px;
 }
-footer .logo{
-  font-size: 20px;
-  transition: all 1s;
+
+footer .logo {
+    font-size: 20px;
+    transition: all 1s;
 }
-footer .logo span{
-  color: white!important;
+
+footer .logo span {
+    color: white !important;
 }
-footer .logo:hover{
-  color:#d81b60;
+
+footer .logo:hover {
+    color: #d81b60;
 }
-footer a{
-  color: white;
+
+footer a {
+    color: white;
 }
-footer .madeby > p{
-  margin-top: 22px;
+
+footer .madeby>p {
+    margin-top: 22px;
 }
-footer span{
-  color: white!important;
+
+footer span {
+    color: white !important;
 }
-footer .madeby a{
-  transition: all 1s;
+
+footer .madeby a {
+    transition: all 1s;
 }
-footer .madeby a:hover{
-   color:#d81b60;
+
+footer .madeby a:hover {
+    color: #d81b60;
 }

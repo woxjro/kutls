@@ -1,0 +1,89 @@
+/*
+.top-wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: table;
+    text-align: center;
+    background-image: url(../img/flag_blur.jpg);
+    color: white;
+    background-size: cover;
+}
+
+.middle-wrapper {
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    color: white;
+    background-image: url(../img/kyoto_kiyomizu.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+*/
+.top-wrapper {
+    width: 100vw;
+    height: 110vh;
+    display: table;
+    text-align: center;
+    background-image: url(../img/flag_blur.jpg);
+    color: white;
+    max-width: 100%;
+    background-size: 100vw 110vh;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.middle-wrapper {
+    width: 100vw;
+    height: 110vh;
+    text-align: center;
+    background-image: url(../img/kyoto_kiyomizu.jpg);
+    color: white;
+    max-width: 100%;
+    background-size: 100vw 110vh;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.bottom-wrapper {
+    width: 100vw;
+    height: 110vh;
+    text-align: center;
+    background-image: url(../img/kyoto_fushimi.jpg);
+    color: white;
+    max-width: 100%;
+    background-size: 100vw 110vh;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.activity-wrapper {
+    width: 100vw;
+    height: 110vh;
+    text-align: center;
+    background-image: url(../img/kyoto_gosho.jpeg);
+    color: white;
+    background-size: 100vw 110vh;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.contact-wrapper {
+    width: 100vw;
+    height: 110vh;
+    text-align: center;
+    background-image: url(../img/spring_ocean.jpg);
+    color: white;
+    background-size: 100vw 110vh;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    z-index: 1;
+}

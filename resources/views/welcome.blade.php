@@ -8,7 +8,11 @@
     <meta property="og:title" content="KUTLS 京大硬庭 : 関西最大級のテニスサークル">
     <meta property="og:type" content="website">
     <title>KUTLS 京大硬庭 : 関西最大級のテニスサークル</title>
+
     <link href="{{ asset('css/stylesheet.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/background_attachment.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/background_js.css') }}" rel="stylesheet">
+
     <!-- Get minor updates and patch fixes within a major version -->
     <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15/dist/smooth-scroll.polyfills.min.js"></script>
     <script
@@ -134,6 +138,7 @@
       </div>
     </div>
 
+
     <div id="MIDDLE"class="middle-wrapper"></div>
     <a id="WORKS" class="anchor"></a>
     <div class="contents-wrapper WORKS">
@@ -141,6 +146,7 @@
         <h1>WORKS</h1>
       </div>
     </div>
+
 
     <div class="activity-wrapper"></div>
     <a id="ACTIVITY" class="anchor"></a>
@@ -163,7 +169,6 @@
 
       </div>
     </div>
-
 
 
     <div class="contact-wrapper"></div>
@@ -273,6 +278,7 @@
       }
       toggleNav();
 
+/*
       $(function(){
         var target1 = $("#TOP");
         var targetPosOT1 = target1.offset().top;
@@ -295,7 +301,38 @@
           }
         });
       });
+*/
+/*
+      var $backIMG1 = document.getElementById('TOP');
+      var $backIMG2 = document.getElementById('MIDDLE');
 
+      const rect1 = $backIMG1.getBoundingClientRect();
+      const rect2 = $backIMG2.getBoundingClientRect();
+
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      var backIMG1_top = rect1.top + scrollTop;
+      var backIMG2_top = rect2.top + scrollTop;
+
+      var windowH = window.screen.height;
+
+      scrollYStart1 = backIMG1_top - windowH;
+      scrollYStart2 = backIMG2_top - windowH;
+      window.addEventListener('scroll',function(event){
+        var scrollY = window.scrollY;
+        if(scrollY > scrollYStart1){
+          $backIMG1.style.backgroundPositionY　=  (scrollY - backIMG1_top)*0.5+ 'px';
+        }else{
+          $backIMG1.style.backgroundPosition　=  'center top';
+        }
+
+        if(scrollY > scrollYStart2){
+          $backIMG2.style.backgroundPositionY　=  (scrollY - backIMG2_top)*0.5+ 'px';
+        }else{
+          $backIMG2.style.backgroundPosition　=  'center top';
+        }
+      })
+*/
     </script>
 
 
