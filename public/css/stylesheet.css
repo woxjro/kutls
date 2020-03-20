@@ -259,9 +259,22 @@ header .container {
         display: inline-block;
     }
 
+
     .tennis-court-info iframe {
         width: 100% !important;
         height: 100% !important;
+    }
+
+    .WORKS{
+        height:auto!important;
+    }
+
+    .WORKS .works-group{
+        display: block!important;
+    }
+    .WORKS .works-detail{
+        display: block!important;
+        width: 100%!important;
     }
 
     .CONTACT {
@@ -429,8 +442,24 @@ header .container {
 
 .WORKS {
     height: calc(100vh - 65px);
+    width: 100%;
     background-color: #111;
+    color: white;
     z-index: 2;
+}
+.WORKS h2{
+    border-bottom: 1px solid white;
+    width: 90%;
+}
+.WORKS .works-group{
+    display: table;
+    width: 100%;
+
+}
+.WORKS .works-detail{
+    width: 50%;
+    display: table-cell;
+    margin-bottom:60px;
 }
 
 .ACTIVITY {

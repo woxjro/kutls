@@ -57,7 +57,7 @@
              })
           }
           async function stopload2() {
-              await sleep(2000);
+              //await sleep(2000);
               await bg.classList.add('fadeout-bg');
               await loader.classList.add('fadeout-loader');
           }
@@ -160,6 +160,117 @@
     <div class="contents-wrapper WORKS">
       <div class="container">
         <h1>WORKS</h1>
+        <p style="font-size:18px;">
+            京大ALL&nbsp7名 オールウェスト在籍
+        </p>
+        <div class="works-group">
+            <div class="works-detail">
+                <h2>木下杯</h2>
+                <table>
+                    <tr>
+                        <td>男子シングルス</td>
+                        <td>オープン</td>
+                        <td>優勝</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp</td>
+                        <td>フレッシュ</td>
+                        <td>準優勝</td>
+                    </tr>
+                    <tr>
+                        <td>女子シングルス</td>
+                        <td>オープン</td>
+                        <td>優勝</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="works-detail">
+                <h2>K4 クラブチャンピオンシップ</h2>
+                <table>
+                    <tr>
+                        <td>男子</td>
+                        <td>ベスト8</td>
+                        <td>&nbsp</td>
+                    </tr>
+                    <tr>
+                        <td>女子</td>
+                        <td>優勝</td>
+                        <td>&nbsp</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+
+        <div class="works-group">
+            <div class="works-detail">
+                <h2>FKU団体戦・個人戦</h2>
+                <table>
+                    <tr>
+                        <td>男子</td>
+                        <td>ダブルス</td>
+                        <td>準優勝</td>
+                    </tr>
+                    <tr>
+                        <td>女子</td>
+                        <td>シングルス</td>
+                        <td>準優勝</td>
+                    </tr>
+                    <tr>
+                        <td>総合</td>
+                        <td>&nbsp</td>
+                        <td>準優勝</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="works-detail">
+                <h2>K4 ミックスクラブチャンピオンシップ</h2>
+                <table>
+                    <tr>
+                        <td>準優勝</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="works-group">
+            <div class="works-detail">
+                <h2>KTA CUP 個人戦・団体戦</h2>
+                <table>
+                    <tr>
+                        <td>準優勝</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                    </tr>
+                    <tr>
+                        <td>ベスト4</td>
+                        <td>ベスト8</td>
+                        <td>&nbsp</td>
+                    </tr>
+
+                </table>
+            </div>
+            <div class="works-detail">
+                <h2>K4 フレッシュクラブチャンピオンシップ</h2>
+                <table>
+                    <tr>
+                        <td>準優勝</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+
+
       </div>
     </div>
 
