@@ -347,6 +347,9 @@ header .container {
         margin-left: 30px;
         display: inline-block;
     }
+    .ACTIVITY .discription{
+        margin-left: 30px;
+    }
 
     .CONTACT .cell {
         display: table-cell;
@@ -451,7 +454,7 @@ header .container {
     margin:30px 0px;
 }
 .WORKS h2{
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid #d81b60;
     width: 90%;
 }
 .WORKS .works-group{
@@ -469,6 +472,7 @@ header .container {
     height: calc(100vh - 65px);
     background-color: #111;
     z-index: 2;
+    color: white;
 }
 
 .SCHEDULE {

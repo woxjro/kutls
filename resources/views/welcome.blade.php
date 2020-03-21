@@ -161,7 +161,7 @@
       <div class="container">
         <h1>WORKS</h1>
         <p style="font-size:18px;">
-            京大ALL&nbsp7名 オールウェスト在籍
+            京大ALL&nbsp<span style="color:#d81b60">7</span>名 <span style="color:#d81b60">オールウェスト</span>在籍
         </p>
         <div class="works-group">
             <div class="works-detail">
@@ -280,6 +280,8 @@
     <div class="contents-wrapper ACTIVITY">
       <div class="container">
         <h1>ACTIVITY</h1>
+        <p class="discription">&emsp;平日毎日4時間、西院テニスコート・中書島テニスコート・(小畑川テニスコート)で練習を行っています。</p>
+        <p class="discription">自分の生活に合わせて練習に参加する事ができます。</p>
         <div class="map-container">
           <div class="tennis-court-info">
             <p>西院テニスコート</p>
@@ -479,11 +481,6 @@
       });
     }
     toggleNav();
-
-
-
-
-
 
 
 
