@@ -9,6 +9,8 @@
     <meta property="og:type" content="website">
     <title>KUTLS 京大硬庭 : 関西最大級のテニスサークル</title>
 
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
 
     <link href="{{ asset('css/stylesheet.css') }}" rel="stylesheet">
     <link href="{{ asset('css/background_nonIOS.css') }}" rel="stylesheet" id="nonIOSCSS">
@@ -255,6 +257,28 @@
     <div id="ABOUT"class="contents-wrapper ABOUT">
       <div class="container">
         <h1>ABOUT</h1>
+
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide" style="background-image:url({{ asset('img/kyoto_fushimi.jpg')}})"></div>
+              <div class="swiper-slide" style="background-image:url({{ asset('img/kyoto_fushimi.jpg')}})"></div>
+              <div class="swiper-slide" style="background-image:url({{ asset('img/kyoto_fushimi.jpg')}})"></div>
+              <div class="swiper-slide" style="background-image:url({{ asset('img/kyoto_fushimi.jpg')}})"></div>
+              <div class="swiper-slide" style="background-image:url({{ asset('img/kyoto_fushimi.jpg')}})"></div>
+              <div class="swiper-slide" style="background-image:url({{ asset('img/kyoto_fushimi.jpg')}})"></div>
+              <div class="swiper-slide" style="background-image:url({{ asset('img/kyoto_fushimi.jpg')}})"></div>
+              <div class="swiper-slide" style="background-image:url({{ asset('img/kyoto_fushimi.jpg')}})"></div>
+              <div class="swiper-slide" style="background-image:url({{ asset('img/kyoto_fushimi.jpg')}})"></div>
+              <div class="swiper-slide" style="background-image:url({{ asset('img/kyoto_fushimi.jpg')}})"></div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+
+
+
+
+
       </div>
     </div>
 
@@ -529,7 +553,7 @@
           $backIMG5.style.backgroundPosition　=  'center top';
         }
       })
-  }
+    }
     var scroll = new SmoothScroll('a[href*="#"]', {
     // Function. Custom easing pattern
     // If this is set to anything other than null, will override the easing option above
@@ -586,8 +610,26 @@
     }
     toggleNav();
 
-
-
+  </script>
+  <script src="https://unpkg.com/swiper/js/swiper.js"></script>
+  <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+  <script>
+      var swiper = new Swiper('.swiper-container', {
+      effect: 'coverflow',
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows : true,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+      },
+    });
   </script>
 
 </html>
