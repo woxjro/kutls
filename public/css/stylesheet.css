@@ -1,15 +1,18 @@
 .swiper-container {
-      width: 100%;
-      padding-top: 50px;
-      padding-bottom: 50px;
-    }
-    .swiper-slide {
-      background-position: center;
-      background-size: cover;
-      width: 300px;
-      height: 300px;
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.swiper-pagination-bullet{
+    background-color: white;
+}
 
-    }
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+}
 
 /* 非表示 */
 .is-hide {
@@ -272,26 +275,26 @@ header .container {
         display: inline-block;
     }
 
-
     .tennis-court-info iframe {
         width: 100% !important;
         height: 100% !important;
     }
 
-    .WORKS{
-        height:auto!important;
+    .WORKS {
+        height: auto !important;
     }
 
-    .WORKS .works-group{
-        display: block!important;
+    .WORKS .works-group {
+        display: block !important;
     }
-    .WORKS .works-detail{
-        display: block!important;
-        width: 100%!important;
+
+    .WORKS .works-detail {
+        display: block !important;
+        width: 100% !important;
     }
 
     .CONTACT {
-        height: 2000px!important;
+        height: 2000px !important;
     }
 
     .CONTACT .cell {
@@ -360,7 +363,8 @@ header .container {
         margin-left: 30px;
         display: inline-block;
     }
-    .ACTIVITY .discription{
+
+    .ACTIVITY .discription {
         margin-left: 30px;
     }
 
@@ -463,22 +467,25 @@ header .container {
     color: white;
     z-index: 2;
 }
-.WORKS .container p{
-    margin:30px 0px;
+
+.WORKS .container p {
+    margin: 30px 0px;
 }
-.WORKS h2{
-    border-bottom: 1px solid #d81b60!important;
+
+.WORKS h2 {
+    border-bottom: 1px solid #d81b60 !important;
     width: 90%;
 }
-.WORKS .works-group{
+
+.WORKS .works-group {
     display: table;
     width: 100%;
-
 }
-.WORKS .works-detail{
+
+.WORKS .works-detail {
     width: 50%;
     display: table-cell;
-    margin-bottom:80px;
+    margin-bottom: 80px;
 }
 
 .ACTIVITY {
@@ -487,7 +494,8 @@ header .container {
     z-index: 2;
     color: white;
 }
-.ACTIVITY p{
+
+.ACTIVITY p {
     color: white;
 }
 
@@ -508,8 +516,6 @@ a.anchor {
     padding-top: 65px;
     margin-top: -65px;
 }
-
-
 
 .tennis-court-info iframe {
     display: block;
