@@ -454,7 +454,7 @@ header .container {
     margin:30px 0px;
 }
 .WORKS h2{
-    border-bottom: 1px solid #d81b60;
+    border-bottom: 1px solid #d81b60!important;
     width: 90%;
 }
 .WORKS .works-group{
@@ -472,6 +472,9 @@ header .container {
     height: calc(100vh - 65px);
     background-color: #111;
     z-index: 2;
+    color: white;
+}
+.ACTIVITY p{
     color: white;
 }
 
