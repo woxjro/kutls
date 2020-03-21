@@ -9,9 +9,113 @@
     <meta property="og:type" content="website">
     <title>KUTLS 京大硬庭 : 関西最大級のテニスサークル</title>
 
+
     <link href="{{ asset('css/stylesheet.css') }}" rel="stylesheet">
     <link href="{{ asset('css/background_nonIOS.css') }}" rel="stylesheet" id="nonIOSCSS">
-    <link href="{{ asset('css/background_IOS.css') }}"         rel="stylesheet" id="IOSCSS">
+    <link href="{{ asset('css/background_IOS.css') }}" rel="stylesheet" id="IOSCSS">
+
+    <link href="{{ asset('js/packages/core/main.css')}}" rel='stylesheet' />
+    <link href="{{ asset('js/packages/daygrid/main.css')}}" rel='stylesheet' />
+    <link href="{{ asset('js/packages/timegrid/main.css')}}" rel='stylesheet' />
+    <link href="{{ asset('js/packages/list/main.css')}}" rel='stylesheet' />
+    <script src="{{ asset('js/packages/core/main.js')}}"></script>
+    <script src="{{ asset('js/packages/interaction/main.js')}}"></script>
+    <script src="{{ asset('js/packages/daygrid/main.js')}}"></script>
+    <script src="{{ asset('js/packages/timegrid/main.js')}}"></script>
+    <script src="{{ asset('js/packages/list/main.js')}}"></script>
+    <script>
+      var date = new Date();
+      var year  = date.getFullYear();
+      var month = date.getMonth() + 1;
+      var day = date.getDay();
+      if(month<10) month = "0"+String(month);
+      if(day<10) day = "0"+String(day);
+
+      var ymd = String(year) + "-" + String(month) + "-" + String(day);
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          plugins: [ 'interaction', 'dayGrid', 'timeGrid', 'list' ],
+          height: 500,
+
+          header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridDay,listWeek'
+          },
+          defaultView: 'dayGridMonth',
+          defaultDate: ymd,
+          navLinks: true, // can click day/week names to navigate views
+          editable: true,
+          eventLimit: true, // allow "more" link when too many events
+
+          events: [
+            {
+              title: 'All Day Event',
+              start: ymd,
+            },
+            {
+              title: 'Long Event',
+              start: '2019-08-07',
+              end: '2019-08-10'
+            },
+            {
+              groupId: 999,
+              title: 'Repeating Event',
+              start: '2019-08-09T16:00:00'
+            },
+            {
+              groupId: 999,
+              title: 'Repeating Event',
+              start: '2019-08-16T16:00:00'
+            },
+            {
+              title: 'Conference',
+              start: '2019-08-11',
+              end: '2019-08-13'
+            },
+            {
+              title: 'Meeting',
+              start: '2019-08-12T10:30:00',
+              end: '2019-08-12T12:30:00'
+            },
+            {
+              title: 'Lunch',
+              start: '2019-08-12T12:00:00'
+            },
+            {
+              title: 'Meeting',
+              start: '2019-08-12T14:30:00'
+            },
+            {
+              title: 'Happy Hour',
+              start: '2019-08-12T17:30:00'
+            },
+            {
+              title: 'Dinner',
+              start: '2019-08-12T20:00:00'
+            },
+            {
+              title: 'Birthday Party',
+              start: '2019-08-13T07:00:00'
+            },
+            {
+              title: 'Click for Google',
+              url: 'http://google.com/',
+              start: '2019-08-28'
+            }
+          ]
+
+        });
+
+        calendar.render();
+      });
+
+    </script>
+
+
     <script>
         const isIOS = /[ \(]iP/.test(navigator.userAgent);
         function switchStyleSheet(){
