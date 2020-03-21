@@ -260,16 +260,28 @@
 
         <div class="swiper-container">
             <div class="swiper-wrapper">
-              <div class="swiper-slide" style="background-image:url({{ asset('img/kyoto_fushimi.jpg')}})"></div>
-              <div class="swiper-slide" style="background-image:url({{ asset('img/kyoto_fushimi.jpg')}})"></div>
-              <div class="swiper-slide" style="background-image:url({{ asset('img/kyoto_fushimi.jpg')}})"></div>
-              <div class="swiper-slide" style="background-image:url({{ asset('img/kyoto_fushimi.jpg')}})"></div>
-              <div class="swiper-slide" style="background-image:url({{ asset('img/kyoto_fushimi.jpg')}})"></div>
-              <div class="swiper-slide" style="background-image:url({{ asset('img/kyoto_fushimi.jpg')}})"></div>
-              <div class="swiper-slide" style="background-image:url({{ asset('img/kyoto_fushimi.jpg')}})"></div>
-              <div class="swiper-slide" style="background-image:url({{ asset('img/kyoto_fushimi.jpg')}})"></div>
-              <div class="swiper-slide" style="background-image:url({{ asset('img/kyoto_fushimi.jpg')}})"></div>
-              <div class="swiper-slide" style="background-image:url({{ asset('img/kyoto_fushimi.jpg')}})"></div>
+              <div class="swiper-slide" style="background-image:url({{ asset('img/slideShow/S__14950460.jpg')}})"></div>
+              <div class="swiper-slide" style="background-image:url({{ asset('img/slideShow/S__14950462.jpg')}})"></div>
+              <div class="swiper-slide" style="background-image:url({{ asset('img/slideShow/S__14950463.jpg')}})"></div>
+              <div class="swiper-slide" style="background-image:url({{ asset('img/slideShow/S__14950464.jpg')}})"></div>
+              <div class="swiper-slide" style="background-image:url({{ asset('img/slideShow/S__14950465.jpg')}})"></div>
+              <div class="swiper-slide" style="background-image:url({{ asset('img/slideShow/S__14950467.jpg')}})"></div>
+              <div class="swiper-slide" style="background-image:url({{ asset('img/slideShow/S__14950468.jpg')}})"></div>
+              <div class="swiper-slide" style="background-image:url({{ asset('img/slideShow/S__14950469.jpg')}})"></div>
+              <div class="swiper-slide" style="background-image:url({{ asset('img/slideShow/S__14958786.jpg')}})"></div>
+              <div class="swiper-slide" style="background-image:url({{ asset('img/slideShow/S__14958788.jpg')}})"></div>
+              <div class="swiper-slide" style="background-image:url({{ asset('img/slideShow/S__14958789.jpg')}})"></div>
+              <div class="swiper-slide" style="background-image:url({{ asset('img/slideShow/S__14958790.jpg')}})"></div>
+              <div class="swiper-slide" style="background-image:url({{ asset('img/slideShow/S__14958791.jpg')}})"></div>
+              <div class="swiper-slide" style="background-image:url({{ asset('img/slideShow/S__14958792.jpg')}})"></div>
+              <div class="swiper-slide" style="background-image:url({{ asset('img/slideShow/S__14958793.jpg')}})"></div>
+              <div class="swiper-slide" style="background-image:url({{ asset('img/slideShow/S__14958794.jpg')}})"></div>
+              <div class="swiper-slide" style="background-image:url({{ asset('img/slideShow/S__14958795.jpg')}})"></div>
+              <div class="swiper-slide" style="background-image:url({{ asset('img/slideShow/S__14958796.jpg')}})"></div>
+              <div class="swiper-slide" style="background-image:url({{ asset('img/slideShow/S__14958797.jpg')}})"></div>
+              <div class="swiper-slide" style="background-image:url({{ asset('img/slideShow/S__14958799.jpg')}})"></div>
+              <div class="swiper-slide" style="background-image:url({{ asset('img/slideShow/S__14958801.jpg')}})"></div>
+
             </div>
             <!-- Add Pagination -->
             <div class="swiper-pagination"></div>
@@ -616,6 +628,7 @@
   <script>
       var swiper = new Swiper('.swiper-container', {
       effect: 'coverflow',
+      loop: true,
       grabCursor: true,
       centeredSlides: true,
       slidesPerView: 'auto',
