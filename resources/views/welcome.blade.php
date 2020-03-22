@@ -257,7 +257,12 @@
     <div id="ABOUT"class="contents-wrapper ABOUT">
       <div class="container">
         <h1>ABOUT</h1>
-
+        <p>&emsp;京大硬庭(KUTLS)は今年で<span style="color:#d81b60;">55年目</span>を迎える関西最大規模のテニスサークルです。</p>
+        <p>&emsp;構成人数は、男子150人・女子100人。京大・同志社・京都女子大・同志社女子大など様々な大学から構成されています。</p>
+        <p>&emsp;平日毎日4時間練習が行われており、好きなタイミングで練習に参加することができます。</p>
+        <p>&emsp;また、セレクション・男女比制限・入会締め切り等の制限は設けていません。</p>
+        <p>&emsp;テニスの実力も<a href="#WORKS" style="color:#d81b60;">トップクラス</a>のサークルですが、様々な趣味を持った会員がいるため、テニス以外での結びつきが強いのも特徴です。</p>
+        <p>&emsp;新歓期は、各種イベント・アフター無料なので、ぜひ気軽にご参加ください。その際は<a href="#CONTACT">CONTACT</a>から事前に連絡していただくようお願いします。</p>
         <div class="swiper-container">
             <div class="swiper-wrapper">
               <div class="swiper-slide" style="background-image:url({{ asset('img/slideShow/S__14950460.jpg')}})"></div>
@@ -267,7 +272,6 @@
               <div class="swiper-slide" style="background-image:url({{ asset('img/slideShow/S__14950465.jpg')}})"></div>
               <div class="swiper-slide" style="background-image:url({{ asset('img/slideShow/S__14950467.jpg')}})"></div>
               <div class="swiper-slide" style="background-image:url({{ asset('img/slideShow/S__14950468.jpg')}})"></div>
-              <div class="swiper-slide" style="background-image:url({{ asset('img/slideShow/S__14950469.jpg')}})"></div>
               <div class="swiper-slide" style="background-image:url({{ asset('img/slideShow/S__14958786.jpg')}})"></div>
               <div class="swiper-slide" style="background-image:url({{ asset('img/slideShow/S__14958788.jpg')}})"></div>
               <div class="swiper-slide" style="background-image:url({{ asset('img/slideShow/S__14958789.jpg')}})"></div>
@@ -648,6 +652,7 @@
         var swiper = new Swiper('.swiper-container', {
           effect: 'cube',
           grabCursor: true,
+          loop: true,
           cubeEffect: {
             shadow: true,
             slideShadows: true,

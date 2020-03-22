@@ -20,7 +20,7 @@
       height: 300px;
       position: absolute;
       left: 50%;
-      top: 170%;
+      top: 200%;
       margin-left: -150px;
       margin-top: -150px;
     }
@@ -31,6 +31,10 @@
     .swiper-pagination{
         top:310px;
     }
+    .ABOUT {
+        height: 150vh!important;
+    }
+
 }
 
 .swiper-pagination-bullet{
@@ -484,6 +488,14 @@ header .container {
     background-color: #111;
     z-index: 2;
 }
+.ABOUT p{
+    color:white;
+}
+.ABOUT a{
+    border-bottom: 1px solid #d81b60;
+    color:#d81b60;
+}
+
 
 .WORKS {
     height: calc(100vh - 65px);
