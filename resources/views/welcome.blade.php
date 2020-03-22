@@ -262,8 +262,8 @@
         <p>&emsp;平日毎日4時間練習が行われており、好きなタイミングで練習に参加することができます。</p>
         <p>&emsp;また、セレクション・男女比制限・入会締め切り等の制限は設けていません。</p>
         <p>&emsp;テニスの実力も<a href="#WORKS" style="color:#d81b60;">トップクラス</a>のサークルですが、様々な趣味を持った会員がいるため、テニス以外での結びつきが強いのも特徴です。</p>
-        <p>&emsp;新歓期は、各種イベント・アフター無料なので、ぜひ気軽にご参加ください。その際は<a href="#CONTACT">CONTACT</a>から事前に連絡していただくようお願いします。</p>
-        <div class="swiper-container">
+        <p id="lastP">&emsp;新歓期は、各種イベント・アフター無料なので、ぜひ気軽にご参加ください。その際は<a href="#CONTACT">CONTACT</a>から事前に連絡していただくようお願いします。</p>
+        <div class="swiper-container" id="swiperContainer">
             <div class="swiper-wrapper">
               <div class="swiper-slide" style="background-image:url({{ asset('img/slideShow/S__14950460.jpg')}})"></div>
               <div class="swiper-slide" style="background-image:url({{ asset('img/slideShow/S__14950462.jpg')}})"></div>
@@ -509,6 +509,16 @@
   </body>
 
   <script>
+    var $ABOUT_last_p = document.getElementById('lastP');
+    var $swiperContainer = document.getElementById('swiperContainer');
+    const rectP = $ABOUT_last_p.getBoundingClientRect();
+    var ABOUT_last_p_top = rectP.top + (window.pageYOffset || document.documentElement.scrollTop);
+    console.log("lastP:"+String(ABOUT_last_p_top));
+    if(window.screen.width <= 500){
+        $swiperContainer.style.top　=  (ABOUT_last_p_top+300)+ 'px';
+    }
+
+
     if (isIOS) {
       var $backIMG1 = document.getElementById('TOP');
       var $backIMG2 = document.getElementById('MIDDLE');
